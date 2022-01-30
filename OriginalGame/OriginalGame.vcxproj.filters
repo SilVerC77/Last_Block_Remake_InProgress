@@ -52,6 +52,7 @@
     <ClCompile Include="OriginalGame.cpp">
       <Filter>ソースファイル\Common</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Year2\Arkanoid_Arcade\音声\細田_音声\アルカノイド\Common\CSound.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Common\CApplication.h">
@@ -117,6 +118,7 @@
     <ClInclude Include="COriginalGameApp.h">
       <Filter>ヘッダーファイル</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Year2\Arkanoid_Arcade\音声\細田_音声\アルカノイド\Common\CSound.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="small.ico">

@@ -1,25 +1,25 @@
-/**
+ï»¿/**
  * @file D3DEnv.h
- * @brief •W€‚ÌƒVƒXƒeƒ€ ƒCƒ“ƒNƒ‹[ƒh ƒtƒ@ƒCƒ‹‚ÌƒCƒ“ƒNƒ‹[ƒh ƒtƒ@ƒCƒ‹A‚Ü‚½‚Í
- *        QÆ‰ñ”‚ª‘½‚­A‚©‚Â‚ ‚Ü‚è•ÏX‚³‚ê‚È‚¢AƒvƒƒWƒFƒNƒgê—p‚ÌƒCƒ“ƒNƒ‹[ƒh ƒtƒ@ƒCƒ‹‚ğ‹Lq‚µ‚Ü‚·B
- * @author DŒË@Šì—²
- * @date “ú•ti2017.02.14j
+ * @brief æ¨™æº–ã®ã‚·ã‚¹ãƒ†ãƒ  ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ ãƒ•ã‚¡ã‚¤ãƒ«ã€ã¾ãŸã¯
+ *        å‚ç…§å›æ•°ãŒå¤šãã€ã‹ã¤ã‚ã¾ã‚Šå¤‰æ›´ã•ã‚Œãªã„ã€ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆå°‚ç”¨ã®ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ ãƒ•ã‚¡ã‚¤ãƒ«ã‚’è¨˜è¿°ã—ã¾ã™ã€‚
+ * @author ç¹”æˆ¸ã€€å–œéš†
+ * @date æ—¥ä»˜ï¼ˆ2017.02.14ï¼‰
  */
 #pragma once
 
 #include "stdafx.h"
 
-/**
- *ƒfƒoƒbƒO—p‚ÌƒRƒ“ƒpƒCƒ‰ƒfƒBƒŒƒNƒeƒBƒu
- */
+ /**
+  *ãƒ‡ãƒãƒƒã‚°ç”¨ã®ã‚³ãƒ³ãƒ‘ã‚¤ãƒ©ãƒ‡ã‚£ãƒ¬ã‚¯ãƒ†ã‚£ãƒ–
+  */
 #ifndef DEBUG_BLENDING
 #define DEBUG_BLENDING
 #endif // !DEBUG_BLENDING
 #undef DEBUG_BLENDING
 
 
-#define WIN32_LEAN_AND_MEAN     //!< Windows ƒwƒbƒ_[‚©‚çg—p‚³‚ê‚Ä‚¢‚È‚¢•”•ª‚ğœŠO‚µ‚Ü‚·B
- //! Windows ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹:
+#define WIN32_LEAN_AND_MEAN     //!< Windows ãƒ˜ãƒƒãƒ€ãƒ¼ã‹ã‚‰ä½¿ç”¨ã•ã‚Œã¦ã„ãªã„éƒ¨åˆ†ã‚’é™¤å¤–ã—ã¾ã™ã€‚
+  //! Windows ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«:
 #include <windows.h>
 #define DIRECTINPUT_VERSION 0x0800
 
@@ -36,7 +36,7 @@
 #pragma warning(disable:4566)
 
 /**
- * DXGIŠÖ˜A‚Ì’è‹`‚Ì’â~	<XNAMath>
+ * DXGIé–¢é€£ã®å®šç¾©ã®åœæ­¢	<XNAMath>
  */
 #undef DXGI_STATUS_OCCLUDED
 #undef DXGI_STATUS_CLIPPED
@@ -74,14 +74,19 @@
 #include <DirectXTex.h>			// VC2017 WindowsSDK 10
 #include <WICTextureLoader.h>	// VC2017 WindowsSDK 10
 #include <d3dCompiler.h>
-//#include <fbxsdk.h>
+ //#include <fbxsdk.h>
 #include <iostream>
 #include <string.h>
 #include <functional>
 #include <memory>
+// --------------------------------------------
+// æ å†…ã¯ç´°ç”°å¼¥å¯ãŒè¨˜è¿°ï¼ˆ2021_09_29ï¼‰
+
+#include <xaudio2.h>	// XAudio2
+// --------------------------------------------
 
 /**
- * •K—v‚Èƒ‰ƒCƒuƒ‰ƒŠƒtƒ@ƒCƒ‹‚Ìƒ[ƒh
+ * å¿…è¦ãªãƒ©ã‚¤ãƒ–ãƒ©ãƒªãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ­ãƒ¼ãƒ‰
  */
 #pragma comment(lib,"winmm.lib")
 #pragma comment(lib,"d3d11.lib")
@@ -92,13 +97,19 @@
 #pragma comment( lib, "d3dx11.lib" )
 #endif
 
-//#pragma comment(lib,"libfbxsdk-mt.lib")
+ //#pragma comment(lib,"libfbxsdk-mt.lib")
 #pragma comment(lib,"wininet.lib")
 
 #pragma comment( lib, "dxgi.lib" )
 
+// --------------------------------------------
+// æ å†…ã¯ç´°ç”°å¼¥å¯ãŒè¨˜è¿°ï¼ˆ2021_09_29ï¼‰
+
+#pragma comment(lib, "Xaudio2.lib")	// XAudio2
+// --------------------------------------------
+
 /**
- * –¼‘O‹óŠÔ
+ * åå‰ç©ºé–“
  */
 using namespace std;
 using namespace DirectX;

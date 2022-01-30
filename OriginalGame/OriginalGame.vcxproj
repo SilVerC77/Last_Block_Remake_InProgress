@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Year2\Arkanoid_Arcade\音声\細田_音声\アルカノイド\Common\CSound.cpp" />
     <ClCompile Include="..\Common\CApplication.cpp" />
     <ClCompile Include="..\Common\CCamera.cpp" />
     <ClCompile Include="..\Common\CDirectInput.cpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Year2\Arkanoid_Arcade\音声\細田_音声\アルカノイド\Common\CSound.h" />
     <ClInclude Include="..\Common\CApplication.h" />
     <ClInclude Include="..\Common\CCamera.h" />
     <ClInclude Include="..\Common\CDirectInput.h" />

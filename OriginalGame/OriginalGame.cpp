@@ -1,38 +1,38 @@
-/**
+ï»¿/**
  * @file OriginalGame.cpp
- * @brief ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌƒGƒ“ƒgƒŠ ƒ|ƒCƒ“ƒg‚ğ’è‹`‚µ‚Ü‚·B
- * @author DŒË@Šì—²
- * @date “ú•ti2017.02.14j
+ * @brief ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ã‚¨ãƒ³ãƒˆãƒª ãƒã‚¤ãƒ³ãƒˆã‚’å®šç¾©ã—ã¾ã™ã€‚
+ * @author ç¹”æˆ¸ã€€å–œéš†
+ * @date æ—¥ä»˜ï¼ˆ2017.02.14ï¼‰
  */
 
 #include "stdafx.h"
 #include "OriginalGame.h"
 
- //! ƒOƒ[ƒoƒ‹•Ï”:
+ //! ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°:
 std::unique_ptr<COriginalGameApp> g_pApp = NULL;
 
 /**
- * ŠÖ”ƒvƒƒgƒ^ƒCƒv‚ÌéŒ¾
+ * é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—ã®å®£è¨€
  */
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 /**
  * @fn INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, INT)
- * @brief ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌƒGƒ“ƒgƒŠ[ŠÖ”
- * @param hInstance_		WindowsAPI‚ÌƒCƒ“ƒXƒ^ƒ“ƒX
- * @param 				WindowsAPI‚ÌƒCƒ“ƒXƒ^ƒ“ƒX
- * @param 				WindowsAPI‚ÌƒCƒ“ƒXƒ^ƒ“ƒX
- * @param 				WindowsAPI‚ÌƒCƒ“ƒXƒ^ƒ“ƒX
- * @return				WindowsAPI ÀsŒ‹‰Ê
+ * @brief ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ã‚¨ãƒ³ãƒˆãƒªãƒ¼é–¢æ•°
+ * @param hInstance_		WindowsAPIã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+ * @param 				WindowsAPIã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+ * @param 				WindowsAPIã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+ * @param 				WindowsAPIã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+ * @return				WindowsAPI å®Ÿè¡Œçµæœ
  */
 INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, INT)
 {
 	/**
-	 * XNA Mathƒ‰ƒCƒuƒ‰ƒŠ‚ÌƒTƒ|[ƒg ƒ`ƒFƒbƒN
+	 * XNA Mathãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®ã‚µãƒãƒ¼ãƒˆ ãƒã‚§ãƒƒã‚¯
 	 */
 	if (XMVerifyCPUSupport() != TRUE)
 	{
-		MessageBox(0, L"XNA Mathƒ‰ƒCƒuƒ‰ƒŠ‚ªƒTƒ|[ƒg‚³‚ê‚Ä‚¢‚È‚¢B", NULL, MB_OK);
+		MessageBox(0, L"XNA Mathãƒ©ã‚¤ãƒ–ãƒ©ãƒªãŒã‚µãƒãƒ¼ãƒˆã•ã‚Œã¦ã„ãªã„ã€‚", NULL, MB_OK);
 		return 0;
 	}
 
@@ -46,21 +46,24 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, INT)
 		{
 			if (SUCCEEDED(g_pApp->initD3D()))
 			{
-				g_pApp->loop();
+				if (SUCCEEDED(g_pApp->InitXAudio2()))	// ç´°ç”°å¼¥å¯è¨˜è¿°ï¼ˆ2021_09_29ï¼‰
+				{
+					g_pApp->loop();
+				}
 			}
 		}
 		/**
-		 * ƒAƒvƒŠI—¹
+		 * ã‚¢ãƒ—ãƒªçµ‚äº†
 		 */
-		//g_pApp->release();
+		 //g_pApp->release();
 	}
 	return 0;
 }
 
 /**
  * @fn LRESULT CALLBACK WndProc(HWND hWnd_, UINT uMsg_, WPARAM wParam_, LPARAM lParam_)
- * @brief OS‚©‚çŒ©‚½ƒEƒBƒ“ƒhƒEƒvƒƒV[ƒWƒƒ[iÀÛ‚Ìˆ—‚ÍMAINƒNƒ‰ƒX‚ÌƒvƒƒV[ƒWƒƒ[‚Åˆ—j
- * @param hWnd_		ƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹
+ * @brief OSã‹ã‚‰è¦‹ãŸã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ãƒ¼ï¼ˆå®Ÿéš›ã®å‡¦ç†ã¯MAINã‚¯ãƒ©ã‚¹ã®ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ãƒ¼ã§å‡¦ç†ï¼‰
+ * @param hWnd_		ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
  * @param iMsg_		WindowsAPI
  * @param wParam_	WindowsAPI
  * @param lParam_	WindowsAPI

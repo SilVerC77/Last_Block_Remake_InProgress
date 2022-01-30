@@ -11,6 +11,7 @@
 #include "MediaResource.h"
 #include "UVAnimation.h"
 #include "CFont.h"
+#include "CSound.h"
 
 class COriginalGameApp :
 	public CApplication
@@ -70,6 +71,10 @@ private:
 
 	int DeadCounter = 0;
 	int Difficulty = 1;
+
+	CSound* createSound(const char* filePath_, const bool loop_ = false);
+	void PlaySourceSound(CSound* const objects);
+	void diseposeSound(CSound* const objects);
 
 public:
 	COriginalGameApp();

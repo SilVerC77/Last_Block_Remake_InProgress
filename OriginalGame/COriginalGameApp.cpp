@@ -1,6 +1,6 @@
-/**
+Ôªø/**
  * @file COriginalGameApp.cpp
- * @brief ÉAÉvÉäÉPÅ[ÉVÉáÉìÇÃÉGÉìÉgÉä É|ÉCÉìÉgÇíËã`ÇµÇ‹Ç∑ÅB
+ * @brief ????????????? ???????????
  */
 
 #include "stdafx.h"
@@ -18,27 +18,27 @@ COriginalGameApp::~COriginalGameApp()
 
 /**
  * @fn void COriginalGameApp::initCameraInfo()
- * @brief ÉJÉÅÉâÇÃê›íË
- * @param	ñ≥Çµ
- * @return	ñ≥Çµ
+ * @brief ??????
+ * @param	??
+ * @return	??
  */
 void COriginalGameApp::initCameraInfo()
 {
-	float z = -(float)(min(WINDOW_HEIGHT,WINDOW_WIDTH) / 2) / tanf(XM_PI / 8.0f);
-	m_vEyePt	= XMFLOAT3{ 0.0f, 0.0f,		z };	//!< ÉJÉÅÉâÅiéãì_Åjà íu
-	m_vLookatPt	= XMFLOAT3{ 0.0f, 0.0f,     0.0f };	//!< íçéãà íu
-	m_vUpVec	= XMFLOAT3{ 0.0f, 1.0f,     0.0f };	//!< è„ï˚à íu
-	m_angle		= (FLOAT)XM_PI / 4;					//!< éãñÏäp
-	m_aspect	= ASPECT;							//!< ÉAÉXÉyÉNÉgî‰
-	m_near		= 0.1f;								//!< ëOï˚ÉNÉäÉbÉv
-	m_far		= abs(z) + 100.0f;					//!< å„ï˚ÉNÉäÉbÉv
+	float z = -(float)(min(WINDOW_HEIGHT, WINDOW_WIDTH) / 2) / tanf(XM_PI / 8.0f);
+	m_vEyePt = XMFLOAT3{ 0.0f, 0.0f,		z };	//!< ???(??)??
+	m_vLookatPt = XMFLOAT3{ 0.0f, 0.0f,     0.0f };	//!< ????
+	m_vUpVec = XMFLOAT3{ 0.0f, 1.0f,     0.0f };	//!< ????
+	m_angle = (FLOAT)XM_PI / 4;					//!< ???
+	m_aspect = ASPECT;							//!< ??????
+	m_near = 0.1f;								//!< ??????
+	m_far = abs(z) + 100.0f;					//!< ??????
 }
 
-void COriginalGameApp::renderSprite( CPicture* object)
+void COriginalGameApp::renderSprite(CPicture* object)
 {
-	XMFLOAT4X4	matView = m_pCamera->getViewMatrix();		 //!< ÉrÉÖÅ[ÉgÉâÉìÉXÉtÉHÅ[ÉÄÅiéãì_ç¿ïWïœä∑Åj
-	XMFLOAT4X4	matProj = m_pCamera->getProjectionMatrix();	 //!< ÉvÉçÉWÉFÉNÉVÉáÉìÉgÉâÉìÉXÉtÉHÅ[ÉÄÅiéÀâeïœä∑Åj
-	if( object != NULL)
+	XMFLOAT4X4	matView = m_pCamera->getViewMatrix();		 //!< ???????????(??????)
+	XMFLOAT4X4	matProj = m_pCamera->getProjectionMatrix();	 //!< ????????????????(????)
+	if (object != NULL)
 	{
 #if 1
 		XMFLOAT4 col;
@@ -55,8 +55,8 @@ void COriginalGameApp::renderSprite( CPicture* object)
 }
 void COriginalGameApp::renderSprite(CPicture* object, XMFLOAT3 color)
 {
-	XMFLOAT4X4	matView = m_pCamera->getViewMatrix();		 //!< ÉrÉÖÅ[ÉgÉâÉìÉXÉtÉHÅ[ÉÄÅiéãì_ç¿ïWïœä∑Åj
-	XMFLOAT4X4	matProj = m_pCamera->getProjectionMatrix();	 //!< ÉvÉçÉWÉFÉNÉVÉáÉìÉgÉâÉìÉXÉtÉHÅ[ÉÄÅiéÀâeïœä∑Åj
+	XMFLOAT4X4	matView = m_pCamera->getViewMatrix();		 //!< ???????????(??????)
+	XMFLOAT4X4	matProj = m_pCamera->getProjectionMatrix();	 //!< ????????????????(????)
 	if (object != NULL)
 	{
 		XMFLOAT4 col;
@@ -69,8 +69,8 @@ void COriginalGameApp::renderSprite(CPicture* object, XMFLOAT3 color)
 }
 void COriginalGameApp::renderSprite(CPicture* object, XMFLOAT4 color)
 {
-	XMFLOAT4X4	matView = m_pCamera->getViewMatrix();		 //!< ÉrÉÖÅ[ÉgÉâÉìÉXÉtÉHÅ[ÉÄÅiéãì_ç¿ïWïœä∑Åj
-	XMFLOAT4X4	matProj = m_pCamera->getProjectionMatrix();	 //!< ÉvÉçÉWÉFÉNÉVÉáÉìÉgÉâÉìÉXÉtÉHÅ[ÉÄÅiéÀâeïœä∑Åj
+	XMFLOAT4X4	matView = m_pCamera->getViewMatrix();		 //!< ???????????(??????)
+	XMFLOAT4X4	matProj = m_pCamera->getProjectionMatrix();	 //!< ????????????????(????)
 	if (object != NULL)
 	{
 		XMFLOAT4 col;
@@ -82,9 +82,9 @@ void COriginalGameApp::renderSprite(CPicture* object, XMFLOAT4 color)
 		object->render(matView, matProj, 0Ui64, col);
 	}
 }
-void COriginalGameApp::disposeSprite( CPicture* object)
+void COriginalGameApp::disposeSprite(CPicture* object)
 {
-	if( object != NULL)
+	if (object != NULL)
 	{
 		object->release();
 	}
@@ -92,8 +92,8 @@ void COriginalGameApp::disposeSprite( CPicture* object)
 
 void COriginalGameApp::renderFont(CFont* object, int num_)
 {
-	XMFLOAT4X4	matView = m_pCamera->getViewMatrix();		 //!< ÉrÉÖÅ[ÉgÉâÉìÉXÉtÉHÅ[ÉÄÅiéãì_ç¿ïWïœä∑Åj
-	XMFLOAT4X4	matProj = m_pCamera->getProjectionMatrix();	 //!< ÉvÉçÉWÉFÉNÉVÉáÉìÉgÉâÉìÉXÉtÉHÅ[ÉÄÅiéÀâeïœä∑Åj
+	XMFLOAT4X4	matView = m_pCamera->getViewMatrix();		 //!< ???????????(??????)
+	XMFLOAT4X4	matProj = m_pCamera->getProjectionMatrix();	 //!< ????????????????(????)
 	if (object != NULL)
 	{
 		object->render(matView, matProj, num_);
@@ -109,36 +109,36 @@ void COriginalGameApp::disposeFont(CFont* object)
 
 /**
  * @fn bool COriginalGameApp::createSpaceship(void)
- * @brief ÉXÉvÉâÉCÉgÇÃê∂ê¨
- * @param	ñ≥Çµ
- * @return	ê¨å˜ÅEé∏îs
+ * @brief ????????
+ * @param	??
+ * @return	??ÔΩ∑??
  */
 bool COriginalGameApp::createSpaceship(void)
 {
 #if 0
-    if (m_pPlayer == NULL)
-    {
-        m_pPlayer = CPlayer::create(m_pDevice, m_pDeviceContext, m_viewPort, HLSL_PlaneHLSL,
-            { 0.0f, -200.0f, 0.0f, 0.0f },	//!< ÉXÉvÉâÉCÉgÇÃà íu
-            kCharSpriteSize,				//!< ÉXÉvÉâÉCÉgÇÃÉTÉCÉY
-            kTexelPlayerBulletIndex);		//!< ÉeÉNÉZÉãÇÃîzóÒÇÃÉCÉìÉfÉbÉNÉXÅiÉAÉjÉÅÅ[ÉVÉáÉìÇÃÇΩÇﬂÅj
-    }
-    m_pPlayer->setHP(kMaxHP);                           // <!
-    m_pPlayer->setDamage(FALSE);                        // <!
-    m_pPlayer->setActive(TRUE);                         // <!
-    m_pPlayer->setPos({ 0.0f, -200.0f, 0.0f, 0.0f });   // <!
+	if (m_pPlayer == NULL)
+	{
+		m_pPlayer = CPlayer::create(m_pDevice, m_pDeviceContext, m_viewPort, HLSL_PlaneHLSL,
+			{ 0.0f, -200.0f, 0.0f, 0.0f },	//!< ????????
+			kCharSpriteSize,				//!< ?????????
+			kTexelPlayerBulletIndex);		//!< ??????????????(??????????)
+	}
+	m_pPlayer->setHP(kMaxHP);                           // <!
+	m_pPlayer->setDamage(FALSE);                        // <!
+	m_pPlayer->setActive(TRUE);                         // <!
+	m_pPlayer->setPos({ 0.0f, -200.0f, 0.0f, 0.0f });   // <!
 	m_pPlayer->setState(eMoving);
 	m_pPlayer->setScale(1.0f);
-    m_pPlayer->resetExplosion();                        // <!
-    m_pPlayer->resetAllBullets();                       // <!
-    m_pPlayer->setAngleZ(0.0f);                         // <!
+	m_pPlayer->resetExplosion();                        // <!
+	m_pPlayer->resetAllBullets();                       // <!
+	m_pPlayer->setAngleZ(0.0f);                         // <!
 
 	XMFLOAT4 ePos[] = {
-		{-120.0f +  0 + 48 * 0, 200.0f, 0.0f, 0.0f},
-		{-120.0f +  0 + 48 * 1, 200.0f, 0.0f, 0.0f},
-		{-120.0f +  0 + 48 * 2, 200.0f, 0.0f, 0.0f},
-		{-120.0f +  0 + 48 * 3, 200.0f, 0.0f, 0.0f},
-		{-120.0f +  0 + 48 * 4, 200.0f, 0.0f, 0.0f},
+		{-120.0f + 0 + 48 * 0, 200.0f, 0.0f, 0.0f},
+		{-120.0f + 0 + 48 * 1, 200.0f, 0.0f, 0.0f},
+		{-120.0f + 0 + 48 * 2, 200.0f, 0.0f, 0.0f},
+		{-120.0f + 0 + 48 * 3, 200.0f, 0.0f, 0.0f},
+		{-120.0f + 0 + 48 * 4, 200.0f, 0.0f, 0.0f},
 		{-120.0f + 24 + 48 * 0, 160.0f, 0.0f, 0.0f},
 		{-120.0f + 24 + 48 * 1, 160.0f, 0.0f, 0.0f},
 		{-120.0f + 24 + 48 * 2, 160.0f, 0.0f, 0.0f},
@@ -146,98 +146,98 @@ bool COriginalGameApp::createSpaceship(void)
 	};
 	for (size_t i = 0; i < _countof(m_pEnemies); i++)
 	{
-        if (m_pEnemies[i] == NULL)
-        {
-            m_pEnemies[i] = CEnemy::create(m_pDevice, m_pDeviceContext, m_viewPort, HLSL_PlaneHLSL,
-                ePos[i],                    //!< ÉXÉvÉâÉCÉgÇÃà íu
-                kCharSpriteSize,			//!< ÉXÉvÉâÉCÉgÇÃÉTÉCÉY
-                kTexelEnemyBulletIndex);	//!< ÉeÉNÉZÉãÇÃîzóÒÇÃÉCÉìÉfÉbÉNÉXÅiÉAÉjÉÅÅ[ÉVÉáÉìÇÃÇΩÇﬂÅj
-        }
-        m_pEnemies[i]->setHP(kMaxHP);       // !<
-        m_pEnemies[i]->setDamage(FALSE);    // <!
-        m_pEnemies[i]->setActive(TRUE);     // !<
-        m_pEnemies[i]->setPos(ePos[i]);     // !<
+		if (m_pEnemies[i] == NULL)
+		{
+			m_pEnemies[i] = CEnemy::create(m_pDevice, m_pDeviceContext, m_viewPort, HLSL_PlaneHLSL,
+				ePos[i],                    //!< ????????
+				kCharSpriteSize,			//!< ?????????
+				kTexelEnemyBulletIndex);	//!< ??????????????(??????????)
+		}
+		m_pEnemies[i]->setHP(kMaxHP);       // !<
+		m_pEnemies[i]->setDamage(FALSE);    // <!
+		m_pEnemies[i]->setActive(TRUE);     // !<
+		m_pEnemies[i]->setPos(ePos[i]);     // !<
 		m_pEnemies[i]->setState(eMoving);
 		m_pEnemies[i]->setScale(1.0f);
-        m_pEnemies[i]->resetExplosion();     //!< 
-        m_pEnemies[i]->resetAllBullets();    //!< 
+		m_pEnemies[i]->resetExplosion();     //!< 
+		m_pEnemies[i]->resetAllBullets();    //!< 
 	}
-	m_pPlayerTex    = CTexture::create(m_pDevice, Tex_Spaceship);	//!< ÉeÉNÉZÉã
-	m_pEnemyTex     = CTexture::create(m_pDevice, Tex_Spaceship);	//!< ÉeÉNÉZÉã
+	m_pPlayerTex = CTexture::create(m_pDevice, Tex_Spaceship);	//!< ????
+	m_pEnemyTex = CTexture::create(m_pDevice, Tex_Spaceship);	//!< ????
 #endif
 	return true;
 }
 
 /**
  * @fn void COriginalGameApp::doOpenning()
- * @brief ÉIÅ[ÉvÉjÉìÉO
- * @param	ñ≥Çµ
- * @return	ñ≥Çµ
+ * @brief ??????
+ * @param	??
+ * @return	??
  */
-void COriginalGameApp::doOpenning ()
+void COriginalGameApp::doOpenning()
 {
 	procTitle();
 }
 
 /**
  * @fn void COriginalGameApp::doPlaying()
- * @brief ÉvÉåÅ[íÜ
- * @param	ñ≥Çµ
- * @return	ñ≥Çµ
+ * @brief ????
+ * @param	??
+ * @return	??
  */
-void COriginalGameApp::doPlaying ()
+void COriginalGameApp::doPlaying()
 {
 #if 0
-	// ÅyÉXÉeÉbÉv4Åz
+	// ?????4?
 	/**
-	* ÉvÉåÉCÉÑÅ[ÇÃÉAÉjÉÅÅ[ÉVÉáÉì
+	* ?????????????
 	*/
 	m_frameCounter++;
 	m_frameCounter = m_frameCounter > 99 ? 0 : m_frameCounter;
 
 	m_pPlayer->stepAnimation(m_frameCounter % kTexelIntervalFrames == 0);
 
-    m_pBack->scroll(-1.0f);
+	m_pBack->scroll(-1.0f);
 	m_pMiddle->scroll(-2.0f);
 	m_pFront->scroll(-3.0f);
 	/**
-	* ÉvÉåÅ[ÉÑÅ[ÇÃêßå‰
+	* ????????
 	*/
 	if (m_pDirectInput->isKeyPressed(DIK_LEFT))		m_pPlayer->offsetPosInNormalRange({ -2.0f,  0.0f, 0.0f, 0.0f });
-	if (m_pDirectInput->isKeyPressed(DIK_RIGHT))	m_pPlayer->offsetPosInNormalRange({  2.0f,  0.0f, 0.0f, 0.0f });
-	if (m_pDirectInput->isKeyPressed(DIK_UP))		m_pPlayer->offsetPosInNormalRange({  0.0f,  2.0f, 0.0f, 0.0f });
-	if (m_pDirectInput->isKeyPressed(DIK_DOWN))		m_pPlayer->offsetPosInNormalRange({  0.0f, -2.0f, 0.0f, 0.0f });
+	if (m_pDirectInput->isKeyPressed(DIK_RIGHT))	m_pPlayer->offsetPosInNormalRange({ 2.0f,  0.0f, 0.0f, 0.0f });
+	if (m_pDirectInput->isKeyPressed(DIK_UP))		m_pPlayer->offsetPosInNormalRange({ 0.0f,  2.0f, 0.0f, 0.0f });
+	if (m_pDirectInput->isKeyPressed(DIK_DOWN))		m_pPlayer->offsetPosInNormalRange({ 0.0f, -2.0f, 0.0f, 0.0f });
 
 	if (m_pDirectInput->isKeyPressed(DIK_V))		m_pPlayer->addAngleZ(-0.5);
-	if (m_pDirectInput->isKeyPressed(DIK_N))		m_pPlayer->addAngleZ( 0.5);
+	if (m_pDirectInput->isKeyPressed(DIK_N))		m_pPlayer->addAngleZ(0.5);
 	if (m_pDirectInput->isPressedOnce(DIK_B))		m_pPlayer->shot();
 
 	if (m_pDirectInput->isLeftButtonClicked())	    m_pPlayer->shot();
 
 	/**
-	* ÅyÉXÉeÉbÉv5ÅzìGÇÃëÄçÏ
+	* ?????5?????
 	*/
-    auto    callback = [&](std::shared_ptr<CEnemy> enemy_, size_t index_) -> BOOL {
-        if (enemy_->getActive() == TRUE)
-        {
-            prepareFrame(enemy_, index_);
-        }
-        return TRUE; //!< óÒãìÇë±çs
-    };
+	auto    callback = [&](std::shared_ptr<CEnemy> enemy_, size_t index_) -> BOOL {
+		if (enemy_->getActive() == TRUE)
+		{
+			prepareFrame(enemy_, index_);
+		}
+		return TRUE; //!< ?????
+	};
 	if (isActiveEnemies() == FALSE)
 	{
 		m_gameStatus = eGameClear;
 	}
-	
+
 	/**
-	* ÉvÉåÅ[ÉÑÅ[ÇÃîöî≠Ç™äÆóπÇµÇΩÇÁÉQÅ[ÉÄÉIÅ[ÉoÅ[.
+	* ?????????????????????.
 	*/
 	if (m_pPlayer->isExplosionCompleted())
 	{
 		m_gameStatus = eGameOver;
 	}
 #else
-	procGame ();
+	procGame();
 
 #endif
 }
@@ -245,31 +245,31 @@ void COriginalGameApp::doPlaying ()
 
 /**
  * @fn void COriginalGameApp::doGameClear()
- * @brief ÉQÅ[ÉÄÉNÉäÉA
- * @param	ñ≥Çµ
- * @return	ñ≥Çµ
+ * @brief ??????
+ * @param	??
+ * @return	??
  */
 void COriginalGameApp::doGameClear()
 {
-	procClear ();
+	procClear();
 }
 
 /**
  * @fn void COriginalGameApp::doGameOver()
- * @brief ÉQÅ[ÉÄÉIÅ[ÉoÅ[
- * @param	ñ≥Çµ
- * @return	ñ≥Çµ
+ * @brief ???????
+ * @param	??
+ * @return	??
  */
 void COriginalGameApp::doGameOver()
 {
-	procGameOver ();
+	procGameOver();
 }
 
 /**
  * @fn void COriginalGameApp::doEnding()
- * @brief ÉGÉìÉfÉBÉìÉO
- * @param	ñ≥Çµ
- * @return	ñ≥Çµ
+ * @brief „Ç®„É≥„Éá„Ç£„É≥„Ç∞
+ * @param	ÁÑ°„Åó
+ * @return	ÁÑ°„Åó
  */
 void COriginalGameApp::doEnding()
 {
@@ -277,24 +277,24 @@ void COriginalGameApp::doEnding()
 
 /**
  * @fn void COriginalGameApp::render(XMFLOAT4X4 matView_, XMFLOAT4X4 matProj_)
- * @brief ÉåÉìÉ_Å[
- * @param	matView_	ÉrÉÖÅ[çsóÒ
- * @param	matProj_	ÉvÉçÉWÉFÉNÉVÉáÉìçsóÒ
- * @return				ñ≥Çµ
+ * @brief „É¨„É≥„ÉÄ„Éº
+ * @param	matView_	„Éì„É•„ÉºË°åÂàó
+ * @param	matProj_	„Éó„É≠„Ç∏„Çß„ÇØ„Ç∑„Éß„É≥Ë°åÂàó
+ * @return				ÁÑ°„Åó
  */
 void COriginalGameApp::render(XMFLOAT4X4 matView_, XMFLOAT4X4 matProj_)
 {
 #if 0
-    auto setUpEnemyTex = [&](ID3D11DeviceContext* pDeviceContext_) -> void {
-        m_pEnemyTex->setup(pDeviceContext_);
-    };
-    auto callback = [&](CEnemy* enemy_, size_t index_) -> BOOL {
+	auto setUpEnemyTex = [&](ID3D11DeviceContext* pDeviceContext_) -> void {
+		m_pEnemyTex->setup(pDeviceContext_);
+	};
+	auto callback = [&](CEnemy* enemy_, size_t index_) -> BOOL {
 		enemy_->render(matView_, matProj_, setUpEnemyTex);
-		return TRUE; //!< óÒãìÇë±çs	
-    };
-    auto setUpPlayerTex = [&](ID3D11DeviceContext* pDeviceContext_) -> void {
-        m_pPlayerTex->setup(pDeviceContext_);
-    };
+		return TRUE; //!< ÂàóÊåô„ÇíÁ∂öË°å	
+	};
+	auto setUpPlayerTex = [&](ID3D11DeviceContext* pDeviceContext_) -> void {
+		m_pPlayerTex->setup(pDeviceContext_);
+	};
 
 	switch (m_gameStatus)
 	{
@@ -302,7 +302,7 @@ void COriginalGameApp::render(XMFLOAT4X4 matView_, XMFLOAT4X4 matProj_)
 		m_pTitle->render(matView_, matProj_);
 		break;
 	case ePlaying:
-		// à¯êîï`âÊÇ∑ÇÈèáî‘Ç∆åãâ ÇämîFÇ∑ÇÈÇ±Ç∆
+		// ÂºïÊï∞ÊèèÁîª„Åô„ÇãÈ†ÜÁï™„Å®ÁµêÊûú„ÇíÁ¢∫Ë™ç„Åô„Çã„Åì„Å®
 		m_pPlayer->render(matView_, matProj_, setUpPlayerTex);
 
 		m_pFront->render(matView_, matProj_);
@@ -321,11 +321,66 @@ void COriginalGameApp::render(XMFLOAT4X4 matView_, XMFLOAT4X4 matProj_)
 
 /**
 * @fn void COriginalGameApp::release()
-* @brief âï˙
-* @param	ñ≥Çµ
-* @return	ñ≥Çµ
+* @brief Ëß£Êîæ
+* @param	ÁÑ°„Åó
+* @return	ÁÑ°„Åó
 */
 void COriginalGameApp::release()
 {
 	super::release();
+}
+
+
+
+
+// --------------------------------------------
+// ‰ª•‰∏ã„ÄÅÁ¥∞Áî∞Âº•ÂçØ„ÅåË®òËø∞Ôºà2021_09_29Ôºâ
+
+/**
+* @fn void COriginalGameApp::release()
+* @brief „Çµ„Ç¶„É≥„Éâ„ÅÆ‰ΩúÊàê
+* @param	filePath_	wav„Éï„Ç°„Ç§„É´„Å∏„ÅÆ„Éë„Çπ
+* @param	loop_	Èü≥Â£∞„Çí„É´„Éº„Éó„Åï„Åõ„Çã„Å™„Çâ„ÄÅtrue
+* @return	‰ΩúÊàê„Åó„ÅüÈü≥Â£∞„ÇíÁÆ°ÁêÜ„Åô„Çã„Éù„Ç§„É≥„Çø
+*/
+CSound* COriginalGameApp::createSound(const char* filePath_, const bool loop_)
+{
+	CSound* object = NULL;
+
+	// wav„Éï„Ç°„Ç§„É´„ÅÆ‰ΩúÊàê
+	if (!object)
+	{
+		object = CSound::Create(m_pXaudio2, filePath_, loop_);
+	}
+
+	return object;
+}
+
+/**
+* @fn void COriginalGameApp::release()
+* @brief „Çµ„Ç¶„É≥„Éâ„ÅÆ‰ΩúÊàê
+* @param	filePath_	wav„Éï„Ç°„Ç§„É´„Å∏„ÅÆ„Éë„Çπ
+* @param	loop_	Èü≥Â£∞„Çí„É´„Éº„Éó„Åï„Åõ„Çã„Å™„Çâ„ÄÅtrue
+* @return	‰ΩúÊàê„Åó„ÅüÈü≥Â£∞„ÇíÁÆ°ÁêÜ„Åô„Çã„Éù„Ç§„É≥„Çø
+*/
+void COriginalGameApp::PlaySourceSound(CSound* const objects)
+{
+	// ‰ΩúÊàê„Åï„Çå„Å¶„ÅÑ„Å™„Åë„Çå„Å∞Êàª„Åô
+	if (!objects) { return; }
+	objects->PlaySourcevoice();
+}
+
+/**
+* @fn void COriginalGameApp::release()
+* @brief „Çµ„Ç¶„É≥„Éâ„ÅÆ‰ΩúÊàê
+* @param	filePath_	wav„Éï„Ç°„Ç§„É´„Å∏„ÅÆ„Éë„Çπ
+* @param	loop_	Èü≥Â£∞„Çí„É´„Éº„Éó„Åï„Åõ„Çã„Å™„Çâ„ÄÅtrue
+* @return	‰ΩúÊàê„Åó„ÅüÈü≥Â£∞„ÇíÁÆ°ÁêÜ„Åô„Çã„Éù„Ç§„É≥„Çø
+*/
+void COriginalGameApp::diseposeSound(CSound* const objects)
+{
+	// ‰ΩúÊàê„Åï„Çå„Å¶„ÅÑ„Å™„Åë„Çå„Å∞Êàª„Åô
+	if (!objects) { return; }
+	objects->DeleteSourcevoice();
+	delete objects;
 }

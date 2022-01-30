@@ -606,3 +606,47 @@ std::shared_ptr<CDirectInput> CApplication::getInput()
 {
 	return m_pDirectInput;
 }
+
+/**
+ * @fn void CApplication::InitXAudio2()
+ * @brief XAudio2の初期化
+ * @param	無し
+ * @return	成功か失敗
+ */
+HRESULT CApplication::InitXAudio2()
+{
+	// COMが初期化されていることを確認
+	HRESULT result = CoInitializeEx(nullptr, COINIT_MULTITHREADED);
+	if (FAILED(result)) { return result; }
+
+	// XAudio2 エンジンのインスタンスを作成
+	result = XAudio2Create(&m_pXaudio2/*pp*/, 0, XAUDIO2_DEFAULT_PROCESSOR);
+	if (FAILED(result)) { return result; }
+
+	// マスタリング音声を作成
+	result = m_pXaudio2->CreateMasteringVoice(&m_pMastervoice);
+	if (FAILED(result)) { return result; }
+
+	return S_OK;
+}
+
+/**
+ * @fn void CApplication::ReleaseXAudio2()
+ * @brief XAudio2の解放
+ * @param	無し
+ * @return	無し
+ */
+void CApplication::ReleaseXAudio2()
+{
+	// マスタリング音声の解放
+	if (m_pMastervoice)
+	{
+		m_pMastervoice->DestroyVoice();
+		m_pMastervoice = nullptr;
+	}
+
+	// XAudio2の解放
+	SAFE_RELEASE(m_pXaudio2);
+
+	CoUninitialize();
+}

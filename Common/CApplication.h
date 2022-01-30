@@ -60,6 +60,8 @@ protected:
 
 	std::unique_ptr<CCamera>		m_pCamera	= NULL;	//!< カメラ 1年次の課題のためprivateから移動
 
+	IXAudio2*				m_pXaudio2		= NULL;	//!< XAudio2のインスタンス
+	IXAudio2MasteringVoice* m_pMastervoice	= NULL;	//!< マスタリング音声：すべての音声
 
 	// ここからオリジナルのクラスを使用
 	XMFLOAT3	m_vEyePt;		//!< カメラ（視点）位置
@@ -91,4 +93,7 @@ public:
 	std::shared_ptr<CDirectInput> getInput();
 	void loop ();
 	virtual void release ();
+
+	HRESULT InitXAudio2();	// XAudio2の初期化、作成
+	void ReleaseXAudio2();	// XAudio2の解放
 };
