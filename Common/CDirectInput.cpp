@@ -1,14 +1,14 @@
-/**
+ï»¿/**
  * @file CDirectInput.cpp
- * @brief DirectInputƒL[ƒ{[ƒh‚ÌƒNƒ‰ƒX
- * @author DŒË@Šì—²
- * @date “ú•ti2017.02.14j
+ * @brief DirectInputã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®ã‚¯ãƒ©ã‚¹
+ * @author ç¹”æˆ¸ã€€å–œéš†
+ * @date æ—¥ä»˜ï¼ˆ2017.02.14ï¼‰
  */
 
 #include "stdafx.h"
 #include "CDirectInput.h"
 
-std::shared_ptr<CDirectInput> CDirectInput::m_instance = NULL;	 //!< yƒNƒ‰ƒX•Ï”z
+std::shared_ptr<CDirectInput> CDirectInput::m_instance = NULL;	 //!< ã€ã‚¯ãƒ©ã‚¹å¤‰æ•°ã€‘
 
 /**
  * Private Methods
@@ -23,29 +23,29 @@ CDirectInput::~CDirectInput()
 
 /**
  * @fn HRESULT CDirectInput::init(HWND inHWnd)
- * @brief ‰Šú‰»
- * @param hWnd_		WindowsAPIƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹
- * @return			WindowsAPI ÀsŒ‹‰Ê
+ * @brief åˆæœŸåŒ–
+ * @param hWnd_		WindowsAPIã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
+ * @return			WindowsAPI å®Ÿè¡Œçµæœ
  */
 HRESULT CDirectInput::init(HWND inHWnd)
 {
-	m_pDinput = NULL;		 //!< DirectInput ƒIƒuƒWƒFƒNƒg
-	m_pKeyDevice = NULL;	 //!< ƒL[ƒ{[ƒh
-	m_pMouseDevice = NULL;	 //!< ƒ}ƒEƒX
+	m_pDinput = NULL;		 //!< DirectInput ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+	m_pKeyDevice = NULL;	 //!< ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰
+	m_pMouseDevice = NULL;	 //!< ãƒã‚¦ã‚¹
 
 	m_hWnd = inHWnd;
 
-	ZeroMemory(&m_keyboardInput, sizeof(BYTE) * BUFFER_SIZE);		 //!< ƒL[ƒ{[ƒh‚Ì“ü—Íî•ñ
-	ZeroMemory(&m_keyboardInputPrev, sizeof(BYTE) * BUFFER_SIZE);	 //!< ‘O‰ñ‚ÌƒL[ƒ{[ƒh‚Ì“ü—Íî•ñ
+	ZeroMemory(&m_keyboardInput, sizeof(BYTE) * BUFFER_SIZE);		 //!< ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®å…¥åŠ›æƒ…å ±
+	ZeroMemory(&m_keyboardInputPrev, sizeof(BYTE) * BUFFER_SIZE);	 //!< å‰å›ã®ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®å…¥åŠ›æƒ…å ±
 
-	ZeroMemory(&m_pressed, sizeof(BYTE) * BUFFER_SIZE);		 //!< ‰Ÿ‚³‚ê‚½
-	ZeroMemory(&m_pressedOnce, sizeof(BYTE) * BUFFER_SIZE);	 //!< ‰Ÿ‚³‚ê‘±‚¯‚½
+	ZeroMemory(&m_pressed, sizeof(BYTE) * BUFFER_SIZE);		 //!< æŠ¼ã•ã‚ŒãŸ
+	ZeroMemory(&m_pressedOnce, sizeof(BYTE) * BUFFER_SIZE);	 //!< æŠ¼ã•ã‚Œç¶šã‘ãŸ
 
-	ZeroMemory(&m_diMouseState2, sizeof(DIMOUSESTATE2));	 //!< ƒ}ƒEƒX‚Ì“ü—Íî•ñ
-	ZeroMemory(&m_mouseInputPrev, sizeof(DIMOUSESTATE2));	 //!< ƒ}ƒEƒX‚Ì“ü—Íî•ñ
-	
+	ZeroMemory(&m_diMouseState2, sizeof(DIMOUSESTATE2));	 //!< ãƒã‚¦ã‚¹ã®å…¥åŠ›æƒ…å ±
+	ZeroMemory(&m_mouseInputPrev, sizeof(DIMOUSESTATE2));	 //!< ãƒã‚¦ã‚¹ã®å…¥åŠ›æƒ…å ±
+
 	/**
-	 * DirectInputƒIƒuƒWƒFƒNƒg‚Ì¶¬
+	 * DirectInputã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç”Ÿæˆ
 	 */
 	if (FAILED(DirectInput8Create(GetModuleHandle(NULL),
 		DIRECTINPUT_VERSION,
@@ -55,12 +55,12 @@ HRESULT CDirectInput::init(HWND inHWnd)
 		return E_FAIL;
 	}
 	/**
-	 *ƒL[ƒ{[ƒh‚Ì‰Šú‰»
-	 *ƒL[ƒ{[ƒh‚ÌƒfƒoƒCƒXƒIƒuƒWƒFƒNƒg‚Ì¶¬
+	 *ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®åˆæœŸåŒ–
+	 *ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®ãƒ‡ãƒã‚¤ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç”Ÿæˆ
 	 */
 	initKeyboard(inHWnd);
-	
-	// ƒ}ƒEƒX‚ÌƒfƒoƒCƒXƒIƒuƒWƒFƒNƒg‚ğì¬
+
+	// ãƒã‚¦ã‚¹ã®ãƒ‡ãƒã‚¤ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆ
 	initMouse(inHWnd);
 
 	return S_OK;
@@ -68,9 +68,9 @@ HRESULT CDirectInput::init(HWND inHWnd)
 
 /**
 * @fn HRESULT CDirectInput::initKeyboard(HWND inHWnd)
-* @brief ƒL[ƒ{[ƒh‚Ì‰Šú‰»
-* @param hWnd_		WindowsAPIƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹
-* @return			WindowsAPI ÀsŒ‹‰Ê
+* @brief ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®åˆæœŸåŒ–
+* @param hWnd_		WindowsAPIã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
+* @return			WindowsAPI å®Ÿè¡Œçµæœ
 */
 HRESULT CDirectInput::initKeyboard(HWND inHWnd)
 {
@@ -78,19 +78,19 @@ HRESULT CDirectInput::initKeyboard(HWND inHWnd)
 		return E_FAIL;
 	}
 	/**
-	 *ƒfƒoƒCƒX‚ğƒL[ƒ{[ƒh‚Éİ’è
+	 *ãƒ‡ãƒã‚¤ã‚¹ã‚’ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã«è¨­å®š
 	 */
 	if (FAILED(m_pKeyDevice->SetDataFormat(&c_dfDIKeyboard))) {
 		return E_FAIL;
 	}
 	/**
-	 *‹¦’²ƒŒƒxƒ‹‚Ìİ’è
+	 *å”èª¿ãƒ¬ãƒ™ãƒ«ã®è¨­å®š
 	 */
 	if (FAILED(m_pKeyDevice->SetCooperativeLevel(inHWnd, DISCL_NONEXCLUSIVE | DISCL_BACKGROUND))) {
 		return E_FAIL;
 	}
 	/**
-	 *“ü—Í§ŒäŠJn
+	 *å…¥åŠ›åˆ¶å¾¡é–‹å§‹
 	 */
 	m_pKeyDevice->Acquire();
 	return S_OK;
@@ -98,57 +98,57 @@ HRESULT CDirectInput::initKeyboard(HWND inHWnd)
 
 /**
 * @fn HRESULT CDirectInput::initMouse(HWND inHWnd)
-* @brief ƒ}ƒEƒX‚Ì‰Šú‰»
-* @param hWnd_		WindowsAPIƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹
-* @return			WindowsAPI ÀsŒ‹‰Ê
+* @brief ãƒã‚¦ã‚¹ã®åˆæœŸåŒ–
+* @param hWnd_		WindowsAPIã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
+* @return			WindowsAPI å®Ÿè¡Œçµæœ
 */
 HRESULT CDirectInput::initMouse(HWND inHWnd)
 {
 	if (FAILED(m_pDinput->CreateDevice(GUID_SysMouse, &m_pMouseDevice, NULL))) {
 		return false;
 	}
-	// ƒf[ƒ^ƒtƒH[ƒ}ƒbƒg‚ğİ’è
-	// ƒ}ƒEƒX—p‚Ìƒf[ƒ^EƒtƒH[ƒ}ƒbƒg‚ğİ’è
+	// ãƒ‡ãƒ¼ã‚¿ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’è¨­å®š
+	// ãƒã‚¦ã‚¹ç”¨ã®ãƒ‡ãƒ¼ã‚¿ãƒ»ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’è¨­å®š
 	if (FAILED(m_pMouseDevice->SetDataFormat(&c_dfDIMouse2))) {
 		return E_FAIL;
 	}
-	// ƒ‚[ƒh‚ğİ’èiƒtƒHƒAƒOƒ‰ƒEƒ“ƒh•”ñ”r‘¼ƒ‚[ƒhj
+	// ãƒ¢ãƒ¼ãƒ‰ã‚’è¨­å®šï¼ˆãƒ•ã‚©ã‚¢ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ï¼†éæ’ä»–ãƒ¢ãƒ¼ãƒ‰ï¼‰
 	if (FAILED(m_pMouseDevice->SetCooperativeLevel(inHWnd, DISCL_NONEXCLUSIVE | DISCL_FOREGROUND))) {
 		return E_FAIL;
 	}
-	//// ƒfƒoƒCƒX‚Ìİ’è
+	//// ãƒ‡ãƒã‚¤ã‚¹ã®è¨­å®š
 	DIPROPDWORD diprop;
 	diprop.diph.dwSize = sizeof(diprop);
 	diprop.diph.dwHeaderSize = sizeof(diprop.diph);
 	diprop.diph.dwObj = 0;
 	diprop.diph.dwHow = DIPH_DEVICE;
-	diprop.dwData = DIPROPAXISMODE_REL;	// ‘Š‘Î’lƒ‚[ƒh‚Åİ’èiâ‘Î’l‚ÍDIPROPAXISMODE_ABSj
+	diprop.dwData = DIPROPAXISMODE_REL;	// ç›¸å¯¾å€¤ãƒ¢ãƒ¼ãƒ‰ã§è¨­å®šï¼ˆçµ¶å¯¾å€¤ã¯DIPROPAXISMODE_ABSï¼‰
 
 	if (FAILED(m_pMouseDevice->SetProperty(DIPROP_AXISMODE, &diprop.diph))) {
 		return E_FAIL;
 	}
-	// “ü—Í§ŒäŠJn
+	// å…¥åŠ›åˆ¶å¾¡é–‹å§‹
 	m_pMouseDevice->Acquire();
 	return S_OK;
 }
 
 /**
  * @fn VOID CDirectInput::free()
- * @brief DirectInput‚ÌƒIƒuƒWƒFƒNƒg‚ÌŠJ•ú
- * @param	–³‚µ
- * @return	–³‚µ
+ * @brief DirectInputã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®é–‹æ”¾
+ * @param	ç„¡ã—
+ * @return	ç„¡ã—
  */
 VOID CDirectInput::free()
 {
 	if (m_pMouseDevice)
 		m_pMouseDevice->Unacquire();
-	SAFE_RELEASE(m_pMouseDevice);	 //!< ƒ}ƒEƒX
+	SAFE_RELEASE(m_pMouseDevice);	 //!< ãƒã‚¦ã‚¹
 
 	if (m_pKeyDevice)
 		m_pKeyDevice->Unacquire();
-	SAFE_RELEASE(m_pKeyDevice);		//!< ƒL[ƒ{[ƒh
+	SAFE_RELEASE(m_pKeyDevice);		//!< ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰
 
-	SAFE_RELEASE(m_pDinput);		//!< DirectInput ƒIƒuƒWƒFƒNƒg
+	SAFE_RELEASE(m_pDinput);		//!< DirectInput ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 }
 
 //__________________________________________________________________
@@ -157,9 +157,9 @@ VOID CDirectInput::free()
 
 /**
  * @fn std::shared_ptr<CDirectInput> CDirectInput::getInstance(HWND inHWnd)
- * @brief ƒCƒ“ƒXƒ^ƒ“ƒX‚ğæ“¾ yƒNƒ‰ƒXƒƒ\ƒbƒhz<Singleton-pattern>
- * @param inHWnd	•ûŒü‚Ì”z—ñ
- * @return		ƒCƒ“ƒXƒ^ƒ“ƒX
+ * @brief ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å–å¾— ã€ã‚¯ãƒ©ã‚¹ãƒ¡ã‚½ãƒƒãƒ‰ã€‘<Singleton-pattern>
+ * @param inHWnd	æ–¹å‘ã®é…åˆ—
+ * @return		ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
  */
 std::shared_ptr<CDirectInput> CDirectInput::getInstance(HWND inHWnd)
 {
@@ -172,9 +172,9 @@ std::shared_ptr<CDirectInput> CDirectInput::getInstance(HWND inHWnd)
 
 /**
  * @fn VOID CDirectInput::releaseInstance()
- * @brief ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ‰ğ•ú yƒNƒ‰ƒXƒƒ\ƒbƒhz<Singleton-pattern>
- * @param	–³‚µ
- * @return	–³‚µ
+ * @brief ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’è§£æ”¾ ã€ã‚¯ãƒ©ã‚¹ãƒ¡ã‚½ãƒƒãƒ‰ã€‘<Singleton-pattern>
+ * @param	ç„¡ã—
+ * @return	ç„¡ã—
  */
 VOID CDirectInput::releaseInstance()
 {
@@ -183,26 +183,26 @@ VOID CDirectInput::releaseInstance()
 
 /**
  * @fn HRESULT CDirectInput::getState()
- * @brief ƒL[ƒ{[ƒhEƒ}ƒEƒX‚ÌƒXƒe[ƒ^ƒX‚Ìæ“¾
- * @param	–³‚µ
- * @return   WindowsAPI ÀsŒ‹‰Ê
+ * @brief ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ãƒ»ãƒã‚¦ã‚¹ã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã®å–å¾—
+ * @param	ç„¡ã—
+ * @return   WindowsAPI å®Ÿè¡Œçµæœ
  */
-//
+ //
 HRESULT CDirectInput::getState()
 {
 	/**
-	 *ƒL[ƒ{[ƒh‚ÌXV
+	 *ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®æ›´æ–°
 	 */
 	HRESULT hr = m_pKeyDevice->Acquire();
 
 	if ((hr == DI_OK) || (hr == S_FALSE)) {
-		memcpy(m_keyboardInputPrev, m_keyboardInput, sizeof(BYTE) * BUFFER_SIZE);	 //!<‘O‰ñ‚Ìó‘Ô‚ğ‘Ş”ğ
+		memcpy(m_keyboardInputPrev, m_keyboardInput, sizeof(BYTE) * BUFFER_SIZE);	 //!<å‰å›ã®çŠ¶æ…‹ã‚’é€€é¿
 
-		m_pKeyDevice->GetDeviceState(sizeof(m_keyboardInput), &m_keyboardInput);	 //!<ƒL[ƒ{[ƒh‚Ìó‘Ô‚ğæ“¾
+		m_pKeyDevice->GetDeviceState(sizeof(m_keyboardInput), &m_keyboardInput);	 //!<ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®çŠ¶æ…‹ã‚’å–å¾—
 		for (int i = 0; i < BUFFER_SIZE; i++) {
 			if (IS_KEY_PRESSED(m_keyboardInput[i])) {
 				if ((!m_pressedOnce[i]) && (!m_pressed[i])) {
-					m_pressedOnce[i] = TRUE;		 //!< ‰‚ß‚Ä‰Ÿ‚³‚ê‚½
+					m_pressedOnce[i] = TRUE;		 //!< åˆã‚ã¦æŠ¼ã•ã‚ŒãŸ
 					m_pressed[i] = TRUE;
 				}
 				else {
@@ -217,9 +217,9 @@ HRESULT CDirectInput::getState()
 	}
 
 	/**
-	*ƒ}ƒEƒX‚Ìó‘Ô‚ğæ“¾‚µ‚Ü‚·
+	*ãƒã‚¦ã‚¹ã®çŠ¶æ…‹ã‚’å–å¾—ã—ã¾ã™
 	*/
-	memcpy(&m_mouseInputPrev, &m_diMouseState2, sizeof(DIMOUSESTATE2));	 //!<‘O‰ñ‚Ìó‘Ô‚ğ‘Ş”ğ
+	memcpy(&m_mouseInputPrev, &m_diMouseState2, sizeof(DIMOUSESTATE2));	 //!<å‰å›ã®çŠ¶æ…‹ã‚’é€€é¿
 	hr = m_pMouseDevice->GetDeviceState(sizeof(DIMOUSESTATE2), &m_diMouseState2);
 	if (hr == DIERR_INPUTLOST || hr == DIERR_NOTACQUIRED) {
 		hr = m_pMouseDevice->Acquire();
@@ -232,14 +232,14 @@ HRESULT CDirectInput::getState()
 
 /**
  * @fn BOOL CDirectInput::isKeyPressed(BYTE aKey)
- * @brief ƒL[ƒ{[ƒh‚Ì‰Ÿ‰º
- * @param aKey	’²‚×‚éƒL[
- * @return		‰Ÿ‚³‚ê‚½‚©
+ * @brief ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®æŠ¼ä¸‹
+ * @param aKey	èª¿ã¹ã‚‹ã‚­ãƒ¼
+ * @return		æŠ¼ã•ã‚ŒãŸã‹
  */
 BOOL CDirectInput::isKeyPressed(BYTE aKey)
 {
 	/**
-	 *Œ»İ‰Ÿ‚µ‚Ä‚¢‚é
+	 *ç¾åœ¨æŠ¼ã—ã¦ã„ã‚‹
 	 */
 	if (IS_KEY_PRESSED(m_keyboardInput[aKey]))
 	{
@@ -250,9 +250,9 @@ BOOL CDirectInput::isKeyPressed(BYTE aKey)
 
 /**
  * @fn BOOL CDirectInput::isPressedOnce(BYTE aKey)
- * @brief w’è‚³‚ê‚½ƒL[‚Ì‰Ÿ‰º‚ªˆê“x‚¾‚¯‚©
- * @param aKey	’²‚×‚éƒL[
- * @return		‰Ÿ‚³‚ê‚½‚©
+ * @brief æŒ‡å®šã•ã‚ŒãŸã‚­ãƒ¼ã®æŠ¼ä¸‹ãŒä¸€åº¦ã ã‘ã‹
+ * @param aKey	èª¿ã¹ã‚‹ã‚­ãƒ¼
+ * @return		æŠ¼ã•ã‚ŒãŸã‹
  */
 BOOL CDirectInput::isPressedOnce(BYTE aKey)
 {
@@ -261,14 +261,14 @@ BOOL CDirectInput::isPressedOnce(BYTE aKey)
 
 /**
 * @fn BOOL CDirectInput::isKeyTrigger(BYTE aKey)
-* @brief  w’è‚³‚ê‚½ƒL[‚ÌƒgƒŠƒK[
-* @param aKey	’²‚×‚éƒL[
-* @return		‘O‰ñ‰Ÿ‚µ‚Ä‚¢‚ÄŒ»İ‰Ÿ‚µ‚Ä‚¢‚é
+* @brief  æŒ‡å®šã•ã‚ŒãŸã‚­ãƒ¼ã®ãƒˆãƒªã‚¬ãƒ¼
+* @param aKey	èª¿ã¹ã‚‹ã‚­ãƒ¼
+* @return		å‰å›æŠ¼ã—ã¦ã„ã¦ç¾åœ¨æŠ¼ã—ã¦ã„ã‚‹
 */
 BOOL CDirectInput::isKeyTrigger(BYTE aKey)
 {
 	/**
-	 *‘O‰ñ‰Ÿ‚µ‚Ä‚¢‚ÄŒ»İ‰Ÿ‚µ‚Ä‚¢‚é
+	 *å‰å›æŠ¼ã—ã¦ã„ã¦ç¾åœ¨æŠ¼ã—ã¦ã„ã‚‹
 	 */
 	if ((IS_KEY_PRESSED(m_keyboardInputPrev[aKey])) && (IS_KEY_PRESSED(m_keyboardInput[aKey])))
 	{
@@ -279,14 +279,14 @@ BOOL CDirectInput::isKeyTrigger(BYTE aKey)
 
 /**
  * @fn BOOL CDirectInput::isKeyReleased(BYTE aKey)
- * @brief  w’è‚³‚ê‚½ƒL[‚Ìƒ`ƒFƒbƒN
- * @param aKey	’²‚×‚éƒL[
- * @return		‘O‰ñ‰Ÿ‚µ‚Ä‚¢‚ÄŒ»İ—£‚µ‚Ä‚¢‚é
+ * @brief  æŒ‡å®šã•ã‚ŒãŸã‚­ãƒ¼ã®ãƒã‚§ãƒƒã‚¯
+ * @param aKey	èª¿ã¹ã‚‹ã‚­ãƒ¼
+ * @return		å‰å›æŠ¼ã—ã¦ã„ã¦ç¾åœ¨é›¢ã—ã¦ã„ã‚‹
  */
 BOOL CDirectInput::isKeyReleased(BYTE aKey)
 {
 	/**
-	 *‘O‰ñ‰Ÿ‚µ‚Ä‚¢‚ÄŒ»İ—£‚µ‚Ä‚¢‚é
+	 *å‰å›æŠ¼ã—ã¦ã„ã¦ç¾åœ¨é›¢ã—ã¦ã„ã‚‹
 	 */
 	if ((IS_KEY_PRESSED(m_keyboardInputPrev[aKey])) && !(IS_KEY_PRESSED(m_keyboardInput[aKey])))
 	{
@@ -297,8 +297,8 @@ BOOL CDirectInput::isKeyReleased(BYTE aKey)
 
 /**
 * @fn BOOL CDirectInput::isLeftButtonClicked()
-* @brief  ƒ}ƒEƒX‚Ì¶ƒ{ƒ^ƒ“‚Ìƒ`ƒFƒbƒN
-* @return		‰Ÿ‚µ‚Ä‚¢‚é
+* @brief  ãƒã‚¦ã‚¹ã®å·¦ãƒœã‚¿ãƒ³ã®ãƒã‚§ãƒƒã‚¯
+* @return		æŠ¼ã—ã¦ã„ã‚‹
 */
 BOOL CDirectInput::isLeftButtonClicked()
 {
@@ -307,11 +307,12 @@ BOOL CDirectInput::isLeftButtonClicked()
 		return TRUE;
 	}
 	return FALSE;
+
 }
 /**
 * @fn BOOL CDirectInput::isRightButtonClicked()
-* @brief  ƒ}ƒEƒX‚Ì‰Eƒ{ƒ^ƒ“‚Ìƒ`ƒFƒbƒN
-* @return		‰Ÿ‚µ‚Ä‚¢‚é
+* @brief  ãƒã‚¦ã‚¹ã®å³ãƒœã‚¿ãƒ³ã®ãƒã‚§ãƒƒã‚¯
+* @return		æŠ¼ã—ã¦ã„ã‚‹
 */
 BOOL CDirectInput::isRightButtonClicked()
 {
@@ -324,8 +325,8 @@ BOOL CDirectInput::isRightButtonClicked()
 
 /**
 * @fn BOOL CDirectInput::isCenterButtonClicked()
-* @brief  ƒ}ƒEƒX‚Ì’†ƒ{ƒ^ƒ“‚Ìƒ`ƒFƒbƒN
-* @return		‰Ÿ‚µ‚Ä‚¢‚é
+* @brief  ãƒã‚¦ã‚¹ã®ä¸­ãƒœã‚¿ãƒ³ã®ãƒã‚§ãƒƒã‚¯
+* @return		æŠ¼ã—ã¦ã„ã‚‹
 */
 BOOL CDirectInput::isCenterButtonClicked()
 {
@@ -338,13 +339,13 @@ BOOL CDirectInput::isCenterButtonClicked()
 
 /**
 * @fn BOOL CDirectInput::isLeftButtonReleased()
-* @brief  ƒ}ƒEƒX‚Ì¶ƒ{ƒ^ƒ“‚Ìƒ`ƒFƒbƒN
-* @return		‘O‰ñ‰Ÿ‚µ‚Ä‚¢‚ÄŒ»İ—£‚µ‚Ä‚¢‚é
+* @brief  ãƒã‚¦ã‚¹ã®å·¦ãƒœã‚¿ãƒ³ã®ãƒã‚§ãƒƒã‚¯
+* @return		å‰å›æŠ¼ã—ã¦ã„ã¦ç¾åœ¨é›¢ã—ã¦ã„ã‚‹
 */
 BOOL CDirectInput::isLeftButtonReleased()
 {
 	/**
-	 *‘O‰ñ‰Ÿ‚µ‚Ä‚¢‚ÄŒ»İ—£‚µ‚Ä‚¢‚é
+	 *å‰å›æŠ¼ã—ã¦ã„ã¦ç¾åœ¨é›¢ã—ã¦ã„ã‚‹
 	 */
 	if ((IS_KEY_PRESSED(m_mouseInputPrev.rgbButtons[0])) && !(IS_KEY_PRESSED(m_diMouseState2.rgbButtons[0])))
 	{
@@ -355,13 +356,13 @@ BOOL CDirectInput::isLeftButtonReleased()
 
 /**
 * @fn BOOL CDirectInput::isRightButtonReleased()
-* @brief  ƒ}ƒEƒX‚Ì‰Eƒ{ƒ^ƒ“‚Ìƒ`ƒFƒbƒN
-* @return		‘O‰ñ‰Ÿ‚µ‚Ä‚¢‚ÄŒ»İ—£‚µ‚Ä‚¢‚é
+* @brief  ãƒã‚¦ã‚¹ã®å³ãƒœã‚¿ãƒ³ã®ãƒã‚§ãƒƒã‚¯
+* @return		å‰å›æŠ¼ã—ã¦ã„ã¦ç¾åœ¨é›¢ã—ã¦ã„ã‚‹
 */
 BOOL CDirectInput::isRightButtonReleased()
 {
 	/**
-	 *‘O‰ñ‰Ÿ‚µ‚Ä‚¢‚ÄŒ»İ—£‚µ‚Ä‚¢‚é
+	 *å‰å›æŠ¼ã—ã¦ã„ã¦ç¾åœ¨é›¢ã—ã¦ã„ã‚‹
 	 */
 	if ((IS_KEY_PRESSED(m_mouseInputPrev.rgbButtons[1])) && !(IS_KEY_PRESSED(m_diMouseState2.rgbButtons[1])))
 	{
@@ -372,13 +373,13 @@ BOOL CDirectInput::isRightButtonReleased()
 
 /**
 * @fn BOOL CDirectInput::isCenterButtonReleased()
-* @brief  ƒ}ƒEƒX‚Ì’†ƒ{ƒ^ƒ“‚Ìƒ`ƒFƒbƒN
-* @return		‘O‰ñ‰Ÿ‚µ‚Ä‚¢‚ÄŒ»İ—£‚µ‚Ä‚¢‚é
+* @brief  ãƒã‚¦ã‚¹ã®ä¸­ãƒœã‚¿ãƒ³ã®ãƒã‚§ãƒƒã‚¯
+* @return		å‰å›æŠ¼ã—ã¦ã„ã¦ç¾åœ¨é›¢ã—ã¦ã„ã‚‹
 */
 BOOL CDirectInput::isCenterButtonReleased()
 {
 	/**
-	 *‘O‰ñ‰Ÿ‚µ‚Ä‚¢‚ÄŒ»İ—£‚µ‚Ä‚¢‚é
+	 *å‰å›æŠ¼ã—ã¦ã„ã¦ç¾åœ¨é›¢ã—ã¦ã„ã‚‹
 	 */
 	if ((IS_KEY_PRESSED(m_mouseInputPrev.rgbButtons[2])) && !(IS_KEY_PRESSED(m_diMouseState2.rgbButtons[2])))
 	{
@@ -389,8 +390,8 @@ BOOL CDirectInput::isCenterButtonReleased()
 
 /**
 * @fn XMFLOAT2 CDirectInput::getMousePos()
-* @brief  ƒ}ƒEƒX‚ÌÀ•Wæ“¾
-* @return		Œ»İ‚Ìƒ}ƒEƒX‚ÌÀ•W(’†S‚ª(0,0))
+* @brief  ãƒã‚¦ã‚¹ã®åº§æ¨™å–å¾—
+* @return		ç¾åœ¨ã®ãƒã‚¦ã‚¹ã®åº§æ¨™(ä¸­å¿ƒãŒ(0,0))
 */
 XMFLOAT2 CDirectInput::getMousePos()
 {

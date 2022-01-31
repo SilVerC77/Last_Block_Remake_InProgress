@@ -1,7 +1,7 @@
-/**
-* ƒtƒ@ƒCƒ‹–¼	FCSound.h
-* ŠT—v		FƒTƒEƒ“ƒh‚Ìì¬‚âÄ¶‚ğs‚¤
-* ì¬“ú		F2021_08_18_×“c–í‰K
+ï»¿/**
+* ãƒ•ã‚¡ã‚¤ãƒ«å	ï¼šCSound.h
+* æ¦‚è¦		ï¼šã‚µã‚¦ãƒ³ãƒ‰ã®ä½œæˆã‚„å†ç”Ÿã‚’è¡Œã†
+* ä½œæˆæ—¥		ï¼š2021_08_18_ç´°ç”°å¼¥å¯
 */
 
 #pragma once
@@ -11,33 +11,33 @@
 
 class CSound
 {
-	IXAudio2* m_pXaudio2;	// CXAudio2ƒNƒ‰ƒX‚Ìm_pXaudio2‚Ìƒ|ƒCƒ“ƒ^‚ğæ“¾‚·‚é
+	IXAudio2* m_pXaudio2;	// CXAudio2ã‚¯ãƒ©ã‚¹ã®m_pXaudio2ã®ãƒã‚¤ãƒ³ã‚¿ã‚’å–å¾—ã™ã‚‹
 
-	IXAudio2SourceVoice* m_pSourcevoice;	// ƒ\[ƒXƒ{ƒCƒX
-	__int8 m_iVolume;	// ‚±‚Ì‰¹º‚Ì‰¹—ÊF‚O`‚P‚O‚O‚Åİ’è
+	IXAudio2SourceVoice* m_pSourcevoice;	// ã‚½ãƒ¼ã‚¹ãƒœã‚¤ã‚¹
+	__int8 m_iVolume;	// ã“ã®éŸ³å£°ã®éŸ³é‡ï¼šï¼ï½ï¼‘ï¼ï¼ã§è¨­å®š
 
-	char* m_pBuffer;	// ”gŒ`ƒf[ƒ^‚Ìƒoƒbƒtƒ@
+	char* m_pBuffer;	// æ³¢å½¢ãƒ‡ãƒ¼ã‚¿ã®ãƒãƒƒãƒ•ã‚¡
 
-	// ƒ`ƒƒƒ“ƒNƒf[ƒ^‚ÌŠî–{\‘¢
+	// ãƒãƒ£ãƒ³ã‚¯ãƒ‡ãƒ¼ã‚¿ã®åŸºæœ¬æ§‹é€ 
 	struct Chunk
 	{
-		char id[4];	// ƒ`ƒƒƒ“ƒN–ˆ‚ÌID
-		uint32_t size;	// ƒ`ƒƒƒ“ƒNƒTƒCƒY
+		char id[4];	// ãƒãƒ£ãƒ³ã‚¯æ¯ã®ID
+		uint32_t size;	// ãƒãƒ£ãƒ³ã‚¯ã‚µã‚¤ã‚º
 	};
-	// RIFFƒwƒbƒ_
+	// RIFFãƒ˜ãƒƒãƒ€
 	struct RIFFHeader
 	{
 		Chunk chunk;	// "RIFF"
-		char type[4];	// "WAVE"FWAVEƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚İ‚ğ‚·‚é‚Ì‚ÅWAVE‚ª“ü‚é
+		char type[4];	// "WAVE"ï¼šWAVEãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿ã‚’ã™ã‚‹ã®ã§WAVEãŒå…¥ã‚‹
 	};
-	// FMTƒ`ƒƒƒ“ƒN
+	// FMTãƒãƒ£ãƒ³ã‚¯
 	struct FormatChunk
 	{
 		Chunk chunk;	// "fmt"
-		WAVEFORMAT fmt;	// ”gŒ`ƒtƒH[ƒ}ƒbƒg
+		WAVEFORMAT fmt;	// æ³¢å½¢ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 	};
 
-	uint32_t m_dataSize;	// ƒ`ƒƒƒ“ƒNƒTƒCƒY
+	uint32_t m_dataSize;	// ãƒãƒ£ãƒ³ã‚¯ã‚µã‚¤ã‚º
 public:
 	CSound();
 	~CSound();
@@ -48,14 +48,14 @@ public:
 	void DeleteSourcevoice();
 
 
-	void ExitLoopSource() { m_pSourcevoice->ExitLoop(); }	// ƒ‹[ƒv‰¹º‚Ì‚Æ‚«AŒ»İ‚ÌÄ¶‚ªI‚í‚Á‚½‚çƒ‹[ƒvÄ¶‚ğ’â~‚·‚é
-	void ReLoadSource();	// Ä“x“¯‚¶‰¹‚ğ—¬‚µ‚½‚¢‚Æ‚«—p‚ÌŠÖ”
+	void ExitLoopSource() { m_pSourcevoice->ExitLoop(); }	// ãƒ«ãƒ¼ãƒ—éŸ³å£°ã®ã¨ãã€ç¾åœ¨ã®å†ç”ŸãŒçµ‚ã‚ã£ãŸã‚‰ãƒ«ãƒ¼ãƒ—å†ç”Ÿã‚’åœæ­¢ã™ã‚‹
+	void ReLoadSource();	// å†åº¦åŒã˜éŸ³ã‚’æµã—ãŸã„ã¨ãç”¨ã®é–¢æ•°
 
-	bool isPlayed();	// ‚±‚Ì‰¹º‚ªÄ¶’†‚©‚Ç‚¤‚©
+	bool isPlayed();	// ã“ã®éŸ³å£°ãŒå†ç”Ÿä¸­ã‹ã©ã†ã‹
 	IXAudio2SourceVoice* getSourcevoice()const { if (m_pSourcevoice) { return m_pSourcevoice; } else { return NULL; } }
 
-	void ChangeVolume(const __int8 vol_);	// ‰¹—Ê‚Ì•ÏX
-	void setVolumeMute() { m_pSourcevoice->SetVolume(0.f); }	// ‚±‚Ì‰¹º‚Ìƒ{ƒŠƒ…[ƒ€‚ğ0‚É‚·‚é
+	void ChangeVolume(const __int8 vol_);	// éŸ³é‡ã®å¤‰æ›´
+	void setVolumeMute() { m_pSourcevoice->SetVolume(0.f); }	// ã“ã®éŸ³å£°ã®ãƒœãƒªãƒ¥ãƒ¼ãƒ ã‚’0ã«ã™ã‚‹
 
 	static CSound* Create(IXAudio2* pXAudio2_, const char* filePath_, const bool loop_ = false);
 };

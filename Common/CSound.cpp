@@ -1,12 +1,10 @@
-/**
-* ѓtѓ@ѓCѓ‹–ј	ЃFCSound.cpp
-* ЉT—v		ЃFѓTѓEѓ“ѓh‚МЌмђ¬‚вЌДђ¶‚рЌs‚¤
-* Ќмђ¬“ъ		ЃF2021_08_18_ЌЧ“c–н‰K
+п»ї/**
+* гѓ•г‚Ўг‚¤гѓ«еђЌ	пјљCSound.cpp
+* ж¦‚и¦Ѓ		пјљг‚µг‚¦гѓігѓ‰гЃ®дЅњж€ђг‚„е†Ќз”џг‚’иЎЊгЃ†
+* дЅњж€ђж—Ґ		пјљ2021_08_18_зґ°з”°ејҐеЌЇ
 */
 
 #include "stdafx.h"
-
-
 #include "CSound.h"
 
 CSound::CSound()
@@ -17,42 +15,37 @@ CSound::CSound()
 	, m_dataSize()
 {}
 
-
-
 CSound::~CSound()
 {}
 
-
-
-
 /// <summary>
-/// wavѓtѓ@ѓCѓ‹‚©‚з”gЊ`ѓfЃ[ѓ^‚р“З‚ЭЌћ‚Ю
+/// wavгѓ•г‚Ўг‚¤гѓ«гЃ‹г‚‰жіўеЅўгѓ‡гѓјг‚їг‚’иЄ­гЃїиѕјг‚Ђ
 /// </summary>
-/// <param name="filePath_">ЃFwavѓtѓ@ѓCѓ‹‚Ц‚МѓpѓX</param>
-/// <param name="loop_">ЃFѓ‹Ѓ[ѓv‚·‚й‚©‚З‚¤‚©‚Мѓtѓ‰ѓOЃiѓfѓtѓHѓ‹ѓg‚Нfalse‚И‚М‚ЕЃAѓ‹Ѓ[ѓv‚·‚й‚Ж‚«‚ѕ‚Їtrue‚р’З‰Б‚Е“n‚·Ѓj</param>
-void CSound::LoadSound(IXAudio2* pXAudio2_, const char* filePath_, const bool loop_ )
+/// <param name="filePath_">пјљwavгѓ•г‚Ўг‚¤гѓ«гЃёгЃ®гѓ‘г‚№</param>
+/// <param name="loop_">пјљгѓ«гѓјгѓ—гЃ™г‚‹гЃ‹гЃ©гЃ†гЃ‹гЃ®гѓ•гѓ©г‚°пј€гѓ‡гѓ•г‚©гѓ«гѓ€гЃЇfalseгЃЄгЃ®гЃ§гЂЃгѓ«гѓјгѓ—гЃ™г‚‹гЃЁгЃЌгЃ гЃ‘trueг‚’иїЅеЉ гЃ§жёЎгЃ™пј‰</param>
+void CSound::LoadSound(IXAudio2* pXAudio2_, const char* filePath_, const bool loop_)
 {
-	m_pXaudio2 = pXAudio2_;	// ѓЃѓ“ѓo•Пђ”‚Ж‚µ‚Д•ЫЋќ
+	m_pXaudio2 = pXAudio2_;	// гѓЎгѓігѓђе¤‰ж•°гЃЁгЃ—гЃ¦дїќжЊЃ
 
-	// ѓIЃ[ѓfѓBѓIѓtѓ@ѓCѓ‹‚М“З‚ЭЌћ‚Э
+	// г‚Єгѓјгѓ‡г‚Јг‚Єгѓ•г‚Ўг‚¤гѓ«гЃ®иЄ­гЃїиѕјгЃї
 	FILE* pFile = NULL;
 
-	// errno_tЃFђ¬Њч‚И‚з0‚Є•Ф‚Б‚Д‚­‚й
-	// 0‚Є•Ф‚Б‚Д‚±‚И‚Ї‚к‚ОЃAЋё”s‚µ‚Д‚ў‚й‚М‚Е–Я‚·
+	// errno_tпјљж€ђеЉџгЃЄг‚‰0гЃЊиї”гЃЈгЃ¦гЃЏг‚‹
+	// 0гЃЊиї”гЃЈгЃ¦гЃ“гЃЄгЃ‘г‚ЊгЃ°гЂЃе¤±ж•—гЃ—гЃ¦гЃ„г‚‹гЃ®гЃ§ж€»гЃ™
 	if (fopen_s(&pFile, filePath_, "rb") != 0) { throw; }
 
-	// RIFFѓwѓbѓ_‚М“З‚ЭЌћ‚Э
+	// RIFFгѓгѓѓгѓЂгЃ®иЄ­гЃїиѕјгЃї
 	RIFFHeader riff;
 	fread(&riff, sizeof(riff), 1, pFile);
 
-	// Formatѓ`ѓѓѓ“ѓN‚М“З‚ЭЌћ‚Э
+	// FormatгѓЃгѓЈгѓіг‚ЇгЃ®иЄ­гЃїиѕјгЃї
 	FormatChunk format;
 	fread(&format, sizeof(format), 1, pFile);
 
-	// Dataѓ`ѓѓѓ“ѓN‚М“З‚ЭЌћ‚Э
+	// DataгѓЃгѓЈгѓіг‚ЇгЃ®иЄ­гЃїиѕјгЃї
 	Chunk data;
 	fread(&data, sizeof(data), 1, pFile);
-	// Dataѓ`ѓѓѓ“ѓN‚МѓfЃ[ѓ^Ѓi”gЊ`ѓfЃ[ѓ^Ѓj•”•Є‚р“З‚ЭЌћ‚Ю
+	// DataгѓЃгѓЈгѓіг‚ЇгЃ®гѓ‡гѓјг‚їпј€жіўеЅўгѓ‡гѓјг‚їпј‰йѓЁе€†г‚’иЄ­гЃїиѕјг‚Ђ
 	m_pBuffer = (char*)malloc(data.size);
 	if (!m_pBuffer) { return; }
 	fread(m_pBuffer, data.size, 1, pFile);
@@ -60,11 +53,11 @@ void CSound::LoadSound(IXAudio2* pXAudio2_, const char* filePath_, const bool lo
 	fclose(pFile);
 
 	WAVEFORMATEX wfex = {};
-	// ”gЊ`ѓtѓHЃ[ѓ}ѓbѓg‚МђЭ’и
+	// жіўеЅўгѓ•г‚©гѓјгѓћгѓѓгѓ€гЃ®иЁ­е®љ
 	memcpy(&wfex, &format.fmt, sizeof(format.fmt));
 	wfex.wBitsPerSample = format.fmt.nBlockAlign * 8 / format.fmt.nChannels;
 
-	// ”gЊ`ѓtѓHЃ[ѓ}ѓbѓg‚рЊі‚Йѓ\Ѓ[ѓXѓ{ѓCѓX‚МЌмђ¬
+	// жіўеЅўгѓ•г‚©гѓјгѓћгѓѓгѓ€г‚’е…ѓгЃ«г‚Ѕгѓјг‚№гѓњг‚¤г‚№гЃ®дЅњж€ђ
 	HRESULT result = m_pXaudio2->CreateSourceVoice(&m_pSourcevoice, &wfex);
 	if (FAILED(result))
 	{
@@ -72,13 +65,13 @@ void CSound::LoadSound(IXAudio2* pXAudio2_, const char* filePath_, const bool lo
 		return;
 	}
 
-	// ЌДђ¶‚·‚й”gЊ`ѓfЃ[ѓ^‚МђЭ’и
+	// е†Ќз”џгЃ™г‚‹жіўеЅўгѓ‡гѓјг‚їгЃ®иЁ­е®љ
 	XAUDIO2_BUFFER buf = {};
 	buf.Flags = XAUDIO2_END_OF_STREAM;
 	buf.AudioBytes = m_dataSize;
 	buf.pAudioData = (BYTE*)m_pBuffer;
-	// ѓ‹Ѓ[ѓv‚Єtrue‚И‚зЃA–іЊА‚Йѓ‹Ѓ[ѓv‚·‚йђЭ’и‚р‚В‚Ї‚­‚н‚¦‚й
-	// IXAudio2SourceVoice::ExitLoop‚рЊД‚СЏo‚·‚Ь‚Е‚НЌДђ¶‚і‚к‘±‚Ї‚й
+	// гѓ«гѓјгѓ—гЃЊtrueгЃЄг‚‰гЂЃз„Ўй™ђгЃ«гѓ«гѓјгѓ—гЃ™г‚‹иЁ­е®љг‚’гЃ¤гЃ‘гЃЏг‚ЏгЃ€г‚‹
+	// IXAudio2SourceVoice::ExitLoopг‚’е‘јгЃіе‡єгЃ™гЃѕгЃ§гЃЇе†Ќз”џгЃ•г‚Њз¶љгЃ‘г‚‹
 	if (loop_ == true)
 	{
 		buf.LoopBegin = 0;
@@ -86,14 +79,14 @@ void CSound::LoadSound(IXAudio2* pXAudio2_, const char* filePath_, const bool lo
 		buf.LoopCount = XAUDIO2_LOOP_INFINITE;
 	}
 
-	// ђЭ’и‚µ‚Ѕ”gЊ`ѓfЃ[ѓ^‚МѓZѓbѓg
+	// иЁ­е®љгЃ—гЃџжіўеЅўгѓ‡гѓјг‚їгЃ®г‚»гѓѓгѓ€
 	m_pSourcevoice->SubmitSourceBuffer(&buf);
 }
 
 
 
 /// <summary>
-/// ‚±‚М‰№ђє‚рЌДђ¶‚·‚й
+/// гЃ“гЃ®йџіеЈ°г‚’е†Ќз”џгЃ™г‚‹
 /// </summary>
 void CSound::PlaySourcevoice()
 {
@@ -103,7 +96,7 @@ void CSound::PlaySourcevoice()
 
 
 /// <summary>
-/// ‚±‚М‰№ђє‚МЌДђ¶‚рЋ~‚Я‚й
+/// гЃ“гЃ®йџіеЈ°гЃ®е†Ќз”џг‚’ж­ўг‚Ѓг‚‹
 /// </summary>
 void CSound::StopSourcevoice()
 {
@@ -113,19 +106,19 @@ void CSound::StopSourcevoice()
 
 
 /// <summary>
-/// ‚±‚М‰№ђє‚ЄЌДђ¶’†‚©‚З‚¤‚©
+/// гЃ“гЃ®йџіеЈ°гЃЊе†Ќз”џдё­гЃ‹гЃ©гЃ†гЃ‹
 /// </summary>
-/// <returns>ЌДђ¶’†‚И‚зtureЃAЌДђ¶’†‚Е‚И‚Ї‚к‚Оfalse</returns>
+/// <returns>е†Ќз”џдё­гЃЄг‚‰tureгЂЃе†Ќз”џдё­гЃ§гЃЄгЃ‘г‚ЊгЃ°false</returns>
 bool CSound::isPlayed()
 {
 	if (!m_pSourcevoice) { return false; }
 
 	XAUDIO2_VOICE_STATE state;
-	m_pSourcevoice->GetState(&state); 
-	// BuffersQueuedЃFЌДђ¶‚Є’вЋ~‚і‚к‚Д‚ў‚й‚И‚зЋџ‚ЙЏ€—ќ—\’и‚Мѓoѓbѓtѓ@‚Ц‚Мѓ|ѓCѓ“ѓ^‚Є“ь‚й
-	// Ћџ‚ЙЏ€—ќ—\’и‚Мѓoѓbѓtѓ@‚Є‚И‚Ї‚к‚ОNULL
-	// NULL‚И‚зЌДђ¶‚Є’вЋ~‚µ‚Д‚ў‚й‚±‚Ж‚рЋ¦‚·
-	if (!state.BuffersQueued)	
+	m_pSourcevoice->GetState(&state);
+	// BuffersQueuedпјље†Ќз”џгЃЊеЃњж­ўгЃ•г‚ЊгЃ¦гЃ„г‚‹гЃЄг‚‰ж¬ЎгЃ«е‡¦зђ†дє€е®љгЃ®гѓђгѓѓгѓ•г‚ЎгЃёгЃ®гѓќг‚¤гѓіг‚їгЃЊе…Ґг‚‹
+	// ж¬ЎгЃ«е‡¦зђ†дє€е®љгЃ®гѓђгѓѓгѓ•г‚ЎгЃЊгЃЄгЃ‘г‚ЊгЃ°NULL
+	// NULLгЃЄг‚‰е†Ќз”џгЃЊеЃњж­ўгЃ—гЃ¦гЃ„г‚‹гЃ“гЃЁг‚’з¤єгЃ™
+	if (!state.BuffersQueued)
 	{
 		return false;
 	}
@@ -136,7 +129,7 @@ bool CSound::isPlayed()
 
 
 /// <summary>
-/// ѓTѓEѓ“ѓh‚М”jЉь
+/// г‚µг‚¦гѓігѓ‰гЃ®з ґжЈ„
 /// </summary>
 void CSound::DeleteSourcevoice()
 {
@@ -153,35 +146,35 @@ void CSound::DeleteSourcevoice()
 
 void CSound::ChangeVolume(const __int8 vol_)
 {
-	// ‰№—КђЭ’и‚МЌЕ‘е’l
+	// йџій‡ЏиЁ­е®љгЃ®жњЂе¤§еЂ¤
 	constexpr float MAX_VOLUME = 100.f;
 	m_iVolume = vol_;
-	// 0.fЃ`1.f‚Е“n‚·•K—v‚Є‚й‚М‚ЕЃAЉ„‚иЋZ‚р‚·‚й
+	// 0.fпЅћ1.fгЃ§жёЎгЃ™еї…и¦ЃгЃЊг‚‹гЃ®гЃ§гЂЃе‰Іг‚Љз®—г‚’гЃ™г‚‹
 	m_pSourcevoice->SetVolume(static_cast<float>(vol_) / MAX_VOLUME);
 }
 
 
 
 /// <summary>
-/// “Ї‚¶‰№‚рЌД“xЌДђ¶‚µ‚Ѕ‚ў‚Ж‚«‚ЙЋg‚¤
+/// еђЊгЃйџіг‚’е†Ќеє¦е†Ќз”џгЃ—гЃџгЃ„гЃЁгЃЌгЃ«дЅїгЃ†
 /// </summary>
 void CSound::ReLoadSource()
 {
 	if (!m_pSourcevoice) { return; }
 	if (!m_pBuffer) { return; }
-	// ‚а‚µЌДђ¶’†‚И‚з’вЋ~
+	// г‚‚гЃ—е†Ќз”џдё­гЃЄг‚‰еЃњж­ў
 	m_pSourcevoice->Stop();
-	// ѓ\Ѓ[ѓXѓ{ѓCѓX‚Мѓoѓbѓtѓ@‚ргY—н‚Й
+	// г‚Ѕгѓјг‚№гѓњг‚¤г‚№гЃ®гѓђгѓѓгѓ•г‚Ўг‚’з¶єйє—гЃ«
 	m_pSourcevoice->FlushSourceBuffers();
 
-	// ѓ\Ѓ[ѓXѓ{ѓCѓX‚ЙЌД“x•Ы‘¶‚і‚к‚Д‚ў‚йѓoѓbѓtѓ@‚©‚зѓfЃ[ѓ^‚рѓZѓbѓg‚·‚й
-	// ЌДђ¶‚·‚й”gЊ`ѓfЃ[ѓ^‚МђЭ’и
+	// г‚Ѕгѓјг‚№гѓњг‚¤г‚№гЃ«е†Ќеє¦дїќе­гЃ•г‚ЊгЃ¦гЃ„г‚‹гѓђгѓѓгѓ•г‚ЎгЃ‹г‚‰гѓ‡гѓјг‚їг‚’г‚»гѓѓгѓ€гЃ™г‚‹
+	// е†Ќз”џгЃ™г‚‹жіўеЅўгѓ‡гѓјг‚їгЃ®иЁ­е®љ
 	XAUDIO2_BUFFER buf = {};
 	buf.Flags = XAUDIO2_END_OF_STREAM;
 	buf.AudioBytes = m_dataSize;
 	buf.pAudioData = (BYTE*)m_pBuffer;
 
-	// ђЭ’и‚µ‚Ѕ”gЊ`ѓfЃ[ѓ^‚МѓZѓbѓg
+	// иЁ­е®љгЃ—гЃџжіўеЅўгѓ‡гѓјг‚їгЃ®г‚»гѓѓгѓ€
 	m_pSourcevoice->SubmitSourceBuffer(&buf);
 }
 

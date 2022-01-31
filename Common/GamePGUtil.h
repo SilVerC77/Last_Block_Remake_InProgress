@@ -1,43 +1,43 @@
-/**
+Ôªø/**
 * @file GamePGUtil.h
-* @brief defineÉ}ÉNÉçÅAä÷êî
-* @author êDåÀÅ@äÏó≤
-* @date ì˙ïtÅi2018.08.09Åj
+* @brief define„Éû„ÇØ„É≠„ÄÅÈñ¢Êï∞
+* @author ÁπîÊà∏„ÄÄÂñúÈöÜ
+* @date Êó•‰ªòÔºà2018.08.09Ôºâ
 */
 #pragma once
 
 #include "stdafx.h"
 
 /**
- * defineÉ}ÉNÉç
+ * define„Éû„ÇØ„É≠
  */
  /** @def
- * DirectXÉäÉ\Å[ÉXÇÃâï˙
+ * DirectX„É™„ÇΩ„Éº„Çπ„ÅÆËß£Êîæ
  */
 #define SAFE_RELEASE(x)			{ if(x)	{ x->Release();	x = NULL;	}	}
 
  /** @def
- * ÉCÉìÉXÉ^ÉìÉXÇÃâï˙
+ * „Ç§„É≥„Çπ„Çø„É≥„Çπ„ÅÆËß£Êîæ
  */
 #define SAFE_release(x)			{ if(x)	{ x->release();	x = NULL;	}	}
 
  /** @def
- * ÉCÉìÉXÉ^ÉìÉXÇÃçÌèú
+ * „Ç§„É≥„Çπ„Çø„É≥„Çπ„ÅÆÂâäÈô§
  */
 #define SAFE_DELETE(x)			{ if(x)	{ delete x;		x = NULL;	}	}
 
  /** @def
- * DirectXÉäÉ\Å[ÉXîzóÒÇÃâï˙
+ * DirectX„É™„ÇΩ„Éº„ÇπÈÖçÂàó„ÅÆËß£Êîæ
  */
 #define SAFE_DELETE_ARRAY(x)	{ if(x)	{ delete[] x;	x = NULL;	}	}
 
  /** @def
- * çÌèúÇ∆âï˙
+ * ÂâäÈô§„Å®Ëß£Êîæ
  */
 #define SAFE_release_DELETE(x)	{ if(x)	{ x->release(); delete x;	x = NULL;	}	}
 
  /**
- * ä÷êî
+ * Èñ¢Êï∞
  */
 XMFLOAT4 ComputePosByDirectionZ(XMFLOAT4 old_, FLOAT direction_);
 HRESULT PutMessage(LPCTSTR lpString_);

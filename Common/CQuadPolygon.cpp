@@ -1,8 +1,8 @@
-/**
+ï»¿/**
 * @file CQuadPolygon.cpp
-* @brief ƒ|ƒŠƒSƒ“EƒNƒ‰ƒX
-* @author DŒË@Šì—²
-* @date “ú•ti2018.07.27j
+* @brief ãƒãƒªã‚´ãƒ³ãƒ»ã‚¯ãƒ©ã‚¹
+* @author ç¹”æˆ¸ã€€å–œéš†
+* @date æ—¥ä»˜ï¼ˆ2018.07.27ï¼‰
 */
 
 #include "stdafx.h"
@@ -10,15 +10,15 @@
 
 /**
 * @fn std::unique_ptr<CQuadPolygon> CQuadPolygon::create(ID3D11Device* pDevice_, ID3D11DeviceContext* pDeviceContext_, D3D11_VIEWPORT viewPort_[], LPCWSTR shaderName_, XMFLOAT4 position_, XMFLOAT2 size_, std::vector<QuadrangleTexel> texels)
-* @brief ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚µ‰Šú‰» yƒNƒ‰ƒXƒƒ\ƒbƒhz
-* @param pDevice_			ƒfƒoƒCƒX
-* @param pDeviceContext_	ƒfƒoƒCƒXƒRƒ“ƒeƒLƒXƒg
-* @param viewPort_[]		ƒrƒ…[ƒ|[ƒg
-* @param shaderName_		ƒVƒF[ƒ_[ƒvƒƒOƒ‰ƒ€
-* @param position_			ƒEƒBƒ“ƒhƒE‚ÌˆÊ’u
-* @param size_				ƒXƒvƒ‰ƒCƒg‚Ì‘å‚«‚³
-* @param texels			ƒeƒNƒZƒ‹‚Ì”z—ñ
-* @return					CQuadPolygon‚Ìƒ†ƒj[ƒNƒ|ƒCƒ“ƒ^
+* @brief ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—åˆæœŸåŒ– ã€ã‚¯ãƒ©ã‚¹ãƒ¡ã‚½ãƒƒãƒ‰ã€‘
+* @param pDevice_			ãƒ‡ãƒã‚¤ã‚¹
+* @param pDeviceContext_	ãƒ‡ãƒã‚¤ã‚¹ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
+* @param viewPort_[]		ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆ
+* @param shaderName_		ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
+* @param position_			ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ä½ç½®
+* @param size_				ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®å¤§ãã•
+* @param texels			ãƒ†ã‚¯ã‚»ãƒ«ã®é…åˆ—
+* @return					CQuadPolygonã®ãƒ¦ãƒ‹ãƒ¼ã‚¯ãƒã‚¤ãƒ³ã‚¿
 */
 std::unique_ptr<CQuadPolygon> CQuadPolygon::create(ID3D11Device* pDevice_, ID3D11DeviceContext* pDeviceContext_, D3D11_VIEWPORT viewPort_[], LPCWSTR shaderName_, XMFLOAT4 position_, XMFLOAT2 size_, std::vector<QuadrangleTexel>	texels)
 {
@@ -29,45 +29,45 @@ std::unique_ptr<CQuadPolygon> CQuadPolygon::create(ID3D11Device* pDevice_, ID3D1
 
 /**
 * @fn void CQuadPolygon::init(ID3D11Device* pDevice_, ID3D11DeviceContext* pDeviceContext_, D3D11_VIEWPORT viewPort_[], LPCWSTR shaderName_, XMFLOAT4 position_, XMFLOAT2 size_, std::vector<QuadrangleTexel> texels)
-* @brief ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ‰Šú‰»
-* @param pDevice_			ƒfƒoƒCƒX
-* @param pDeviceContext_	ƒfƒoƒCƒXƒRƒ“ƒeƒLƒXƒg
-* @param viewPort_[]		ƒrƒ…[ƒ|[ƒg
-* @param shaderName_		ƒVƒF[ƒ_[ƒvƒƒOƒ‰ƒ€
-* @param position_			ƒEƒBƒ“ƒhƒE‚ÌˆÊ’u
-* @param size_				ƒXƒvƒ‰ƒCƒg‚Ì‘å‚«‚³
-* @param texels			ƒeƒNƒZƒ‹‚Ì”z—ñ
-* @return					–³‚µ
+* @brief ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’åˆæœŸåŒ–
+* @param pDevice_			ãƒ‡ãƒã‚¤ã‚¹
+* @param pDeviceContext_	ãƒ‡ãƒã‚¤ã‚¹ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
+* @param viewPort_[]		ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆ
+* @param shaderName_		ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
+* @param position_			ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ä½ç½®
+* @param size_				ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®å¤§ãã•
+* @param texels			ãƒ†ã‚¯ã‚»ãƒ«ã®é…åˆ—
+* @return					ç„¡ã—
 */
 void CQuadPolygon::init(ID3D11Device* pDevice_, ID3D11DeviceContext* pDeviceContext_, D3D11_VIEWPORT viewPort_[], LPCWSTR shaderName_, XMFLOAT4 position_, XMFLOAT2 size_, std::vector<QuadrangleTexel>	texels)
 {
 	m_damage = FALSE;
-	m_pDeviceContext = pDeviceContext_;	//!< ƒŒƒ“ƒ_ƒŠƒ“ƒO‚É•K—v@ƒÀs’†‚É•Ï‰»‚µ‚È‚¢„
-	m_viewPort[0] = viewPort_[0];		//!< ƒŒƒ“ƒ_ƒŠƒ“ƒO‚É•K—v@ƒÀs’†‚É•Ï‰»‚µ‚È‚¢„
+	m_pDeviceContext = pDeviceContext_;	//!< ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã«å¿…è¦ã€€ï¼œå®Ÿè¡Œä¸­ã«å¤‰åŒ–ã—ãªã„ï¼
+	m_viewPort[0] = viewPort_[0];		//!< ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã«å¿…è¦ã€€ï¼œå®Ÿè¡Œä¸­ã«å¤‰åŒ–ã—ãªã„ï¼
 	m_originalSize = size_;
 	m_VBSize = size_;
 	m_active = TRUE;
 	m_state = eWaiting;
-	m_position.setup({ position_.x, position_.y, position_.z, 0.0f }, 0.0f, 0.0f, 0.0f, XMFLOAT3(1.0f, 1.0f, 1.0f));	//!< ˆÊ’u
+	m_position.setup({ position_.x, position_.y, position_.z, 0.0f }, 0.0f, 0.0f, 0.0f, XMFLOAT3(1.0f, 1.0f, 1.0f));	//!< ä½ç½®
 
-	// ƒfƒtƒHƒ‹ƒgƒuƒŒƒ“ƒhƒXƒe[ƒg
+	// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ–ãƒ¬ãƒ³ãƒ‰ã‚¹ãƒ†ãƒ¼ãƒˆ
 	D3D11_BLEND_DESC blendDesc;
 	ZeroMemory(&blendDesc, sizeof(D3D11_BLEND_DESC));
 
 	/*
-	blendDesc.AlphaToCoverageEnable = TRUE;						//!< ƒ}ƒ‹ƒ`ƒTƒ“ƒvƒŠƒ“ƒO‚Å•`‰æƒ^[ƒQƒbƒg‚Éƒ¿’l‚ğg—p‚·‚é
-	blendDesc.IndependentBlendEnable = FALSE;					//!< RenderTarget[0]‚Ì‚İg—p‚·‚é
-	blendDesc.RenderTarget[0].BlendEnable = FALSE;				//!< ƒuƒŒƒ“ƒfƒBƒ“ƒO‚Í—LŒø
-	blendDesc.RenderTarget[0].SrcBlend = D3D11_BLEND_ONE;		//!< ƒ\[ƒX‚ÌRGB’l‚ğ‘I‘ğ
-	blendDesc.RenderTarget[0].DestBlend = D3D11_BLEND_ZERO;		//!< ƒfƒBƒXƒeƒBƒl[ƒVƒ‡ƒ“‚ÌRGB’l‚ğ‘I‘ğ
-	blendDesc.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;		//!< RGB’l‚ÌƒuƒŒƒ“ƒhİ’è src + dest
-	blendDesc.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;	//!< ƒ\[ƒX‚Ìƒ¿’l‚ğ‘I‘ğ@u_COLORv‚ÅI‚í‚é’l‚Í‘I‘ğ•s‰Â
-	blendDesc.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;//!< ƒfƒBƒXƒeƒBƒl[ƒVƒ‡ƒ“‚Ìƒ¿’l‚ğ‘I‘ğ@u_COLORv‚ÅI‚í‚é’l‚Í‘I‘ğ•s‰Â
-	blendDesc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;//!< ƒ¿’l‚ÌƒuƒŒƒ“ƒhİ’è
-	blendDesc.RenderTarget[0].RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_ALL;	//!< RGB’l‚Ì‚¤‚¿A‘‚«‚Ş’lAuD3D11_COLOR_WRITE_ENABLE—ñ‹“Œ^v‚Ì‘g‚İ‡‚í‚¹
+	blendDesc.AlphaToCoverageEnable = TRUE;						//!< ãƒãƒ«ãƒã‚µãƒ³ãƒ—ãƒªãƒ³ã‚°ã§æç”»ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã«Î±å€¤ã‚’ä½¿ç”¨ã™ã‚‹
+	blendDesc.IndependentBlendEnable = FALSE;					//!< RenderTarget[0]ã®ã¿ä½¿ç”¨ã™ã‚‹
+	blendDesc.RenderTarget[0].BlendEnable = FALSE;				//!< ãƒ–ãƒ¬ãƒ³ãƒ‡ã‚£ãƒ³ã‚°ã¯æœ‰åŠ¹
+	blendDesc.RenderTarget[0].SrcBlend = D3D11_BLEND_ONE;		//!< ã‚½ãƒ¼ã‚¹ã®RGBå€¤ã‚’é¸æŠ
+	blendDesc.RenderTarget[0].DestBlend = D3D11_BLEND_ZERO;		//!< ãƒ‡ã‚£ã‚¹ãƒ†ã‚£ãƒãƒ¼ã‚·ãƒ§ãƒ³ã®RGBå€¤ã‚’é¸æŠ
+	blendDesc.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;		//!< RGBå€¤ã®ãƒ–ãƒ¬ãƒ³ãƒ‰è¨­å®š src + dest
+	blendDesc.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;	//!< ã‚½ãƒ¼ã‚¹ã®Î±å€¤ã‚’é¸æŠã€€ã€Œ_COLORã€ã§çµ‚ã‚ã‚‹å€¤ã¯é¸æŠä¸å¯
+	blendDesc.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;//!< ãƒ‡ã‚£ã‚¹ãƒ†ã‚£ãƒãƒ¼ã‚·ãƒ§ãƒ³ã®Î±å€¤ã‚’é¸æŠã€€ã€Œ_COLORã€ã§çµ‚ã‚ã‚‹å€¤ã¯é¸æŠä¸å¯
+	blendDesc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;//!< Î±å€¤ã®ãƒ–ãƒ¬ãƒ³ãƒ‰è¨­å®š
+	blendDesc.RenderTarget[0].RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_ALL;	//!< RGBå€¤ã®ã†ã¡ã€æ›¸ãè¾¼ã‚€å€¤ã€ã€ŒD3D11_COLOR_WRITE_ENABLEåˆ—æŒ™å‹ã€ã®çµ„ã¿åˆã‚ã›
 	*/
 
-	// ¾ËÆÄºúÓ»µE°ªÀ» ¼³Á¤ÇÕ´Ï´Ù.
+	// ï½¾ï¾‹ï¾†ï¾„ï½ºæ˜ï½»ï½µãƒ»ï½°ï½ªï¾€ï½» ï½¼ï½³ï¾ï½¤ï¾‡ï¾•ï½´ï¾ï½´ï¾™.
 	blendDesc.RenderTarget[0].BlendEnable = FALSE;
 	blendDesc.RenderTarget[0].SrcBlend = D3D11_BLEND_ONE;
 	blendDesc.RenderTarget[0].DestBlend = D3D11_BLEND_ZERO;// INV_SRC_ALPHA;
@@ -80,20 +80,20 @@ void CQuadPolygon::init(ID3D11Device* pDevice_, ID3D11DeviceContext* pDeviceCont
 
 	pDevice_->CreateBlendState(&blendDesc, &m_pDefaultBlendState);
 
-	// ƒAƒ‹ƒtƒ@ƒuƒŒƒ“ƒhƒXƒe[ƒg
+	// ã‚¢ãƒ«ãƒ•ã‚¡ãƒ–ãƒ¬ãƒ³ãƒ‰ã‚¹ãƒ†ãƒ¼ãƒˆ
 	ZeroMemory(&blendDesc, sizeof(D3D11_BLEND_DESC));
 
-	// ¾ËÆÄºúÓ»µE°ªÀ» ¼³Á¤ÇÕ´Ï´Ù.
+	// ï½¾ï¾‹ï¾†ï¾„ï½ºæ˜ï½»ï½µãƒ»ï½°ï½ªï¾€ï½» ï½¼ï½³ï¾ï½¤ï¾‡ï¾•ï½´ï¾ï½´ï¾™.
 	blendDesc.RenderTarget[0].BlendEnable = TRUE;
 
 	pDevice_->CreateBlendState(&blendDesc, &m_pAlphaBlendState);
 
 
-	createVertexShader(pDevice_, shaderName_);		//!<’¸“_EƒVƒF[ƒ_‚Ìì¬
-	createVertexInputLayout(pDevice_);					//!<’¸“_ƒCƒ“ƒvƒbƒgƒŒƒCƒAƒEƒg‚ğì¬
-	createPixelShader(pDevice_, shaderName_);		//!<ƒsƒNƒZƒ‹EƒVƒF[ƒ_‚Ìì¬
-	createVertexBuffer(pDevice_, size_, texels);	//!<’¸“_ƒoƒbƒtƒ@[ì¬
-	createConstBuffer(pDevice_);								//!<’è”ƒoƒbƒtƒ@ì¬
+	createVertexShader(pDevice_, shaderName_);		//!<é ‚ç‚¹ãƒ»ã‚·ã‚§ãƒ¼ãƒ€ã®ä½œæˆ
+	createVertexInputLayout(pDevice_);					//!<é ‚ç‚¹ã‚¤ãƒ³ãƒ—ãƒƒãƒˆãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’ä½œæˆ
+	createPixelShader(pDevice_, shaderName_);		//!<ãƒ”ã‚¯ã‚»ãƒ«ãƒ»ã‚·ã‚§ãƒ¼ãƒ€ã®ä½œæˆ
+	createVertexBuffer(pDevice_, size_, texels);	//!<é ‚ç‚¹ãƒãƒƒãƒ•ã‚¡ãƒ¼ä½œæˆ
+	createConstBuffer(pDevice_);								//!<å®šæ•°ãƒãƒƒãƒ•ã‚¡ä½œæˆ
 }
 
 void CQuadPolygon::createVertexShader(ID3D11Device* pDevice_, LPCWSTR shaderName_)
@@ -101,38 +101,38 @@ void CQuadPolygon::createVertexShader(ID3D11Device* pDevice_, LPCWSTR shaderName
 	HRESULT hr;
 	ID3DBlob* pErrors = NULL;
 	/**
-	* hlslƒtƒ@ƒCƒ‹“Ç‚İ‚İ ƒuƒƒuì¬@ƒuƒƒu‚Æ‚ÍƒVƒF[ƒ_[‚Ì‰ò‚İ‚½‚¢‚È‚à‚ÌBXXƒVƒF[ƒ_[‚Æ‚µ‚Ä“Á’¥‚ğ‚½‚È‚¢BŒã‚ÅŠeíƒVƒF[ƒ_[‚É¬‚è“¾‚é
+	* hlslãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿ ãƒ–ãƒ­ãƒ–ä½œæˆã€€ãƒ–ãƒ­ãƒ–ã¨ã¯ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ã®å¡Šã¿ãŸã„ãªã‚‚ã®ã€‚XXã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ã¨ã—ã¦ç‰¹å¾´ã‚’æŒãŸãªã„ã€‚å¾Œã§å„ç¨®ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ã«æˆã‚Šå¾—ã‚‹
 	*/
 	hr = D3DCompileFromFile(
-		shaderName_,	 //!< ƒtƒ@ƒCƒ‹–¼
-		NULL,			 //!< ƒ}ƒNƒ’è‹`(‚È‚µ)
-		NULL,			 //!< ƒCƒ“ƒNƒ‹[ƒhEƒtƒ@ƒCƒ‹’è‹`(‚È‚µ)
-		"VS",			 //!< uVSŠÖ”v‚ªƒVƒF[ƒ_‚©‚çÀs‚³‚ê‚é
-		"vs_5_0",		 //!< ’¸“_ƒVƒF[ƒ_
-		0,				 //!< ƒRƒ“ƒpƒCƒ‹EƒIƒvƒVƒ‡ƒ“
-		0,				 //!< ƒGƒtƒFƒNƒg‚ÌƒRƒ“ƒpƒCƒ‹EƒIƒvƒVƒ‡ƒ“(‚È‚µ)
-		&m_pBlobVS,		 //!< ƒRƒ“ƒpƒCƒ‹‚³‚ê‚½ƒoƒCƒgEƒR[ƒh
-		&pErrors);		 //!< ƒGƒ‰[ƒƒbƒZ[ƒW
+		shaderName_,	 //!< ãƒ•ã‚¡ã‚¤ãƒ«å
+		NULL,			 //!< ãƒã‚¯ãƒ­å®šç¾©(ãªã—)
+		NULL,			 //!< ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«å®šç¾©(ãªã—)
+		"VS",			 //!< ã€ŒVSé–¢æ•°ã€ãŒã‚·ã‚§ãƒ¼ãƒ€ã‹ã‚‰å®Ÿè¡Œã•ã‚Œã‚‹
+		"vs_5_0",		 //!< é ‚ç‚¹ã‚·ã‚§ãƒ¼ãƒ€
+		0,				 //!< ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ãƒ»ã‚ªãƒ—ã‚·ãƒ§ãƒ³
+		0,				 //!< ã‚¨ãƒ•ã‚§ã‚¯ãƒˆã®ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ãƒ»ã‚ªãƒ—ã‚·ãƒ§ãƒ³(ãªã—)
+		&m_pBlobVS,		 //!< ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã•ã‚ŒãŸãƒã‚¤ãƒˆãƒ»ã‚³ãƒ¼ãƒ‰
+		&pErrors);		 //!< ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 
 	SAFE_RELEASE(pErrors);
 	if (FAILED(hr))
 	{
 		TCHAR   str[256];
-		wsprintf(str, L"CQuadPolygon::init HLSL (VS)“Ç‚İ‚İ¸”s %s", shaderName_);
+		wsprintf(str, L"CQuadPolygon::init HLSL (VS)èª­ã¿è¾¼ã¿å¤±æ•— %s", shaderName_);
 		throw str;
 	}
 	/**
-	* ƒuƒƒu‚©‚ç’¸“_ƒVƒF[ƒ_[ì¬
+	* ãƒ–ãƒ­ãƒ–ã‹ã‚‰é ‚ç‚¹ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ä½œæˆ
 	*/
 	hr = pDevice_->CreateVertexShader(
-		m_pBlobVS->GetBufferPointer(),	//!< ƒoƒCƒgEƒR[ƒh‚Ö‚Ìƒ|ƒCƒ“ƒ^
-		m_pBlobVS->GetBufferSize(),		//!< ƒoƒCƒgEƒR[ƒh‚Ì’·‚³
+		m_pBlobVS->GetBufferPointer(),	//!< ãƒã‚¤ãƒˆãƒ»ã‚³ãƒ¼ãƒ‰ã¸ã®ãƒã‚¤ãƒ³ã‚¿
+		m_pBlobVS->GetBufferSize(),		//!< ãƒã‚¤ãƒˆãƒ»ã‚³ãƒ¼ãƒ‰ã®é•·ã•
 		NULL,
-		&m_pVertexShader);				//!< ’¸“_ƒVƒF[ƒ_‚ğó‚¯æ‚é•Ï”
+		&m_pVertexShader);				//!< é ‚ç‚¹ã‚·ã‚§ãƒ¼ãƒ€ã‚’å—ã‘å–ã‚‹å¤‰æ•°
 	if (FAILED(hr))
 	{
-		SAFE_RELEASE(m_pBlobVS);			//!< ƒoƒCƒgEƒR[ƒh‚ğ‰ğ•ú
-		throw L"CQuadPolygon::init ’¸“_ƒVƒF[ƒ_[ì¬¸”s";
+		SAFE_RELEASE(m_pBlobVS);			//!< ãƒã‚¤ãƒˆãƒ»ã‚³ãƒ¼ãƒ‰ã‚’è§£æ”¾
+		throw L"CQuadPolygon::init é ‚ç‚¹ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ä½œæˆå¤±æ•—";
 	}
 }
 
@@ -141,30 +141,30 @@ void CQuadPolygon::createVertexInputLayout(ID3D11Device* pDevice_)
 	D3D11_INPUT_ELEMENT_DESC layout[] =
 	{
 		{
-			"POSITION",						//!< ƒVƒOƒlƒ`ƒƒ
-			0,								//!< ¬•ª‚ÌƒZƒ}ƒ“ƒeƒBƒbƒNEƒCƒ“ƒfƒbƒNƒX”Ô†
-			DXGI_FORMAT_R32G32B32_FLOAT,	//!< ƒGƒŒƒƒ“ƒg‚ÌƒtƒH[ƒ}ƒbƒg
-			0,								//!< “ü—ÍƒXƒƒbƒg”Ô†
-			0,								//!< æ“ª‚Ü‚Å‚ÌƒIƒtƒZƒbƒg’liƒoƒCƒg”j
-			D3D11_INPUT_PER_VERTEX_DATA,	//!< “ü—Íƒf[ƒ^‚ÍŠe’¸“_‚Ìƒf[ƒ^
-			0								//!< ƒCƒ“ƒXƒ^ƒ“ƒX–ˆ‚ÌŒJ‚è•Ô‚µ‰ñ”
+			"POSITION",						//!< ã‚·ã‚°ãƒãƒãƒ£
+			0,								//!< æˆåˆ†ã®ã‚»ãƒãƒ³ãƒ†ã‚£ãƒƒã‚¯ãƒ»ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ç•ªå·
+			DXGI_FORMAT_R32G32B32_FLOAT,	//!< ã‚¨ãƒ¬ãƒ¡ãƒ³ãƒˆã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
+			0,								//!< å…¥åŠ›ã‚¹ãƒ­ãƒƒãƒˆç•ªå·
+			0,								//!< å…ˆé ­ã¾ã§ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆå€¤ï¼ˆãƒã‚¤ãƒˆæ•°ï¼‰
+			D3D11_INPUT_PER_VERTEX_DATA,	//!< å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ã¯å„é ‚ç‚¹ã®ãƒ‡ãƒ¼ã‚¿
+			0								//!< ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹æ¯ã®ç¹°ã‚Šè¿”ã—å›æ•°
 		},
 		{
-			"TEXCOORD",						//!< ƒVƒOƒlƒ`ƒƒ
-			0,								//!< ¬•ª‚ÌƒZƒ}ƒ“ƒeƒBƒbƒNEƒCƒ“ƒfƒbƒNƒX”Ô†
-			DXGI_FORMAT_R32G32_FLOAT,		//!< ƒGƒŒƒƒ“ƒg‚ÌƒtƒH[ƒ}ƒbƒg
-			0,								//!< “ü—ÍƒXƒƒbƒg”Ô†
-			sizeof(XMFLOAT3),				//!< æ“ª‚Ü‚Å‚ÌƒIƒtƒZƒbƒg’liƒoƒCƒg”j
-			D3D11_INPUT_PER_VERTEX_DATA,	//!< “ü—Íƒf[ƒ^‚ÍŠe’¸“_‚Ìƒf[ƒ^
-			0								//!< ƒCƒ“ƒXƒ^ƒ“ƒX–ˆ‚ÌŒJ‚è•Ô‚µ‰ñ”
+			"TEXCOORD",						//!< ã‚·ã‚°ãƒãƒãƒ£
+			0,								//!< æˆåˆ†ã®ã‚»ãƒãƒ³ãƒ†ã‚£ãƒƒã‚¯ãƒ»ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ç•ªå·
+			DXGI_FORMAT_R32G32_FLOAT,		//!< ã‚¨ãƒ¬ãƒ¡ãƒ³ãƒˆã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
+			0,								//!< å…¥åŠ›ã‚¹ãƒ­ãƒƒãƒˆç•ªå·
+			sizeof(XMFLOAT3),				//!< å…ˆé ­ã¾ã§ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆå€¤ï¼ˆãƒã‚¤ãƒˆæ•°ï¼‰
+			D3D11_INPUT_PER_VERTEX_DATA,	//!< å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ã¯å„é ‚ç‚¹ã®ãƒ‡ãƒ¼ã‚¿
+			0								//!< ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹æ¯ã®ç¹°ã‚Šè¿”ã—å›æ•°
 		}
 	};
 	UINT numElements = sizeof(layout) / sizeof(layout[0]);
 	/**
-	* ’¸“_ƒCƒ“ƒvƒbƒgƒŒƒCƒAƒEƒg‚ğì¬
+	* é ‚ç‚¹ã‚¤ãƒ³ãƒ—ãƒƒãƒˆãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’ä½œæˆ
 	*/
 	if (FAILED(pDevice_->CreateInputLayout(layout, numElements, m_pBlobVS->GetBufferPointer(), m_pBlobVS->GetBufferSize(), &m_pInputLayout)))
-		throw L"CQuadPolygon::init ’¸“_ƒCƒ“ƒvƒbƒgƒŒƒCƒAƒEƒgì¬¸”s";
+		throw L"CQuadPolygon::init é ‚ç‚¹ã‚¤ãƒ³ãƒ—ãƒƒãƒˆãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆä½œæˆå¤±æ•—";
 }
 
 void CQuadPolygon::createPixelShader(ID3D11Device* pDevice_, LPCWSTR shaderName_)
@@ -172,34 +172,34 @@ void CQuadPolygon::createPixelShader(ID3D11Device* pDevice_, LPCWSTR shaderName_
 	HRESULT hr;
 	ID3DBlob* pErrors = NULL;
 	/**
-	* ƒuƒƒu‚©‚çƒsƒNƒZƒ‹ƒVƒF[ƒ_[ì¬
+	* ãƒ–ãƒ­ãƒ–ã‹ã‚‰ãƒ”ã‚¯ã‚»ãƒ«ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ä½œæˆ
 	*/
 	hr = D3DCompileFromFile(
-		shaderName_,	//!< ƒtƒ@ƒCƒ‹–¼
-		NULL,			//!< ƒ}ƒNƒ’è‹`(‚È‚µ)
-		NULL,			//!< ƒCƒ“ƒNƒ‹[ƒhEƒtƒ@ƒCƒ‹’è‹`(‚È‚µ)
-		"PS",			//!< uPSŠÖ”v‚ªƒVƒF[ƒ_‚©‚çÀs‚³‚ê‚é
-		"ps_5_0",		//!< ƒsƒNƒZƒ‹EƒVƒF[ƒ_
-		0,				//!< ƒRƒ“ƒpƒCƒ‹EƒIƒvƒVƒ‡ƒ“
-		0,				//!< ƒGƒtƒFƒNƒg‚ÌƒRƒ“ƒpƒCƒ‹EƒIƒvƒVƒ‡ƒ“(‚È‚µ)
-		&m_pBlobVS,		//!< ƒRƒ“ƒpƒCƒ‹‚³‚ê‚½ƒoƒCƒgEƒR[ƒh
-		&pErrors);		//!< ƒGƒ‰[ƒƒbƒZ[ƒW
+		shaderName_,	//!< ãƒ•ã‚¡ã‚¤ãƒ«å
+		NULL,			//!< ãƒã‚¯ãƒ­å®šç¾©(ãªã—)
+		NULL,			//!< ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«å®šç¾©(ãªã—)
+		"PS",			//!< ã€ŒPSé–¢æ•°ã€ãŒã‚·ã‚§ãƒ¼ãƒ€ã‹ã‚‰å®Ÿè¡Œã•ã‚Œã‚‹
+		"ps_5_0",		//!< ãƒ”ã‚¯ã‚»ãƒ«ãƒ»ã‚·ã‚§ãƒ¼ãƒ€
+		0,				//!< ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ãƒ»ã‚ªãƒ—ã‚·ãƒ§ãƒ³
+		0,				//!< ã‚¨ãƒ•ã‚§ã‚¯ãƒˆã®ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ãƒ»ã‚ªãƒ—ã‚·ãƒ§ãƒ³(ãªã—)
+		&m_pBlobVS,		//!< ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã•ã‚ŒãŸãƒã‚¤ãƒˆãƒ»ã‚³ãƒ¼ãƒ‰
+		&pErrors);		//!< ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 
 	SAFE_RELEASE(pErrors);
 	if (FAILED(hr))
 	{
 		TCHAR   str[256];
-		wsprintf(str, L"CQuadPolygon::init HLSL (PS)“Ç‚İ‚İ¸”s %s", shaderName_);
+		wsprintf(str, L"CQuadPolygon::init HLSL (PS)èª­ã¿è¾¼ã¿å¤±æ•— %s", shaderName_);
 		throw str;
 	}
 	hr = pDevice_->CreatePixelShader(
-		m_pBlobVS->GetBufferPointer(),	//!< ƒoƒCƒgEƒR[ƒh‚Ö‚Ìƒ|ƒCƒ“ƒ^
-		m_pBlobVS->GetBufferSize(),		//!< ƒoƒCƒgEƒR[ƒh‚Ì’·‚³
+		m_pBlobVS->GetBufferPointer(),	//!< ãƒã‚¤ãƒˆãƒ»ã‚³ãƒ¼ãƒ‰ã¸ã®ãƒã‚¤ãƒ³ã‚¿
+		m_pBlobVS->GetBufferSize(),		//!< ãƒã‚¤ãƒˆãƒ»ã‚³ãƒ¼ãƒ‰ã®é•·ã•
 		NULL,
-		&m_pPixelShader);				//!< ƒsƒNƒZƒ‹EƒVƒF[ƒ_‚ğó‚¯æ‚é•Ï”
-	SAFE_RELEASE(m_pBlobVS);				//!< ƒoƒCƒgEƒR[ƒh‚ğ‰ğ•ú
+		&m_pPixelShader);				//!< ãƒ”ã‚¯ã‚»ãƒ«ãƒ»ã‚·ã‚§ãƒ¼ãƒ€ã‚’å—ã‘å–ã‚‹å¤‰æ•°
+	SAFE_RELEASE(m_pBlobVS);				//!< ãƒã‚¤ãƒˆãƒ»ã‚³ãƒ¼ãƒ‰ã‚’è§£æ”¾
 	if (FAILED(hr))
-		throw L"CQuadPolygon::init ƒsƒNƒZƒ‹ƒVƒF[ƒ_[ì¬¸”s";
+		throw L"CQuadPolygon::init ãƒ”ã‚¯ã‚»ãƒ«ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ä½œæˆå¤±æ•—";
 }
 
 void CQuadPolygon::createVertexBuffer(ID3D11Device* pDevice_, XMFLOAT2 size_, std::vector<QuadrangleTexel>	texels)
@@ -211,10 +211,10 @@ void CQuadPolygon::createVertexBuffer(ID3D11Device* pDevice_, XMFLOAT2 size_, st
 	{
 		VertexWithTex<XMFLOAT3> vertices[] =
 		{
-		{ XMFLOAT3(m_VBLeftTop.x,		m_VBLeftTop.y,		0),texels[i].v1 },	//!<’¸“_1
-		{ XMFLOAT3(m_VBLeftTop.x,		m_VBRightBottom.y,	0),texels[i].v2 },	//!<’¸“_2
-		{ XMFLOAT3(m_VBRightBottom.x,	m_VBLeftTop.y,		0),texels[i].v3 },	//!<’¸“_3
-		{ XMFLOAT3(m_VBRightBottom.x,	m_VBRightBottom.y,	0),texels[i].v4 }		//!<’¸“_4	
+		{ XMFLOAT3(m_VBLeftTop.x,		m_VBLeftTop.y,		0),texels[i].v1 },	//!<é ‚ç‚¹1
+		{ XMFLOAT3(m_VBLeftTop.x,		m_VBRightBottom.y,	0),texels[i].v2 },	//!<é ‚ç‚¹2
+		{ XMFLOAT3(m_VBRightBottom.x,	m_VBLeftTop.y,		0),texels[i].v3 },	//!<é ‚ç‚¹3
+		{ XMFLOAT3(m_VBRightBottom.x,	m_VBRightBottom.y,	0),texels[i].v4 }		//!<é ‚ç‚¹4	
 		};
 
 		D3D11_BUFFER_DESC bd;
@@ -229,7 +229,7 @@ void CQuadPolygon::createVertexBuffer(ID3D11Device* pDevice_, XMFLOAT2 size_, st
 		initData.pSysMem = vertices;
 		if (FAILED(pDevice_->CreateBuffer(&bd, &initData, &pVB)))
 		{
-			throw L"CQuadPolygon::init ’¸“_ƒoƒbƒtƒ@ì¬¸”s";
+			throw L"CQuadPolygon::init é ‚ç‚¹ãƒãƒƒãƒ•ã‚¡ä½œæˆå¤±æ•—";
 		}
 		m_pVertexBuffer.push_back(pVB);
 	}
@@ -238,16 +238,16 @@ void CQuadPolygon::createVertexBuffer(ID3D11Device* pDevice_, XMFLOAT2 size_, st
 void CQuadPolygon::createConstBuffer(ID3D11Device* pDevice_)
 {
 	D3D11_BUFFER_DESC cb;
-	cb.Usage = D3D11_USAGE_DYNAMIC;				 //!< “®“I(ƒ_ƒCƒiƒ~ƒbƒN)g—p–@
-	cb.BindFlags = D3D11_BIND_CONSTANT_BUFFER;	 //!< ’è”ƒoƒbƒtƒ@
-	cb.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;	 //!< CPU‚©‚ç‘‚«‚Ş
+	cb.Usage = D3D11_USAGE_DYNAMIC;				 //!< å‹•çš„(ãƒ€ã‚¤ãƒŠãƒŸãƒƒã‚¯)ä½¿ç”¨æ³•
+	cb.BindFlags = D3D11_BIND_CONSTANT_BUFFER;	 //!< å®šæ•°ãƒãƒƒãƒ•ã‚¡
+	cb.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;	 //!< CPUã‹ã‚‰æ›¸ãè¾¼ã‚€
 	cb.MiscFlags = 0;
 	cb.StructureByteStride = 0;
 
-	cb.ByteWidth = sizeof(ShaderGlobal_0);						//!< ƒoƒbƒtƒ@EƒTƒCƒY
-	if (FAILED(pDevice_->CreateBuffer(&cb, NULL, &m_pConstantBuffer))) //!< ’è”ƒoƒbƒtƒ@‚Ìì¬@‚±‚±‚Å‚Í•ÏŠ·s—ñ“n‚µ—p
+	cb.ByteWidth = sizeof(ShaderGlobal_0);						//!< ãƒãƒƒãƒ•ã‚¡ãƒ»ã‚µã‚¤ã‚º
+	if (FAILED(pDevice_->CreateBuffer(&cb, NULL, &m_pConstantBuffer))) //!< å®šæ•°ãƒãƒƒãƒ•ã‚¡ã®ä½œæˆã€€ã“ã“ã§ã¯å¤‰æ›è¡Œåˆ—æ¸¡ã—ç”¨
 	{
-		throw L"CQuadPolygon::init ’è”ƒoƒbƒtƒ@ì¬¸”s";
+		throw L"CQuadPolygon::init å®šæ•°ãƒãƒƒãƒ•ã‚¡ä½œæˆå¤±æ•—";
 	}
 }
 
@@ -261,10 +261,10 @@ CQuadPolygon::~CQuadPolygon()
 
 /**
 * @fn void CQuadPolygon::computeMatrixFromPos (void)
-* @brief ƒ[ƒ‹ƒhs—ñ‚ğ‹‚ß‚é
-* @param					–³‚µ
-* @param					–³‚µ
-* @return					–³‚µ
+* @brief ãƒ¯ãƒ¼ãƒ«ãƒ‰è¡Œåˆ—ã‚’æ±‚ã‚ã‚‹
+* @param					ç„¡ã—
+* @param					ç„¡ã—
+* @return					ç„¡ã—
 */
 void CQuadPolygon::computeMatrixFromPos(void)
 {
@@ -285,12 +285,12 @@ void CQuadPolygon::computeMatrixFromPos(void)
 
 /**
 * @fn void CQuadPolygon::render(XMFLOAT4X4	matView_, XMFLOAT4X4 matProj_, size_t texelIndex_, XMFLOAT4 diffuse_)
-* @brief ƒŒƒ“ƒ_ƒŠƒ“ƒO
-* @param matView_	ƒrƒ…[s—ñ
-* @param matProj_	ƒvƒƒWƒFƒNƒVƒ‡ƒ“s—ñ
-* @param texelIndex_	ƒeƒNƒZƒ‹EƒCƒ“ƒfƒbƒNƒX
-* @param diffuse_	ƒfƒBƒtƒ…[ƒY
-* @return			–³‚µ
+* @brief ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°
+* @param matView_	ãƒ“ãƒ¥ãƒ¼è¡Œåˆ—
+* @param matProj_	ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ã‚·ãƒ§ãƒ³è¡Œåˆ—
+* @param texelIndex_	ãƒ†ã‚¯ã‚»ãƒ«ãƒ»ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+* @param diffuse_	ãƒ‡ã‚£ãƒ•ãƒ¥ãƒ¼ã‚º
+* @return			ç„¡ã—
 */
 void CQuadPolygon::render(XMFLOAT4X4 matView_, XMFLOAT4X4 matProj_, std::function<void(ID3D11DeviceContext* pDeviceContext_)> callbackTextureProc_, size_t texelIndex_, XMFLOAT4 diffuse_) {
 	if (!m_active)
@@ -300,14 +300,14 @@ void CQuadPolygon::render(XMFLOAT4X4 matView_, XMFLOAT4X4 matProj_, std::functio
 
 	computeMatrixFromPos();
 
-	//! ƒVƒF[ƒ_[@’è”ƒoƒbƒtƒ@
+	//! ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ã€€å®šæ•°ãƒãƒƒãƒ•ã‚¡
 	D3D11_MAPPED_SUBRESOURCE pData;
 	if (SUCCEEDED(m_pDeviceContext->Map(
-		m_pConstantBuffer,			//!< ƒ}ƒbƒv‚·‚éƒŠƒ\[ƒX
-		0, 							//!< ƒTƒuƒŠƒ\[ƒX‚ÌƒCƒ“ƒfƒbƒNƒX”Ô†
-		D3D11_MAP_WRITE_DISCARD,	//!< ‘‚«‚İƒAƒNƒZƒX
+		m_pConstantBuffer,			//!< ãƒãƒƒãƒ—ã™ã‚‹ãƒªã‚½ãƒ¼ã‚¹
+		0, 							//!< ã‚µãƒ–ãƒªã‚½ãƒ¼ã‚¹ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ç•ªå·
+		D3D11_MAP_WRITE_DISCARD,	//!< æ›¸ãè¾¼ã¿ã‚¢ã‚¯ã‚»ã‚¹
 		0,
-		&pData)))					//!< ƒf[ƒ^‚Ì‘‚«‚İæƒ|ƒCƒ“ƒ^
+		&pData)))					//!< ãƒ‡ãƒ¼ã‚¿ã®æ›¸ãè¾¼ã¿å…ˆãƒã‚¤ãƒ³ã‚¿
 	{
 		ShaderGlobal_0 sg;
 		XMStoreFloat4x4(&sg.matWVP, XMLoadFloat4x4(&m_mFinalWorld) * XMLoadFloat4x4(&matView_) * XMLoadFloat4x4(&matProj_));
@@ -317,27 +317,27 @@ void CQuadPolygon::render(XMFLOAT4X4 matView_, XMFLOAT4X4 matProj_, std::functio
 
 		m_pDeviceContext->Unmap(m_pConstantBuffer, 0);
 	}
-	m_pDeviceContext->IASetInputLayout(m_pInputLayout);									//!< ’¸“_ƒCƒ“ƒvƒbƒgƒŒƒCƒAƒEƒg‚ğƒZƒbƒg
-	m_pDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);	//!< ƒvƒŠƒ~ƒeƒBƒuEƒgƒ|ƒƒW[‚ğƒZƒbƒg
+	m_pDeviceContext->IASetInputLayout(m_pInputLayout);									//!< é ‚ç‚¹ã‚¤ãƒ³ãƒ—ãƒƒãƒˆãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’ã‚»ãƒƒãƒˆ
+	m_pDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);	//!< ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–ãƒ»ãƒˆãƒãƒ­ã‚¸ãƒ¼ã‚’ã‚»ãƒƒãƒˆ
 	UINT stride = sizeof(VertexWithTex<XMFLOAT3>);
 	UINT offset = 0;
-	m_pDeviceContext->IASetVertexBuffers(0, 1, &m_pVertexBuffer[texelIndex_], &stride, &offset);//!< ’¸“_ƒoƒbƒtƒ@[‚ğƒZƒbƒg
-	m_pDeviceContext->VSSetShader(m_pVertexShader, NULL, 0);							//!< g—p‚·‚éƒVƒF[ƒ_[‚Ì“o˜^@ieffect‚ÌhƒeƒNƒjƒbƒNh‚É‘Š“–j
-	m_pDeviceContext->VSSetConstantBuffers(0, 1, &m_pConstantBuffer);					//!< VS‚É’è”ƒoƒbƒtƒ@‚ğİ’è
-	m_pDeviceContext->RSSetViewports(1, m_viewPort);									//!< RS‚Éƒrƒ…[ƒ|[ƒg‚ğİ’è
-	m_pDeviceContext->PSSetShader(m_pPixelShader, NULL, 0);								//!< PS‚ÉƒsƒNƒZƒ‹EƒVƒF[ƒ_‚ğİ’è
-	m_pDeviceContext->PSSetConstantBuffers(0, 1, &m_pConstantBuffer);					//!< PS‚É’è”ƒoƒbƒtƒ@‚ğİ’è
-																						//! ƒTƒ“ƒvƒ‰[‚ÆƒeƒNƒXƒ`ƒƒ[‚Ìİ’è
-	callbackTextureProc_(m_pDeviceContext);												//! ƒTƒ“ƒvƒ‰[‚ÆƒeƒNƒXƒ`ƒƒ[‚Í—˜—pÒ‚Å—pˆÓ‚·‚é
-	m_pDeviceContext->Draw(4, 0);														//!<  ƒvƒŠƒ~ƒeƒBƒu‚ğƒŒƒ“ƒ_ƒŠƒ“ƒO
+	m_pDeviceContext->IASetVertexBuffers(0, 1, &m_pVertexBuffer[texelIndex_], &stride, &offset);//!< é ‚ç‚¹ãƒãƒƒãƒ•ã‚¡ãƒ¼ã‚’ã‚»ãƒƒãƒˆ
+	m_pDeviceContext->VSSetShader(m_pVertexShader, NULL, 0);							//!< ä½¿ç”¨ã™ã‚‹ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ã®ç™»éŒ²ã€€ï¼ˆeffectã®â€ãƒ†ã‚¯ãƒ‹ãƒƒã‚¯â€ã«ç›¸å½“ï¼‰
+	m_pDeviceContext->VSSetConstantBuffers(0, 1, &m_pConstantBuffer);					//!< VSã«å®šæ•°ãƒãƒƒãƒ•ã‚¡ã‚’è¨­å®š
+	m_pDeviceContext->RSSetViewports(1, m_viewPort);									//!< RSã«ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆã‚’è¨­å®š
+	m_pDeviceContext->PSSetShader(m_pPixelShader, NULL, 0);								//!< PSã«ãƒ”ã‚¯ã‚»ãƒ«ãƒ»ã‚·ã‚§ãƒ¼ãƒ€ã‚’è¨­å®š
+	m_pDeviceContext->PSSetConstantBuffers(0, 1, &m_pConstantBuffer);					//!< PSã«å®šæ•°ãƒãƒƒãƒ•ã‚¡ã‚’è¨­å®š
+																						//! ã‚µãƒ³ãƒ—ãƒ©ãƒ¼ã¨ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®è¨­å®š
+	callbackTextureProc_(m_pDeviceContext);												//! ã‚µãƒ³ãƒ—ãƒ©ãƒ¼ã¨ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã¯åˆ©ç”¨è€…ã§ç”¨æ„ã™ã‚‹
+	m_pDeviceContext->Draw(4, 0);														//!<  ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–ã‚’ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°
 }
 
 /**
 * @fn BOOL CQuadPolygon::collision(XMFLOAT4 pos_, FLOAT range_)
-* @brief Õ“Ë
-* @param pos_	ˆÊ’u
-* @param range_	Õ“Ë‚Ì”ÍˆÍ
-* @return		Õ“Ë
+* @brief è¡çª
+* @param pos_	ä½ç½®
+* @param range_	è¡çªã®ç¯„å›²
+* @return		è¡çª
 */
 BOOL CQuadPolygon::collision(XMFLOAT4 pos_, FLOAT range_)
 {
@@ -368,11 +368,11 @@ BOOL CQuadPolygon::collision(XMFLOAT2 pos_)
 
 /**
 * @fn BOOL CQuadPolygon::collision(XMFLOAT4 pos1_, XMFLOAT4 pos2_, FLOAT range_)
-* @brief Õ“Ë
-* @param pos1_	ˆÊ’u
-* @param pos2_	ˆÊ’u
-* @param range_	Õ“Ë‚Ì”ÍˆÍ
-* @return		Õ“Ë
+* @brief è¡çª
+* @param pos1_	ä½ç½®
+* @param pos2_	ä½ç½®
+* @param range_	è¡çªã®ç¯„å›²
+* @return		è¡çª
 */
 BOOL CQuadPolygon::collision(XMFLOAT4 pos1_, XMFLOAT4 pos2_, FLOAT range_)
 {
@@ -495,14 +495,14 @@ BOOL CQuadPolygon::collisionOffset(CQuadPolygon* target_, XMFLOAT4 offset_, XMFL
 
 /**
 * @fn void CQuadPolygon::release()
-* @brief ƒŠƒŠ[ƒX
-* @param	–³‚µ
-* @return	–³‚µ
+* @brief ãƒªãƒªãƒ¼ã‚¹
+* @param	ç„¡ã—
+* @return	ç„¡ã—
 */
 void CQuadPolygon::release()
 {
 	/**
-	*  •K‚¸¶¬‚µ‚½‚Ì‚Æ‹t‚Ì‡”Ô‚ÅƒŠƒŠ[ƒX
+	*  å¿…ãšç”Ÿæˆã—ãŸã®ã¨é€†ã®é †ç•ªã§ãƒªãƒªãƒ¼ã‚¹
 	*/
 	SAFE_RELEASE(m_pConstantBuffer);
 	for (size_t i = 0; i < m_pVertexBuffer.size(); i++)

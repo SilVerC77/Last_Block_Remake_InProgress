@@ -1,54 +1,54 @@
-/**
+ï»¿/**
  * @file CDirectInput.h
- * @brief DirectInputƒL[ƒ{[ƒhEƒ}ƒEƒX
- * @author DŒË@Šì—²
- * @date “ú•ti2017.02.14j
+ * @brief DirectInputã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ãƒ»ãƒã‚¦ã‚¹
+ * @author ç¹”æˆ¸ã€€å–œéš†
+ * @date æ—¥ä»˜ï¼ˆ2017.02.14ï¼‰
  */
 #pragma once
 
 #include "stdafx.h"
 #include "Common3DType.h"
 
-/**
- * ’è”
- */
+ /**
+  * å®šæ•°
+  */
 
 #define KEY_PRESSED			0x80
 #define IS_KEY_PRESSED(x)	(x & KEY_PRESSED)
 #define BUFFER_SIZE			256
 
-/*! @class CDirectInput
-@brief  DirectInputƒL[ƒ{[ƒhEƒ}ƒEƒX
-*/
+  /*! @class CDirectInput
+  @brief  DirectInputã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ãƒ»ãƒã‚¦ã‚¹
+  */
 class CDirectInput
 {
 	// Properties
 	static std::shared_ptr<CDirectInput>	m_instance;
-	LPDIRECTINPUT8			m_pDinput;		//!<  DirectInput ƒIƒuƒWƒFƒNƒg
-	LPDIRECTINPUTDEVICE8	m_pKeyDevice;	//!<  ƒL[ƒ{[ƒh				
-	LPDIRECTINPUTDEVICE8	m_pMouseDevice;	//!<  ƒ}ƒEƒX		
+	LPDIRECTINPUT8			m_pDinput;		//!<  DirectInput ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+	LPDIRECTINPUTDEVICE8	m_pKeyDevice;	//!<  ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰				
+	LPDIRECTINPUTDEVICE8	m_pMouseDevice;	//!<  ãƒã‚¦ã‚¹		
 
-	BYTE m_keyboardInput[BUFFER_SIZE];		//!<  ƒL[ƒ{[ƒh‚Ì“ü—Íî•ñ	
-	BYTE m_keyboardInputPrev[BUFFER_SIZE];	//!<  ‘O‰ñ‚ÌƒL[ƒ{[ƒh‚Ì“ü—Íî•ñ
+	BYTE m_keyboardInput[BUFFER_SIZE];		//!<  ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®å…¥åŠ›æƒ…å ±	
+	BYTE m_keyboardInputPrev[BUFFER_SIZE];	//!<  å‰å›ã®ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®å…¥åŠ›æƒ…å ±
 
 	BOOL m_pressed[BUFFER_SIZE];
 	BOOL m_pressedOnce[BUFFER_SIZE];
-	DIMOUSESTATE2	m_diMouseState2;		//!<  ƒ}ƒEƒX‚Ì“ü—Íî•ñ	
-	DIMOUSESTATE2	m_mouseInputPrev;		//!<  ‘O‰ñ‚Ìƒ}ƒEƒX‚Ì“ü—Íî•ñ
+	DIMOUSESTATE2	m_diMouseState2;		//!<  ãƒã‚¦ã‚¹ã®å…¥åŠ›æƒ…å ±	
+	DIMOUSESTATE2	m_mouseInputPrev;		//!<  å‰å›ã®ãƒã‚¦ã‚¹ã®å…¥åŠ›æƒ…å ±
 
 	HWND m_hWnd;
 
 	// Methods
-	CDirectInput();							//!<  yƒVƒ“ƒOƒ‹ƒgƒ“Eƒpƒ^[ƒ“z
+	CDirectInput();							//!<  ã€ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³ãƒ»ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‘
 	HRESULT init(HWND inHWnd);
 	HRESULT initKeyboard(HWND inHWnd);
 	HRESULT initMouse(HWND inHWnd);
 	VOID free();
 public:
-	~CDirectInput();						//!<  ƒXƒ}[ƒgƒ|ƒCƒ“ƒ^@‚Æ@yƒVƒ“ƒOƒ‹ƒgƒ“Eƒpƒ^[ƒ“z
+	~CDirectInput();						//!<  ã‚¹ãƒãƒ¼ãƒˆãƒã‚¤ãƒ³ã‚¿ã€€ã¨ã€€ã€ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³ãƒ»ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‘
 	// Methids
-	static std::shared_ptr<CDirectInput> getInstance(HWND inHWnd);	//!<  ƒCƒ“ƒXƒ^ƒ“ƒX‚ğæ“¾
-	static VOID releaseInstance();					//!<  ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ‰ğ•ú
+	static std::shared_ptr<CDirectInput> getInstance(HWND inHWnd);	//!<  ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å–å¾—
+	static VOID releaseInstance();					//!<  ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’è§£æ”¾
 
 	HRESULT getState();
 

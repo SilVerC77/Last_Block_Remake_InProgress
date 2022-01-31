@@ -1,44 +1,44 @@
-/**
+ï»¿/**
  * @file CCamera.cpp
- * @brief ƒJƒƒ‰
- * @author DŒË@Šì—²
- * @date “ú•ti2017.02.14j
+ * @brief ã‚«ãƒ¡ãƒ©
+ * @author ç¹”æˆ¸ã€€å–œéš†
+ * @date æ—¥ä»˜ï¼ˆ2017.02.14ï¼‰
  */
 
 #include "stdafx.h"
 #include "CCamera.h"
 
 
-CCamera::CCamera ()
+CCamera::CCamera()
 {
 }
 
 
-CCamera::~CCamera ()
+CCamera::~CCamera()
 {
 }
 
 /**
  * @fn void CCamera::init(XMFLOAT3 vEyePt_, XMFLOAT3 vLookatPt_, XMFLOAT3 vUpVec_, FLOAT	angle_, FLOAT	aspect_, FLOAT	near_, FLOAT	far_)
- * @brief ‰Šú‰»
- * @param vEyePt_		ƒJƒƒ‰i‹“_jˆÊ’u
- * @param vLookatPt_	’‹ˆÊ’u
- * @param vUpVec_		ã•ûˆÊ’u
- * @param angle_		‹–ìŠp
- * @param aspect_		ƒAƒXƒyƒNƒg”ä
- * @param near_			‘O•ûƒNƒŠƒbƒv
- * @param far_			Œã•ûƒNƒŠƒbƒv
- * @return				–³‚µ
+ * @brief åˆæœŸåŒ–
+ * @param vEyePt_		ã‚«ãƒ¡ãƒ©ï¼ˆè¦–ç‚¹ï¼‰ä½ç½®
+ * @param vLookatPt_	æ³¨è¦–ä½ç½®
+ * @param vUpVec_		ä¸Šæ–¹ä½ç½®
+ * @param angle_		è¦–é‡è§’
+ * @param aspect_		ã‚¢ã‚¹ãƒšã‚¯ãƒˆæ¯”
+ * @param near_			å‰æ–¹ã‚¯ãƒªãƒƒãƒ—
+ * @param far_			å¾Œæ–¹ã‚¯ãƒªãƒƒãƒ—
+ * @return				ç„¡ã—
  */
 void CCamera::init(XMFLOAT3 vEyePt_, XMFLOAT3 vLookatPt_, XMFLOAT3 vUpVec_, FLOAT	angle_, FLOAT	aspect_, FLOAT	near_, FLOAT	far_)
 {
-	m_vEyePt	= vEyePt_;		//!< ƒJƒƒ‰i‹“_jˆÊ’u
-	m_vLookatPt	= vLookatPt_;	//!< ’‹ˆÊ’u
-	m_vUpVec	= vUpVec_;		//!< ã•ûˆÊ’u
-	m_angle		= angle_;		//!< ‹–ìŠp
-	m_aspect	= aspect_;		//!< ƒAƒXƒyƒNƒg”ä
-	m_near		= near_;		//!< ‘O•ûƒNƒŠƒbƒv
-	m_far		= far_;			//!< Œã•ûƒNƒŠƒbƒv
+	m_vEyePt = vEyePt_;		//!< ã‚«ãƒ¡ãƒ©ï¼ˆè¦–ç‚¹ï¼‰ä½ç½®
+	m_vLookatPt = vLookatPt_;	//!< æ³¨è¦–ä½ç½®
+	m_vUpVec = vUpVec_;		//!< ä¸Šæ–¹ä½ç½®
+	m_angle = angle_;		//!< è¦–é‡è§’
+	m_aspect = aspect_;		//!< ã‚¢ã‚¹ãƒšã‚¯ãƒˆæ¯”
+	m_near = near_;		//!< å‰æ–¹ã‚¯ãƒªãƒƒãƒ—
+	m_far = far_;			//!< å¾Œæ–¹ã‚¯ãƒªãƒƒãƒ—
 	m_defaultEyePtZ = m_vEyePt.z;
 	XMStoreFloat4x4(&m_matView, XMMatrixIdentity());
 	XMStoreFloat4x4(&m_matProj, XMMatrixIdentity());
@@ -47,35 +47,35 @@ void CCamera::init(XMFLOAT3 vEyePt_, XMFLOAT3 vLookatPt_, XMFLOAT3 vUpVec_, FLOA
 
 /**
  * @fn void CCamera::update()
- * @brief ƒrƒ…[ƒgƒ‰ƒ“ƒXƒtƒH[ƒ€AƒvƒƒWƒFƒNƒVƒ‡ƒ“ƒgƒ‰ƒ“ƒXƒtƒH[ƒ€‚ÌXV
- * @param	–³‚µ
- * @param	–³‚µ
- * @return	–³‚µ
+ * @brief ãƒ“ãƒ¥ãƒ¼ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒ ã€ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ã‚·ãƒ§ãƒ³ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒ ã®æ›´æ–°
+ * @param	ç„¡ã—
+ * @param	ç„¡ã—
+ * @return	ç„¡ã—
  */
 void CCamera::update()
 {
 	/**
-	 * ƒrƒ…[ƒgƒ‰ƒ“ƒXƒtƒH[ƒ€i‹“_À•W•ÏŠ·j
+	 * ãƒ“ãƒ¥ãƒ¼ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒ ï¼ˆè¦–ç‚¹åº§æ¨™å¤‰æ›ï¼‰
 	 */
 	XMStoreFloat4x4(&m_matView, XMMatrixLookAtLH(
-		XMLoadFloat3(&m_vEyePt),	//!< ƒJƒƒ‰i‹“_jˆÊ’u
-		XMLoadFloat3(&m_vLookatPt),	//!< ’‹ˆÊ’u
-		XMLoadFloat3(&m_vUpVec)));	//!< ã•ûˆÊ’u
+		XMLoadFloat3(&m_vEyePt),	//!< ã‚«ãƒ¡ãƒ©ï¼ˆè¦–ç‚¹ï¼‰ä½ç½®
+		XMLoadFloat3(&m_vLookatPt),	//!< æ³¨è¦–ä½ç½®
+		XMLoadFloat3(&m_vUpVec)));	//!< ä¸Šæ–¹ä½ç½®
 	/**
-	 * ƒvƒƒWƒFƒNƒVƒ‡ƒ“ƒgƒ‰ƒ“ƒXƒtƒH[ƒ€iË‰e•ÏŠ·j
+	 * ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ã‚·ãƒ§ãƒ³ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒ ï¼ˆå°„å½±å¤‰æ›ï¼‰
 	 */
 	XMStoreFloat4x4(&m_matProj, XMMatrixPerspectiveFovLH(
-		m_angle,	//!< ‹–ìŠp
-		m_aspect,	//!< ƒAƒXƒyƒNƒg”ä
-		m_near,		//!< ‘O•ûƒNƒŠƒbƒv
-		m_far));	//!< Œã•ûƒNƒŠƒbƒv
+		m_angle,	//!< è¦–é‡è§’
+		m_aspect,	//!< ã‚¢ã‚¹ãƒšã‚¯ãƒˆæ¯”
+		m_near,		//!< å‰æ–¹ã‚¯ãƒªãƒƒãƒ—
+		m_far));	//!< å¾Œæ–¹ã‚¯ãƒªãƒƒãƒ—
 }
 
 /**
  * @fn XMFLOAT3 CCamera::getPos()
- * @brief Œ»İ‚ÌƒJƒƒ‰À•W‚Ìæ“¾
- * @param	–³‚µ
- * @return	Œ»İ‚ÌƒJƒƒ‰À•W(XYZ)
+ * @brief ç¾åœ¨ã®ã‚«ãƒ¡ãƒ©åº§æ¨™ã®å–å¾—
+ * @param	ç„¡ã—
+ * @return	ç¾åœ¨ã®ã‚«ãƒ¡ãƒ©åº§æ¨™(XYZ)
  */
 XMFLOAT3 CCamera::getPos()
 {
@@ -83,17 +83,17 @@ XMFLOAT3 CCamera::getPos()
 }
 /**
  * @fn void CCamera::setPos()
- * @brief ƒJƒƒ‰À•W‚Ìİ’è
- * @param	İ’è‚µ‚½‚¢À•W(XYZ)
- * @return	–³‚µ
+ * @brief ã‚«ãƒ¡ãƒ©åº§æ¨™ã®è¨­å®š
+ * @param	è¨­å®šã—ãŸã„åº§æ¨™(XYZ)
+ * @return	ç„¡ã—
  */
-void CCamera::setPos( XMFLOAT3 pos)
+void CCamera::setPos(XMFLOAT3 pos)
 {
 	m_vEyePt = pos;
 	m_vLookatPt.x = pos.x;
 	m_vLookatPt.y = pos.y;
 }
-void CCamera::setPos( float x, float y, float z)
+void CCamera::setPos(float x, float y, float z)
 {
 	m_vEyePt.x = x;
 	m_vEyePt.y = y;
@@ -104,9 +104,9 @@ void CCamera::setPos( float x, float y, float z)
 
 /**
  * @fn void CCamera::resetPosZ()
- * @brief ƒJƒƒ‰À•W‚ÌZ’l‚ğ‰Šú’l‚É–ß‚·
- * @param –³‚µ
- * @return –³‚µ
+ * @brief ã‚«ãƒ¡ãƒ©åº§æ¨™ã®Zå€¤ã‚’åˆæœŸå€¤ã«æˆ»ã™
+ * @param ç„¡ã—
+ * @return ç„¡ã—
  */
 void CCamera::resetPosZ()
 {

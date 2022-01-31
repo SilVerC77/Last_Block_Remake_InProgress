@@ -1,8 +1,8 @@
-/**
+ï»¿/**
  * @file CCamera.h
- * @brief ƒJƒƒ‰
- * @author DŒË@Šì—²
- * @date “ú•ti2017.02.14j
+ * @brief ã‚«ãƒ¡ãƒ©
+ * @author ç¹”æˆ¸ã€€å–œéš†
+ * @date æ—¥ä»˜ï¼ˆ2017.02.14ï¼‰
  */
 #pragma once
 
@@ -12,38 +12,37 @@
 class CCamera
 {
 private:
-	XMFLOAT4X4	m_matView;		//!< ƒrƒ…[s—ñ
-	XMFLOAT3	m_vEyePt;		//!< ƒJƒƒ‰i‹“_jˆÊ’u
-	XMFLOAT3	m_vLookatPt;	//!< ’‹ˆÊ’u
-	XMFLOAT3	m_vUpVec;		//!< ã•ûˆÊ’u
+	XMFLOAT4X4	m_matView;		//!< ãƒ“ãƒ¥ãƒ¼è¡Œåˆ—
+	XMFLOAT3	m_vEyePt;		//!< ã‚«ãƒ¡ãƒ©ï¼ˆè¦–ç‚¹ï¼‰ä½ç½®
+	XMFLOAT3	m_vLookatPt;	//!< æ³¨è¦–ä½ç½®
+	XMFLOAT3	m_vUpVec;		//!< ä¸Šæ–¹ä½ç½®
 
-	XMFLOAT4X4	m_matProj;		//!< ƒvƒƒWƒFƒNƒVƒ‡ƒ“s—ñ
-	FLOAT		m_angle;		//!< ‹–ìŠp
-	FLOAT		m_aspect;		//!< ƒAƒXƒyƒNƒg”ä
-	FLOAT		m_near;			//!< ‘O•ûƒNƒŠƒbƒv
-	FLOAT		m_far;			//!< Œã•ûƒNƒŠƒbƒv
+	XMFLOAT4X4	m_matProj;		//!< ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ã‚·ãƒ§ãƒ³è¡Œåˆ—
+	FLOAT		m_angle;		//!< è¦–é‡è§’
+	FLOAT		m_aspect;		//!< ã‚¢ã‚¹ãƒšã‚¯ãƒˆæ¯”
+	FLOAT		m_near;			//!< å‰æ–¹ã‚¯ãƒªãƒƒãƒ—
+	FLOAT		m_far;			//!< å¾Œæ–¹ã‚¯ãƒªãƒƒãƒ—
 
-	float		m_defaultEyePtZ;	//!< ƒJƒƒ‰À•W‚ÌƒfƒtƒHƒ‹ƒgZ’l(ƒŠƒZƒbƒg—p)
+	float		m_defaultEyePtZ;	//!< ã‚«ãƒ¡ãƒ©åº§æ¨™ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆZå€¤(ãƒªã‚»ãƒƒãƒˆç”¨)
 
 public:
-	CCamera ();
-	~CCamera ();
-	XMFLOAT4X4 getViewMatrix()			{ return m_matView; };//!< ƒrƒ…[s—ñ
-	XMFLOAT4X4 getProjectionMatrix()	{ return m_matProj; };//!< ƒvƒƒWƒFƒNƒVƒ‡ƒ“s—ñ
-	void init (
-		XMFLOAT3 vEyePt_,		//!< ƒJƒƒ‰i‹“_jˆÊ’u
-		XMFLOAT3 vLookatPt_,	//!< ’‹ˆÊ’u
-		XMFLOAT3 vUpVec_,		//!< ã•ûˆÊ’u
-		FLOAT	angle_,			//!< ‹–ìŠp
-		FLOAT	aspect_,		//!< ƒAƒXƒyƒNƒg”ä
-		FLOAT	near_,			//!< ‘O•ûƒNƒŠƒbƒv
-		FLOAT	far_			//!< Œã•ûƒNƒŠƒbƒv
-		);
-	void update();				//!< ƒrƒ…[s—ñAƒvƒƒWƒFƒNƒVƒ‡ƒ“s—ñ‚ğXV‚·‚é@ƒƒJƒƒ‰‚ğˆÚ“®‚³‚¹‚½‚¢„
-	XMFLOAT3 getPos();			//!< ƒJƒƒ‰À•W‚Ìæ“¾
-	void setPos( XMFLOAT3 pos);	//!< ƒJƒƒ‰À•W‚Ìİ’è
-	void setPos( float x, float y, float z);
+	CCamera();
+	~CCamera();
+	XMFLOAT4X4 getViewMatrix() { return m_matView; };//!< ãƒ“ãƒ¥ãƒ¼è¡Œåˆ—
+	XMFLOAT4X4 getProjectionMatrix() { return m_matProj; };//!< ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ã‚·ãƒ§ãƒ³è¡Œåˆ—
+	void init(
+		XMFLOAT3 vEyePt_,		//!< ã‚«ãƒ¡ãƒ©ï¼ˆè¦–ç‚¹ï¼‰ä½ç½®
+		XMFLOAT3 vLookatPt_,	//!< æ³¨è¦–ä½ç½®
+		XMFLOAT3 vUpVec_,		//!< ä¸Šæ–¹ä½ç½®
+		FLOAT	angle_,			//!< è¦–é‡è§’
+		FLOAT	aspect_,		//!< ã‚¢ã‚¹ãƒšã‚¯ãƒˆæ¯”
+		FLOAT	near_,			//!< å‰æ–¹ã‚¯ãƒªãƒƒãƒ—
+		FLOAT	far_			//!< å¾Œæ–¹ã‚¯ãƒªãƒƒãƒ—
+	);
+	void update();				//!< ãƒ“ãƒ¥ãƒ¼è¡Œåˆ—ã€ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ã‚·ãƒ§ãƒ³è¡Œåˆ—ã‚’æ›´æ–°ã™ã‚‹ã€€ï¼œã‚«ãƒ¡ãƒ©ã‚’ç§»å‹•ã•ã›ãŸã„æ™‚ï¼
+	XMFLOAT3 getPos();			//!< ã‚«ãƒ¡ãƒ©åº§æ¨™ã®å–å¾—
+	void setPos(XMFLOAT3 pos);	//!< ã‚«ãƒ¡ãƒ©åº§æ¨™ã®è¨­å®š
+	void setPos(float x, float y, float z);
 
-	void resetPosZ();			//!< ƒJƒƒ‰À•W‚ÌZ’l‚ğƒfƒtƒHƒ‹ƒg‚É–ß‚·
+	void resetPosZ();			//!< ã‚«ãƒ¡ãƒ©åº§æ¨™ã®Zå€¤ã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã«æˆ»ã™
 };
-

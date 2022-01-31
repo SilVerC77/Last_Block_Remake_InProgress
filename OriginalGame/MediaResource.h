@@ -1,19 +1,19 @@
-/**
+ï»¿/**
  * @file MediaResource.h
  */
 #pragma once
 
 #include "stdafx.h"
 
-/**
- * ƒŠƒ\[ƒX HLSL
- */
+ /**
+  * ãƒªã‚½ãƒ¼ã‚¹ HLSL
+  */
 #define HLSL_Background	L"Media/Background.hlsl"
 #define HLSL_PlaneHLSL	L"Media/PlaneHLSL.hlsl"
 #define HLSL_BlendHLSL  L"Media/BlendHLSL.hlsl"
 #define HLSL_AlphaHLSL  L"Media/AlphaHLSL.hlsl"
 
-/**
- * ƒŠƒ\[ƒX ‰æ‘œ
- */
-#define FBX_PATH		L"Media/"					//! ‘S‘Ì‚ÌƒfƒBƒŒƒNƒgƒŠƒpƒX
+  /**
+   * ãƒªã‚½ãƒ¼ã‚¹ ç”»åƒ
+   */
+#define FBX_PATH		L"Media/"					//! å…¨ä½“ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãƒ‘ã‚¹

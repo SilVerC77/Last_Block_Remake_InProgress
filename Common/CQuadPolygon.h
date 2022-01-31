@@ -1,8 +1,8 @@
-/**
+ï»¿/**
 * @file CQuadPolygon.h
-* @brief ƒ|ƒŠƒSƒ“EƒNƒ‰ƒX
-* @author DŒË@Šì—²
-* @date “ú•ti2018.07.27j
+* @brief ãƒãƒªã‚´ãƒ³ãƒ»ã‚¯ãƒ©ã‚¹
+* @author ç¹”æˆ¸ã€€å–œéš†
+* @date æ—¥ä»˜ï¼ˆ2018.07.27ï¼‰
 */
 #pragma once
 
@@ -10,52 +10,52 @@
 #include "Common3DType.h"
 
 /*! @class CQuadPolygon
-@brief  ƒ|ƒŠƒSƒ“EƒNƒ‰ƒX
+@brief  ãƒãƒªã‚´ãƒ³ãƒ»ã‚¯ãƒ©ã‚¹
 */
 
 class CQuadPolygon
 {
 protected:
 	// Direct3D
-	ID3D11DeviceContext * m_pDeviceContext = NULL;	//!< ƒfƒoƒCƒXEƒRƒ“ƒeƒLƒXƒg
-	D3D11_VIEWPORT			m_viewPort[1];			//!< ƒrƒ…[ƒ|[ƒg
-		ID3DBlob *					m_pBlobVS = NULL;	//!< ƒuƒƒu‚Æ‚ÍƒVƒF[ƒ_[‚Ì‰ò‚İ‚½‚¢‚È‚à‚Ì
-	ID3D11VertexShader*	m_pVertexShader = NULL;		//!< effect‚Å‚Í‚È‚­AŒÂ•Ê‚É’¸“_ƒVƒF[ƒ_
-	ID3D11InputLayout*		m_pInputLayout = NULL;	//!< “ü—ÍƒŒƒCƒAƒEƒg
-	ID3D11PixelShader*	m_pPixelShader = NULL;		//!< effect‚Å‚Í‚È‚­AŒÂ•Ê‚ÉƒsƒNƒZƒ‹ƒVƒF[ƒ_[
-	std::vector<ID3D11Buffer*>	m_pVertexBuffer;				//!< ’¸“_ƒoƒbƒtƒ@
-	ID3D11Buffer*		m_pConstantBuffer = NULL;	//!< ƒAƒvƒŠ©¨ƒVƒF[ƒ_[‰Ë‚¯‹´ ƒfƒBƒtƒ…[ƒY‚ğ“n‚·‚½‚ß‚Ì’è”ƒoƒbƒtƒ@
+	ID3D11DeviceContext* m_pDeviceContext = NULL;	//!< ãƒ‡ãƒã‚¤ã‚¹ãƒ»ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
+	D3D11_VIEWPORT			m_viewPort[1];			//!< ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆ
+	ID3DBlob* m_pBlobVS = NULL;	//!< ãƒ–ãƒ­ãƒ–ã¨ã¯ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ã®å¡Šã¿ãŸã„ãªã‚‚ã®
+	ID3D11VertexShader* m_pVertexShader = NULL;		//!< effectã§ã¯ãªãã€å€‹åˆ¥ã«é ‚ç‚¹ã‚·ã‚§ãƒ¼ãƒ€
+	ID3D11InputLayout* m_pInputLayout = NULL;	//!< å…¥åŠ›ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
+	ID3D11PixelShader* m_pPixelShader = NULL;		//!< effectã§ã¯ãªãã€å€‹åˆ¥ã«ãƒ”ã‚¯ã‚»ãƒ«ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼
+	std::vector<ID3D11Buffer*>	m_pVertexBuffer;				//!< é ‚ç‚¹ãƒãƒƒãƒ•ã‚¡
+	ID3D11Buffer* m_pConstantBuffer = NULL;	//!< ã‚¢ãƒ—ãƒªâ†â†’ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼æ¶ã‘æ©‹ ãƒ‡ã‚£ãƒ•ãƒ¥ãƒ¼ã‚ºã‚’æ¸¡ã™ãŸã‚ã®å®šæ•°ãƒãƒƒãƒ•ã‚¡
 
-	// Direct3DˆÈŠO
-	XMFLOAT2					m_VBLeftTop		= { 0.0f, 0.0f };	//!< ’¸“_ƒoƒbƒtƒ@@‹éŒ`@¶ã
-	XMFLOAT2					m_VBRightBottom	= { 0.0f, 0.0f };	//!< ’¸“_ƒoƒbƒtƒ@@‹éŒ`@‰E‰º
-	XMFLOAT2					m_VBSize		= { 0.0f, 0.0f };	//!< ’¸“_ƒoƒbƒtƒ@@ƒTƒCƒY
-	XMFLOAT2					m_originalSize	= { 0.0f, 0.0f };	//!< Œ³‚ÌƒTƒCƒY
+	// Direct3Dä»¥å¤–
+	XMFLOAT2					m_VBLeftTop = { 0.0f, 0.0f };	//!< é ‚ç‚¹ãƒãƒƒãƒ•ã‚¡ã€€çŸ©å½¢ã€€å·¦ä¸Š
+	XMFLOAT2					m_VBRightBottom = { 0.0f, 0.0f };	//!< é ‚ç‚¹ãƒãƒƒãƒ•ã‚¡ã€€çŸ©å½¢ã€€å³ä¸‹
+	XMFLOAT2					m_VBSize = { 0.0f, 0.0f };	//!< é ‚ç‚¹ãƒãƒƒãƒ•ã‚¡ã€€ã‚µã‚¤ã‚º
+	XMFLOAT2					m_originalSize = { 0.0f, 0.0f };	//!< å…ƒã®ã‚µã‚¤ã‚º
 
-	Position<XMFLOAT4>	m_position;						//!< p¨<ˆÊ’u Œü‚« ƒXƒP[ƒ‹ >
-	FLOAT				m_forwardDirectionOfBullet;		//!< ’eŠÛ‚Ì”­Ë‚Ìis•ûŒü
-	XMFLOAT4X4		m_mFinalWorld;		//!< ÅI“I‚Èƒ[ƒ‹ƒhs—ñi‚±‚Ìp¨‚ÅƒŒƒ“ƒ_ƒŠƒ“ƒO‚·‚éj
-	XMFLOAT4X4		m_matTran;			//!< •½sˆÚ“®s—ñ
-	XMFLOAT4X4		m_matPitch;			//!< ‰ñ“]s—ñ@ƒsƒbƒ`
-	XMFLOAT4X4		m_matYaw;			//!< ‰ñ“]s—ñ@ƒˆ[
-	XMFLOAT4X4		m_matRoll;			//!< ‰ñ“]s—ñ@ƒ[ƒ‹
-	XMFLOAT4X4		m_matScale;			//!< ƒXƒP[ƒ‹s—ñ
-	size_t			m_animIndex = 0;	//!< ƒAƒjƒ[ƒVƒ‡ƒ“‚ÌƒeƒNƒZƒ‹‚Ì”z—ñi0`3j
+	Position<XMFLOAT4>	m_position;						//!< å§¿å‹¢<ä½ç½® å‘ã ã‚¹ã‚±ãƒ¼ãƒ« >
+	FLOAT				m_forwardDirectionOfBullet;		//!< å¼¾ä¸¸ã®ç™ºå°„æ™‚ã®é€²è¡Œæ–¹å‘
+	XMFLOAT4X4		m_mFinalWorld;		//!< æœ€çµ‚çš„ãªãƒ¯ãƒ¼ãƒ«ãƒ‰è¡Œåˆ—ï¼ˆã“ã®å§¿å‹¢ã§ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã™ã‚‹ï¼‰
+	XMFLOAT4X4		m_matTran;			//!< å¹³è¡Œç§»å‹•è¡Œåˆ—
+	XMFLOAT4X4		m_matPitch;			//!< å›è»¢è¡Œåˆ—ã€€ãƒ”ãƒƒãƒ
+	XMFLOAT4X4		m_matYaw;			//!< å›è»¢è¡Œåˆ—ã€€ãƒ¨ãƒ¼
+	XMFLOAT4X4		m_matRoll;			//!< å›è»¢è¡Œåˆ—ã€€ãƒ­ãƒ¼ãƒ«
+	XMFLOAT4X4		m_matScale;			//!< ã‚¹ã‚±ãƒ¼ãƒ«è¡Œåˆ—
+	size_t			m_animIndex = 0;	//!< ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒ†ã‚¯ã‚»ãƒ«ã®é…åˆ—ï¼ˆ0ï½3ï¼‰
 	int				m_animBeginIndex = 0;
 	int				m_animEndIndex = 0;
 
-	ID3D11BlendState* m_pDefaultBlendState = NULL;	//!< ƒuƒŒƒ“ƒhEƒXƒe[ƒg
-	ID3D11BlendState* m_pAlphaBlendState = NULL;	//!< ƒuƒŒƒ“ƒhEƒXƒe[ƒg
+	ID3D11BlendState* m_pDefaultBlendState = NULL;	//!< ãƒ–ãƒ¬ãƒ³ãƒ‰ãƒ»ã‚¹ãƒ†ãƒ¼ãƒˆ
+	ID3D11BlendState* m_pAlphaBlendState = NULL;	//!< ãƒ–ãƒ¬ãƒ³ãƒ‰ãƒ»ã‚¹ãƒ†ãƒ¼ãƒˆ
 
 
 
-	BOOL			m_active = TRUE;	//!< Šˆ“®’†
-	eObjectState	m_state = eWaiting;	//!< ˆÚ“® / ‘Ò‹@
-	FLOAT			m_moveQuantity;		//!< ˆÚ“®—Ê
+	BOOL			m_active = TRUE;	//!< æ´»å‹•ä¸­
+	eObjectState	m_state = eWaiting;	//!< ç§»å‹• / å¾…æ©Ÿ
+	FLOAT			m_moveQuantity;		//!< ç§»å‹•é‡
 	BOOL			m_damage = FALSE;
 	std::vector<QuadrangleTexel> m_texels;
 
-	// init ‚ÌÚ×
+	// init ã®è©³ç´°
 	void createVertexShader(ID3D11Device* pDevice_, LPCWSTR shaderName_);
 	void createVertexInputLayout(ID3D11Device* pDevice_);
 	void createPixelShader(ID3D11Device* pDevice_, LPCWSTR shaderName_);
@@ -64,25 +64,25 @@ protected:
 
 public:
 	static std::unique_ptr<CQuadPolygon> create(
-		ID3D11Device*			pDevice_,		//!< ƒfƒoƒCƒX
-		ID3D11DeviceContext*	pDeviceContext_,//!< ƒfƒoƒCƒXƒRƒ“ƒeƒLƒXƒg
-		D3D11_VIEWPORT			viewPort_[],	//!< ƒrƒ…[ƒ|[ƒg
-		LPCWSTR					shaderName_,	//!< ƒVƒF[ƒ_[ƒvƒƒOƒ‰ƒ€
-		XMFLOAT4				position_,		//!< ƒEƒBƒ“ƒhƒE‚ÌˆÊ’u
-		XMFLOAT2				size_,			//!< ƒXƒvƒ‰ƒCƒg‚Ì‘å‚«‚³
-		std::vector<QuadrangleTexel>	texels);		//!< ƒeƒNƒZƒ‹‚Ì”z—ñ
+		ID3D11Device* pDevice_,		//!< ãƒ‡ãƒã‚¤ã‚¹
+		ID3D11DeviceContext* pDeviceContext_,//!< ãƒ‡ãƒã‚¤ã‚¹ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
+		D3D11_VIEWPORT			viewPort_[],	//!< ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆ
+		LPCWSTR					shaderName_,	//!< ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
+		XMFLOAT4				position_,		//!< ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ä½ç½®
+		XMFLOAT2				size_,			//!< ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®å¤§ãã•
+		std::vector<QuadrangleTexel>	texels);		//!< ãƒ†ã‚¯ã‚»ãƒ«ã®é…åˆ—
 	CQuadPolygon();
 	~CQuadPolygon();
 	virtual void init(
-		ID3D11Device*			pDevice_,		//!< ƒfƒoƒCƒX
-		ID3D11DeviceContext*	pDeviceContext_,//!< ƒfƒoƒCƒXƒRƒ“ƒeƒLƒXƒg
-		D3D11_VIEWPORT			viewPort_[],	//!< ƒrƒ…[ƒ|[ƒg
-		LPCWSTR					shaderName_,	//!< ƒVƒF[ƒ_[ƒvƒƒOƒ‰ƒ€
-		XMFLOAT4				position_,		//!< ƒEƒBƒ“ƒhƒE‚ÌˆÊ’u
-		XMFLOAT2				size_,			//!< ƒXƒvƒ‰ƒCƒg‚Ì‘å‚«‚³
-		std::vector<QuadrangleTexel>	texels);		//!< ƒeƒNƒZƒ‹‚Ì”z—ñ
+		ID3D11Device* pDevice_,		//!< ãƒ‡ãƒã‚¤ã‚¹
+		ID3D11DeviceContext* pDeviceContext_,//!< ãƒ‡ãƒã‚¤ã‚¹ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
+		D3D11_VIEWPORT			viewPort_[],	//!< ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆ
+		LPCWSTR					shaderName_,	//!< ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
+		XMFLOAT4				position_,		//!< ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ä½ç½®
+		XMFLOAT2				size_,			//!< ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®å¤§ãã•
+		std::vector<QuadrangleTexel>	texels);		//!< ãƒ†ã‚¯ã‚»ãƒ«ã®é…åˆ—
 	/**
-	* ƒAƒNƒVƒ‡ƒ“
+	* ã‚¢ã‚¯ã‚·ãƒ§ãƒ³
 	*/
 	virtual void render(
 		XMFLOAT4X4 matView_,
@@ -99,7 +99,7 @@ public:
 	virtual BOOL collisionTop(CQuadPolygon* target_);
 	virtual BOOL collisionLeft(CQuadPolygon* target_);
 	virtual BOOL collisionRight(CQuadPolygon* target_);
-	virtual BOOL collisionOffset(CQuadPolygon* target_, XMFLOAT4 offset_ = { 0.0f, 0.0f, 0.0f, 0.0f }, XMFLOAT2 scale_ = {0.5f, 0.5f});
+	virtual BOOL collisionOffset(CQuadPolygon* target_, XMFLOAT4 offset_ = { 0.0f, 0.0f, 0.0f, 0.0f }, XMFLOAT2 scale_ = { 0.5f, 0.5f });
 	void computeMatrixFromPos(void);
 	void release();
 	void reset(XMFLOAT4 pos_) {
@@ -108,7 +108,7 @@ public:
 		setPos(pos_);
 	}
 	/**
-	* ó‘Ô
+	* çŠ¶æ…‹
 	*/
 	BOOL isInvalid()
 	{
@@ -118,11 +118,11 @@ public:
 		}
 		return FALSE;
 	}
-	BOOL outOfWindow(XMFLOAT3 cameraPos_ = {0.0f, 0.0f, 0.0f}) {
-		FLOAT left		= m_position.pos.x - m_VBSize.x / 2;
-		FLOAT right		= m_position.pos.x + m_VBSize.x / 2;
-		FLOAT top		= m_position.pos.y + m_VBSize.y / 2;
-		FLOAT bottom	= m_position.pos.y - m_VBSize.y / 2;
+	BOOL outOfWindow(XMFLOAT3 cameraPos_ = { 0.0f, 0.0f, 0.0f }) {
+		FLOAT left = m_position.pos.x - m_VBSize.x / 2;
+		FLOAT right = m_position.pos.x + m_VBSize.x / 2;
+		FLOAT top = m_position.pos.y + m_VBSize.y / 2;
+		FLOAT bottom = m_position.pos.y - m_VBSize.y / 2;
 
 		if ((left < WINDOW_LEFT + cameraPos_.x) || (right > WINDOW_RIGHT + cameraPos_.x) || (top > WINDOW_TOP + cameraPos_.y) || (bottom < WINDOW_BOTTOM + cameraPos_.y))
 		{
@@ -131,19 +131,19 @@ public:
 		return FALSE;
 	}
 	/**
-	* ƒvƒƒpƒeƒB@ƒAƒNƒZƒX
+	* ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€€ã‚¢ã‚¯ã‚»ã‚¹
 	*/
-	BOOL getActive(void)				{ return m_active; }
-	void setActive(BOOL cond_)			{ m_active = cond_; }
-	eObjectState getState()				{ return m_state; }
-	void setState(eObjectState state_)	{ m_state = state_; }
-	void setDamage(BOOL damage_)		{ m_damage = damage_; }
+	BOOL getActive(void) { return m_active; }
+	void setActive(BOOL cond_) { m_active = cond_; }
+	eObjectState getState() { return m_state; }
+	void setState(eObjectState state_) { m_state = state_; }
+	void setDamage(BOOL damage_) { m_damage = damage_; }
 	void setScale(XMFLOAT3 scale_) {
 		m_position.scale = scale_;
 		m_VBSize.x = m_originalSize.x * scale_.x;
 		m_VBSize.y = m_originalSize.y * scale_.y;
 	};
-	void setFlipX (BOOL isFlip)
+	void setFlipX(BOOL isFlip)
 	{
 		if (isFlip == false)
 		{
@@ -161,13 +161,13 @@ public:
 		m_position.scale.x = x;
 		m_position.scale.y = y;
 	}
-	XMFLOAT2 getSize()					{ return m_VBSize; }
-	XMFLOAT4 getPos()			{ return m_position.pos; }
-	void setPos(XMFLOAT4 pos_)	{ m_position.pos = pos_; }
-	void setPos(float x, float y, float z){ m_position.pos.x = x; m_position.pos.y = y; m_position.pos.z;}
-	void setPos (float x, float y) { m_position.pos.x = x; m_position.pos.y = y; }
+	XMFLOAT2 getSize() { return m_VBSize; }
+	XMFLOAT4 getPos() { return m_position.pos; }
+	void setPos(XMFLOAT4 pos_) { m_position.pos = pos_; }
+	void setPos(float x, float y, float z) { m_position.pos.x = x; m_position.pos.y = y; m_position.pos.z; }
+	void setPos(float x, float y) { m_position.pos.x = x; m_position.pos.y = y; }
 	void setPos(XMFLOAT2 pos) { m_position.pos.x = pos.x; m_position.pos.y = pos.y; }
-	void offsetPos(XMFLOAT4 pos_)	{ m_position.offset(pos_); }
+	void offsetPos(XMFLOAT4 pos_) { m_position.offset(pos_); }
 	void offsetPosInNormalRange(XMFLOAT4 pos_) {
 		offsetPos(pos_);
 		if (outOfWindow()) {
@@ -175,10 +175,10 @@ public:
 		}
 	};
 
-	void setAngle(XMFLOAT3 degrees_)	{ m_position.setAngle(degrees_); }//!<  yŒü‚«z
-	FLOAT getAngleZ()					{ return m_position.roll; }
-	void setAngleZ(FLOAT degree_)		{ m_position.roll = degree_; }
-	void addAngle(XMFLOAT3 alpha_)		{
+	void setAngle(XMFLOAT3 degrees_) { m_position.setAngle(degrees_); }//!<  ã€å‘ãã€‘
+	FLOAT getAngleZ() { return m_position.roll; }
+	void setAngleZ(FLOAT degree_) { m_position.roll = degree_; }
+	void addAngle(XMFLOAT3 alpha_) {
 		m_position.setAngle({
 			m_position.pitch += alpha_.x,
 			m_position.yaw += alpha_.y,
@@ -189,10 +189,10 @@ public:
 		m_position.roll += alpha_;
 		m_position.normalize();
 	};
-	FLOAT getForwardDirection()				{ return m_forwardDirectionOfBullet; }
-	void setForwardDirection(FLOAT value_)	{ m_forwardDirectionOfBullet = value_; }
+	FLOAT getForwardDirection() { return m_forwardDirectionOfBullet; }
+	void setForwardDirection(FLOAT value_) { m_forwardDirectionOfBullet = value_; }
 
-	size_t getNumOfVBs()				{ return m_pVertexBuffer.size(); }
-	void setMoveQuantity(FLOAT alpha_)	{ m_moveQuantity = alpha_; }
-	FLOAT getMoveQuantity(void)			{ return m_moveQuantity; }
+	size_t getNumOfVBs() { return m_pVertexBuffer.size(); }
+	void setMoveQuantity(FLOAT alpha_) { m_moveQuantity = alpha_; }
+	FLOAT getMoveQuantity(void) { return m_moveQuantity; }
 };

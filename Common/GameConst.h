@@ -1,82 +1,82 @@
-/**
+ï»¿/**
 * @file GameConst.h
-* @brief ’è”
+* @brief å®šæ•°
 *
-* @author DŒË@Šì—²
-* @date “ú•ti2017.02.14j
+* @author ç¹”æˆ¸ã€€å–œéš†
+* @date æ—¥ä»˜ï¼ˆ2017.02.14ï¼‰
 */
 #pragma once
 
 #include "stdafx.h"
 
 /**
- * ’è”
+ * å®šæ•°
  */
 #define APP_NAME L"GameProgramming1 2D Shooting"
 
- /*! @name ’è‹`ƒOƒ‹[ƒv ƒEƒCƒ“ƒhƒE
- ƒEƒCƒ“ƒhƒE‚ÉŠÖ‚·‚é’è”
+ /*! @name å®šç¾©ã‚°ãƒ«ãƒ¼ãƒ— ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦
+ ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã«é–¢ã™ã‚‹å®šæ•°
  */
  /* @{ */
-#define WINDOW_WIDTH	1920	//! ƒEƒBƒ“ƒhƒE•
-#define WINDOW_HEIGHT	1080	//! ƒEƒBƒ“ƒhƒE‚‚³
-const bool kFullScreen = FALSE;	//! ƒtƒ‹ƒXƒNƒŠ[ƒ“ƒ‚[ƒh
+#define WINDOW_WIDTH	1920	//! ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦å¹…
+#define WINDOW_HEIGHT	1080	//! ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦é«˜ã•
+const bool kFullScreen = FALSE;	//! ãƒ•ãƒ«ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ãƒ¢ãƒ¼ãƒ‰
 
 #define	ASPECT			((FLOAT)WINDOW_WIDTH / (FLOAT)WINDOW_HEIGHT)
 #define WINDOW_LEFT		(-WINDOW_WIDTH / 2)
 #define WINDOW_RIGHT	( WINDOW_WIDTH / 2)
 #define WINDOW_TOP		( WINDOW_HEIGHT / 2)
 #define WINDOW_BOTTOM	(-WINDOW_HEIGHT / 2)
-const XMFLOAT2 kSpriteScreenkSize	= { WINDOW_WIDTH, WINDOW_HEIGHT - 4 };
-const FLOAT k1_1	= 1.0f;
-const FLOAT k1_2	= 1.0f /  2;
-const FLOAT k1_3	= 1.0f /  3;
-const FLOAT k1_4	= 1.0f /  4;
-const FLOAT k1_5	= 1.0f /  5;
-const FLOAT k1_8	= 1.0f /  8;
-const FLOAT k1_26	= 1.0f / 26;
+const XMFLOAT2 kSpriteScreenkSize = { WINDOW_WIDTH, WINDOW_HEIGHT - 4 };
+const FLOAT k1_1 = 1.0f;
+const FLOAT k1_2 = 1.0f / 2;
+const FLOAT k1_3 = 1.0f / 3;
+const FLOAT k1_4 = 1.0f / 4;
+const FLOAT k1_5 = 1.0f / 5;
+const FLOAT k1_8 = 1.0f / 8;
+const FLOAT k1_26 = 1.0f / 26;
 /* @} */
 
-/*! @name ’è‹`ƒOƒ‹[ƒv Shooting
-ƒVƒ…[ƒeƒBƒ“ƒO‚Åg—p‚·‚é’è”
+/*! @name å®šç¾©ã‚°ãƒ«ãƒ¼ãƒ— Shooting
+ã‚·ãƒ¥ãƒ¼ãƒ†ã‚£ãƒ³ã‚°ã§ä½¿ç”¨ã™ã‚‹å®šæ•°
 */
 /* @{ */
-const int kMaxHP					= 7;
-const XMFLOAT2 kCharSpriteSize	= { 48.0f , 48.0f };
-const XMFLOAT2 kBulletSize		= { 16.0f , 16.0f };
-const XMFLOAT2 kExplosionSize	= { 80.0f , 80.0f };
-const FLOAT kBullet_Left	= -7.0f;
-const FLOAT kBullet_Right	= -7.0f + 12.0f;
-const FLOAT kEnemyQuantity			= 0.25f * 1.5;
-const FLOAT kPlayerQuantity			= 15.25f;
-const int kTexelIntervalFrames			= 15;
-const int kIntervalShot				= 64*4;
-const int kExplosionTexelPauseFrames	= 8;
-const int kTexelPlayerBulletIndex	= 0;
-const int kTexelEnemyBulletIndex	= 1;
+const int kMaxHP = 7;
+const XMFLOAT2 kCharSpriteSize = { 48.0f , 48.0f };
+const XMFLOAT2 kBulletSize = { 16.0f , 16.0f };
+const XMFLOAT2 kExplosionSize = { 80.0f , 80.0f };
+const FLOAT kBullet_Left = -7.0f;
+const FLOAT kBullet_Right = -7.0f + 12.0f;
+const FLOAT kEnemyQuantity = 0.25f * 1.5;
+const FLOAT kPlayerQuantity = 15.25f;
+const int kTexelIntervalFrames = 15;
+const int kIntervalShot = 64 * 4;
+const int kExplosionTexelPauseFrames = 8;
+const int kTexelPlayerBulletIndex = 0;
+const int kTexelEnemyBulletIndex = 1;
 /* @} */
 
-/*! @name ’è‹`ƒOƒ‹[ƒv DotEat
-ƒhƒbƒgƒC[ƒg‚Åg—p‚·‚é’è”
+/*! @name å®šç¾©ã‚°ãƒ«ãƒ¼ãƒ— DotEat
+ãƒ‰ãƒƒãƒˆã‚¤ãƒ¼ãƒˆã§ä½¿ç”¨ã™ã‚‹å®šæ•°
 */
 /* @{ */
-const int kMapVertical = 9;		//! ƒ}ƒbƒv‚Ìs”
-const int kMapHorizontal = 12;	//! ƒ}ƒbƒv‚Ì—ñ”
-const int kChipWidth = 32;		//! ƒ}ƒbƒvƒ`ƒbƒv
+const int kMapVertical = 9;		//! ãƒãƒƒãƒ—ã®è¡Œæ•°
+const int kMapHorizontal = 12;	//! ãƒãƒƒãƒ—ã®åˆ—æ•°
+const int kChipWidth = 32;		//! ãƒãƒƒãƒ—ãƒãƒƒãƒ—
 const int kChipHeight = 32;
-const XMFLOAT2 kBlockSize	= { 32.0f , 32.0f };
-const XMFLOAT2 kDotSize		= { 16.0f , 16.0f };
-const XMFLOAT2 kPlayerSize	= { 32.0f , 32.0f };
-const XMFLOAT2 kEnemySize	= { 32.0f , 32.0f };
+const XMFLOAT2 kBlockSize = { 32.0f , 32.0f };
+const XMFLOAT2 kDotSize = { 16.0f , 16.0f };
+const XMFLOAT2 kPlayerSize = { 32.0f , 32.0f };
+const XMFLOAT2 kEnemySize = { 32.0f , 32.0f };
 /* @} */
 
 /**
- * Œ^
+ * å‹
  */
 
  /**
  * @enum eGameStatus
- * ƒQ[ƒ€‚Ìisó‹µ
+ * ã‚²ãƒ¼ãƒ ã®é€²è¡ŒçŠ¶æ³
  */
 typedef enum eGameStatus
 {
@@ -90,7 +90,7 @@ typedef enum eGameStatus
 
 /**
 * @enum ePhase
-* ƒtƒ[‚Ìisó‘Ô
+* ãƒ•ãƒ­ãƒ¼ã®é€²è¡ŒçŠ¶æ…‹
 */
 typedef enum ePhase
 {
@@ -101,7 +101,7 @@ typedef enum ePhase
 
 /**
 * @enum eScrollMode
-* ƒXƒNƒ[ƒ‹•ûŒü
+* ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«æ–¹å‘
 */
 typedef enum eScrollMode
 {
@@ -111,7 +111,7 @@ typedef enum eScrollMode
 
 /**
 * @enum eObjectState
-* ƒLƒƒƒ‰ƒNƒ^‚Ìó‘Ô
+* ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã®çŠ¶æ…‹
 */
 typedef enum eObjectState
 {

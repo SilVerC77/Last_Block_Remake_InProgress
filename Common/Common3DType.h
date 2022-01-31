@@ -1,8 +1,8 @@
-/**
+ï»¿/**
  * @file Common3DType.h
- * @brief DirectX11‚ğƒx[ƒX‚É‚µ‚½3D‚ÌŠî–{“I‚È\‘¢
- * @author DŒË@Šì—²
- * @date “ú•ti2017.02.14j
+ * @brief DirectX11ã‚’ãƒ™ãƒ¼ã‚¹ã«ã—ãŸ3Dã®åŸºæœ¬çš„ãªæ§‹é€ 
+ * @author ç¹”æˆ¸ã€€å–œéš†
+ * @date æ—¥ä»˜ï¼ˆ2017.02.14ï¼‰
  */
 #pragma once
 
@@ -10,19 +10,19 @@
 #include "GameConst.h"
 #include "GamePGUtil.h"
 
-/**
- * ƒeƒNƒZƒ‹
- */
+ /**
+  * ãƒ†ã‚¯ã‚»ãƒ«
+  */
 
-/*! @struct QuadrangleTexel
-@brief  lŠpŒ`‚ÌƒeƒNƒZƒ‹
-*/
+  /*! @struct QuadrangleTexel
+  @brief  å››è§’å½¢ã®ãƒ†ã‚¯ã‚»ãƒ«
+  */
 typedef struct QuadrangleTexel {
-	XMFLOAT2 v1 = { 0, 1 };	//!< ’¸“_1
-	XMFLOAT2 v2 = { 0, 0 };	//!< ’¸“_2
-	XMFLOAT2 v3 = { 1, 1 };	//!< ’¸“_3
-	XMFLOAT2 v4 = { 1, 0 };	//!< ’¸“_4
-	QuadrangleTexel(XMFLOAT2 v1_, XMFLOAT2 v2_, XMFLOAT2 v3_, XMFLOAT2 v4_){
+	XMFLOAT2 v1 = { 0, 1 };	//!< é ‚ç‚¹1
+	XMFLOAT2 v2 = { 0, 0 };	//!< é ‚ç‚¹2
+	XMFLOAT2 v3 = { 1, 1 };	//!< é ‚ç‚¹3
+	XMFLOAT2 v4 = { 1, 0 };	//!< é ‚ç‚¹4
+	QuadrangleTexel(XMFLOAT2 v1_, XMFLOAT2 v2_, XMFLOAT2 v3_, XMFLOAT2 v4_) {
 		v1 = v1_;
 		v2 = v2_;
 		v3 = v3_;
@@ -31,78 +31,78 @@ typedef struct QuadrangleTexel {
 }QuadrangleTexel;
 
 /**
- * ’¸“_‚Ì\‘¢‘Ì XMFLOAT3 XMFLOAT4
+ * é ‚ç‚¹ã®æ§‹é€ ä½“ XMFLOAT3 XMFLOAT4
  */
-/*! @struct VertexWithTex
-@brief  ’¸“_ <3D/4DˆÊ’u ƒeƒNƒZƒ‹>
-*/
+ /*! @struct VertexWithTex
+ @brief  é ‚ç‚¹ <3D/4Dä½ç½® ãƒ†ã‚¯ã‚»ãƒ«>
+ */
 template < typename XMFLOAT_X >
 struct VertexWithTex
 {
-	XMFLOAT_X	pos;	//!< ˆÊ’u
-	XMFLOAT2	texel;	//!< ƒeƒNƒZƒ‹
+	XMFLOAT_X	pos;	//!< ä½ç½®
+	XMFLOAT2	texel;	//!< ãƒ†ã‚¯ã‚»ãƒ«
 };
 
 /*! @struct VertexWithNormal
-@brief  ’¸“_ <3D/4DˆÊ’u –@ü>
+@brief  é ‚ç‚¹ <3D/4Dä½ç½® æ³•ç·š>
 */
 template < typename XMFLOAT_X >
 struct VertexWithNormal
 {
-	XMFLOAT_X	pos;	//!< ˆÊ’u
-	XMFLOAT_X	normal;	//!< –@ü@ƒVƒF[ƒfƒBƒ“ƒOi‰A‰eŒvZj‚É‚Í–@ü‚Í•K{
+	XMFLOAT_X	pos;	//!< ä½ç½®
+	XMFLOAT_X	normal;	//!< æ³•ç·šã€€ã‚·ã‚§ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ï¼ˆé™°å½±è¨ˆç®—ï¼‰ã«ã¯æ³•ç·šã¯å¿…é ˆ
 };
 
 /*! @struct Vertex3DWithNormalTexel
-@brief  ’¸“_ <3DˆÊ’u –@ü ƒeƒNƒZƒ‹>
+@brief  é ‚ç‚¹ <3Dä½ç½® æ³•ç·š ãƒ†ã‚¯ã‚»ãƒ«>
 */
 template < typename XMFLOAT_X >
 struct VertexWithNormalTex
 {
-	XMFLOAT_X	pos;	//!< ˆÊ’u
-	XMFLOAT_X	normal;	//!< –@ü@ƒVƒF[ƒfƒBƒ“ƒOi‰A‰eŒvZj‚É‚Í–@ü‚Í•K{
-	XMFLOAT2	texel;	//!< ƒeƒNƒZƒ‹
+	XMFLOAT_X	pos;	//!< ä½ç½®
+	XMFLOAT_X	normal;	//!< æ³•ç·šã€€ã‚·ã‚§ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ï¼ˆé™°å½±è¨ˆç®—ï¼‰ã«ã¯æ³•ç·šã¯å¿…é ˆ
+	XMFLOAT2	texel;	//!< ãƒ†ã‚¯ã‚»ãƒ«
 };
 
 /*! @struct VertexBone
-@brief  ’¸“_‚Ì\‘¢‘Ì
+@brief  é ‚ç‚¹ã®æ§‹é€ ä½“
 */
 template < typename XMFLOAT_X >
 struct VertexBone {
-	XMFLOAT_X	pos;			//!< ’¸“_ˆÊ’u
-	XMFLOAT_X	normal;			//!< ’¸“_–@ü
-	XMFLOAT2	texel;			//!< ƒeƒNƒZƒ‹	
-	UINT		boneIndex[4];	//!< ƒ{[ƒ“@”Ô†
-	FLOAT		boneWeight[4];	//!< ƒ{[ƒ“@d‚İ
+	XMFLOAT_X	pos;			//!< é ‚ç‚¹ä½ç½®
+	XMFLOAT_X	normal;			//!< é ‚ç‚¹æ³•ç·š
+	XMFLOAT2	texel;			//!< ãƒ†ã‚¯ã‚»ãƒ«	
+	UINT		boneIndex[4];	//!< ãƒœãƒ¼ãƒ³ã€€ç•ªå·
+	FLOAT		boneWeight[4];	//!< ãƒœãƒ¼ãƒ³ã€€é‡ã¿
 	VertexBone()
 	{
-//		ZeroMemory (this, sizeof (Vertex3DBone));
+		//		ZeroMemory (this, sizeof (Vertex3DBone));
 	}
 };
 
 
 /**
- * p¨‚Ì\‘¢‘Ì XMFLOAT3 XMFLOAT4
+ * å§¿å‹¢ã®æ§‹é€ ä½“ XMFLOAT3 XMFLOAT4
  */
-/*! @struct Position
-@brief  p¨
-*/
+ /*! @struct Position
+ @brief  å§¿å‹¢
+ */
 template < typename XMFLOAT_X >
 struct Position
 {
-	XMFLOAT_X	pos;	//!< ˆÊ’u		
-	FLOAT		pitch;	//!< ƒsƒbƒ`	<X>
-	FLOAT		yaw;	//!< ƒˆ[	<Y>
-	FLOAT		roll;	//!< ƒ[ƒ‹	<Z>
-	XMFLOAT3	scale;	//!< ƒXƒP[ƒ‹
+	XMFLOAT_X	pos;	//!< ä½ç½®		
+	FLOAT		pitch;	//!< ãƒ”ãƒƒãƒ	<X>
+	FLOAT		yaw;	//!< ãƒ¨ãƒ¼	<Y>
+	FLOAT		roll;	//!< ãƒ­ãƒ¼ãƒ«	<Z>
+	XMFLOAT3	scale;	//!< ã‚¹ã‚±ãƒ¼ãƒ«
 
 	void setup(XMFLOAT_X pos_, FLOAT pitchDegree_, FLOAT yawDegree_, FLOAT rollDegree_, XMFLOAT3 scale_)
 	{
-		pos		= pos_;
-		pitch	= pitchDegree_;
-		yaw		= yawDegree_;
-		roll	= rollDegree_;
-		scale	= scale_;
+		pos = pos_;
+		pitch = pitchDegree_;
+		yaw = yawDegree_;
+		roll = rollDegree_;
+		scale = scale_;
 	}
 	void offset(XMFLOAT4 alpha_)
 	{
@@ -125,132 +125,132 @@ struct Position
 	}
 
 	void setAngle(XMFLOAT3 degrees_) {
-		pitch	= degrees_.x;
-		yaw		= degrees_.y;
-		roll	= degrees_.z;
-		normalize();		//!< ³‹K‰»
+		pitch = degrees_.x;
+		yaw = degrees_.y;
+		roll = degrees_.z;
+		normalize();		//!< æ­£è¦åŒ–
 	}
 };
 
 /**
- * ƒVƒF[ƒ_[‚É“n‚·’l
+ * ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ã«æ¸¡ã™å€¤
  */
 
-/*! @struct ShaderGlobal_0
-@brief  ƒVƒF[ƒ_[‚É“n‚·’l
-*/
+ /*! @struct ShaderGlobal_0
+ @brief  ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ã«æ¸¡ã™å€¤
+ */
 typedef struct ShaderGlobal_0 {
-	XMFLOAT4X4	matWVP;		//!< ƒ[ƒ‹ƒh‚©‚çË‰e‚Ü‚Å‚Ì•ÏŠ·s—ñ
-	XMFLOAT4	diffuse;	//!< ƒfƒBƒtƒ…[ƒYF				
+	XMFLOAT4X4	matWVP;		//!< ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‹ã‚‰å°„å½±ã¾ã§ã®å¤‰æ›è¡Œåˆ—
+	XMFLOAT4	diffuse;	//!< ãƒ‡ã‚£ãƒ•ãƒ¥ãƒ¼ã‚ºè‰²				
 }ShaderGlobal_0;
 
 /*! @struct ShaderGlobal_1
-@brief  ƒVƒF[ƒ_[EƒOƒ[ƒoƒ‹
+@brief  ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ãƒ»ã‚°ãƒ­ãƒ¼ãƒãƒ«
 */
 typedef struct ShaderGlobal_1 {
-	XMFLOAT4X4	matWorld;	//!< ƒ[ƒ‹ƒhs—ñ					
-	XMFLOAT4X4	matWVP;		//!< ƒ[ƒ‹ƒh‚©‚çË‰e‚Ü‚Å‚Ì•ÏŠ·s—ñ
-	XMFLOAT4	lightDir;	//!< ƒ‰ƒCƒg•ûŒü					
-	XMFLOAT4	diffuse;	//!< ƒfƒBƒtƒ…[ƒYF				
+	XMFLOAT4X4	matWorld;	//!< ãƒ¯ãƒ¼ãƒ«ãƒ‰è¡Œåˆ—					
+	XMFLOAT4X4	matWVP;		//!< ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‹ã‚‰å°„å½±ã¾ã§ã®å¤‰æ›è¡Œåˆ—
+	XMFLOAT4	lightDir;	//!< ãƒ©ã‚¤ãƒˆæ–¹å‘					
+	XMFLOAT4	diffuse;	//!< ãƒ‡ã‚£ãƒ•ãƒ¥ãƒ¼ã‚ºè‰²				
 }ShaderGlobal_1;
 
 /*! @struct ShaderGlobal_2
-@brief  ƒVƒF[ƒ_[‚É“n‚·’l
+@brief  ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ã«æ¸¡ã™å€¤
 */
 typedef struct ShaderGlobal_2 {
-	XMFLOAT4X4	matWorld;		//!< ƒ[ƒ‹ƒhs—ñ					
-	XMFLOAT4X4	matWVP;			//!< ƒ[ƒ‹ƒh‚©‚çË‰e‚Ü‚Å‚Ì•ÏŠ·s—ñ
-	XMFLOAT4	lightDir;		//!< ƒ‰ƒCƒg•ûŒü					
-	XMFLOAT4	diffuse;		//!< ƒfƒBƒtƒ…[ƒYF				
-	XMVECTORF32	eye;			//!< ƒJƒƒ‰ˆÊ’ui‹“_ˆÊ’uj		
+	XMFLOAT4X4	matWorld;		//!< ãƒ¯ãƒ¼ãƒ«ãƒ‰è¡Œåˆ—					
+	XMFLOAT4X4	matWVP;			//!< ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‹ã‚‰å°„å½±ã¾ã§ã®å¤‰æ›è¡Œåˆ—
+	XMFLOAT4	lightDir;		//!< ãƒ©ã‚¤ãƒˆæ–¹å‘					
+	XMFLOAT4	diffuse;		//!< ãƒ‡ã‚£ãƒ•ãƒ¥ãƒ¼ã‚ºè‰²				
+	XMVECTORF32	eye;			//!< ã‚«ãƒ¡ãƒ©ä½ç½®ï¼ˆè¦–ç‚¹ä½ç½®ï¼‰		
 }ShaderGlobal_2;
 
 /*! @struct ShaderGlobal_3
-@brief  ƒVƒF[ƒ_[EƒOƒ[ƒoƒ‹
+@brief  ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ãƒ»ã‚°ãƒ­ãƒ¼ãƒãƒ«
 */
 typedef struct ShaderGlobal_3 {
-	XMFLOAT4X4	matWorld;	//!< ƒ[ƒ‹ƒhs—ñ					
-	XMFLOAT4X4	matWVP;		//!< ƒ[ƒ‹ƒh‚©‚çË‰e‚Ü‚Å‚Ì•ÏŠ·s—ñ
-	XMFLOAT4	ambient;	//!< ƒAƒ“ƒrƒGƒ“ƒgŒõ				
-	XMFLOAT4	diffuse;	//!< ƒfƒBƒtƒ…[ƒYF				
-	XMFLOAT4	specular;	//!< ‹¾–Ê”½Ë					
+	XMFLOAT4X4	matWorld;	//!< ãƒ¯ãƒ¼ãƒ«ãƒ‰è¡Œåˆ—					
+	XMFLOAT4X4	matWVP;		//!< ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‹ã‚‰å°„å½±ã¾ã§ã®å¤‰æ›è¡Œåˆ—
+	XMFLOAT4	ambient;	//!< ã‚¢ãƒ³ãƒ“ã‚¨ãƒ³ãƒˆå…‰				
+	XMFLOAT4	diffuse;	//!< ãƒ‡ã‚£ãƒ•ãƒ¥ãƒ¼ã‚ºè‰²				
+	XMFLOAT4	specular;	//!< é¡é¢åå°„					
 } ShaderGlobal_3;
 
 /*! @struct ShaderGlobal_Bones
-@brief  ƒVƒF[ƒ_[‚É“n‚·ƒ{[ƒ“s—ñ”z—ñ
+@brief  ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ã«æ¸¡ã™ãƒœãƒ¼ãƒ³è¡Œåˆ—é…åˆ—
 */
 typedef struct ShaderGlobal_Bones {
 	XMFLOAT4X4 matBone[256];
-	ShaderGlobal_Bones ()
+	ShaderGlobal_Bones()
 	{
 		for (int i = 0; i < 256; i++)
 		{
-			XMStoreFloat4x4 (&matBone[i], XMMatrixIdentity ());
+			XMStoreFloat4x4(&matBone[i], XMMatrixIdentity());
 		}
 	}
 }ShaderGlobalBones;
 
 /**
- * ƒVƒF[ƒ_[‚É“n‚·’l@’è”ƒoƒbƒtƒ@
+ * ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ã«æ¸¡ã™å€¤ã€€å®šæ•°ãƒãƒƒãƒ•ã‚¡
  */
 
-/*! @struct ShaderConstantBufferLE
-@brief  ’è”ƒoƒbƒtƒ@(ƒ‰ƒCƒg•ûŒü‚ÆƒJƒƒ‰ˆÊ’u)
-*/
-typedef struct ShaderConstantBufferLE  {
-	XMFLOAT4 lightDir;	//!< ƒ‰ƒCƒg•ûŒü
-	XMFLOAT4 eye;		//!< ƒJƒƒ‰ˆÊ’u
+ /*! @struct ShaderConstantBufferLE
+ @brief  å®šæ•°ãƒãƒƒãƒ•ã‚¡(ãƒ©ã‚¤ãƒˆæ–¹å‘ã¨ã‚«ãƒ¡ãƒ©ä½ç½®)
+ */
+typedef struct ShaderConstantBufferLE {
+	XMFLOAT4 lightDir;	//!< ãƒ©ã‚¤ãƒˆæ–¹å‘
+	XMFLOAT4 eye;		//!< ã‚«ãƒ¡ãƒ©ä½ç½®
 } ShaderConstantBufferLE;
 
 /**
  * FBX
  */
 
-/*! @struct Material
-@brief  ƒ}ƒeƒŠƒAƒ‹
-*/
+ /*! @struct Material
+ @brief  ãƒãƒ†ãƒªã‚¢ãƒ«
+ */
 typedef struct Material {
-	XMFLOAT4 ambient;				//!< ƒAƒ“ƒrƒGƒ“ƒg	
-	XMFLOAT4 diffuse;				//!< ƒfƒBƒtƒ…[ƒY	
-	XMFLOAT4 specular;				//!< ƒXƒyƒLƒ…ƒ‰[	
-	CHAR textureName[100];			//!< ƒeƒNƒXƒ`ƒƒ[ƒtƒ@ƒCƒ‹–¼		
-	ID3D11ShaderResourceView* pTexture;	//!< ƒeƒNƒXƒ`ƒƒ[ƒtƒ@ƒCƒ‹–¼		
-	DWORD numOfFace;					//!< ‚»‚Ìƒ}ƒeƒŠƒAƒ‹‚Å‚ ‚éƒ|ƒŠƒSƒ“”
-	Material ()
+	XMFLOAT4 ambient;				//!< ã‚¢ãƒ³ãƒ“ã‚¨ãƒ³ãƒˆ	
+	XMFLOAT4 diffuse;				//!< ãƒ‡ã‚£ãƒ•ãƒ¥ãƒ¼ã‚º	
+	XMFLOAT4 specular;				//!< ã‚¹ãƒšã‚­ãƒ¥ãƒ©ãƒ¼	
+	CHAR textureName[100];			//!< ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ãƒ•ã‚¡ã‚¤ãƒ«å		
+	ID3D11ShaderResourceView* pTexture;	//!< ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ãƒ•ã‚¡ã‚¤ãƒ«å		
+	DWORD numOfFace;					//!< ãã®ãƒãƒ†ãƒªã‚¢ãƒ«ã§ã‚ã‚‹ãƒãƒªã‚´ãƒ³æ•°
+	Material()
 	{
 		ZeroMemory(this, sizeof(Material));
 	}
-	~Material ()
+	~Material()
 	{
 		SAFE_RELEASE(pTexture);
 	}
 } Material;
 
 /**
- * ƒ{[ƒ“
+ * ãƒœãƒ¼ãƒ³
  */
 
-/*! @struct Bone
-@brief  ƒ{[ƒ“\‘¢‘Ì
-*/
+ /*! @struct Bone
+ @brief  ãƒœãƒ¼ãƒ³æ§‹é€ ä½“
+ */
 typedef struct Bone {
-	XMFLOAT4X4 matBindPose;	//!< ‰Šúƒ|[ƒYi‚¸‚Á‚Æ•Ï‚í‚ç‚È‚¢j
-	XMFLOAT4X4 matNewPose;	//!< Œ»İ‚Ìƒ|[ƒYi‚»‚Ì“s“x•Ï‚í‚éj
-	Bone ()
+	XMFLOAT4X4 matBindPose;	//!< åˆæœŸãƒãƒ¼ã‚ºï¼ˆãšã£ã¨å¤‰ã‚ã‚‰ãªã„ï¼‰
+	XMFLOAT4X4 matNewPose;	//!< ç¾åœ¨ã®ãƒãƒ¼ã‚ºï¼ˆãã®éƒ½åº¦å¤‰ã‚ã‚‹ï¼‰
+	Bone()
 	{
-		ZeroMemory (this, sizeof (Bone));
+		ZeroMemory(this, sizeof(Bone));
 	}
 }Bone;
 
 /*! @struct PolyTable
-@brief  ‚P’¸“_‚Ì‹¤—L@Å‘å20ƒ|ƒŠƒSƒ“‚Ü‚Å
+@brief  ï¼‘é ‚ç‚¹ã®å…±æœ‰ã€€æœ€å¤§20ãƒãƒªã‚´ãƒ³ã¾ã§
 */
 typedef struct PolyTable {
-	int polyIndex[20];	//!< ƒ|ƒŠƒSƒ“”Ô†			
-	int index123[20];	//!< 3‚Â‚Ì’¸“_‚Ì‚¤‚¿A‰½”Ô–Ú‚©
-	int numOfRef;		//!< ‘®‚µ‚Ä‚¢‚éƒ|ƒŠƒSƒ“”	
-	PolyTable ()
+	int polyIndex[20];	//!< ãƒãƒªã‚´ãƒ³ç•ªå·			
+	int index123[20];	//!< 3ã¤ã®é ‚ç‚¹ã®ã†ã¡ã€ä½•ç•ªç›®ã‹
+	int numOfRef;		//!< å±ã—ã¦ã„ã‚‹ãƒãƒªã‚´ãƒ³æ•°	
+	PolyTable()
 	{
-		ZeroMemory (this, sizeof (PolyTable));
+		ZeroMemory(this, sizeof(PolyTable));
 	}
 }PolyTable;

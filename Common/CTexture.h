@@ -1,8 +1,8 @@
-/**
+ï»¿/**
 * @file CTexture.h
-* @brief ƒeƒNƒXƒ`ƒƒEƒNƒ‰ƒX
-* @author DŒË@Šì—²
-* @date “ú•ti2018.07.27j
+* @brief ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ»ã‚¯ãƒ©ã‚¹
+* @author ç¹”æˆ¸ã€€å–œéš†
+* @date æ—¥ä»˜ï¼ˆ2018.07.27ï¼‰
 */
 #pragma once
 
@@ -11,19 +11,19 @@
 class CTexture
 {
 private:
-	ID3D11SamplerState*			m_pSampleLinear = NULL;	//!< ƒeƒNƒXƒ`ƒƒ[‚ÌƒTƒ“ƒvƒ‰[
-	ID3D11ShaderResourceView*	m_pTexture		= NULL;	//!< ƒeƒNƒXƒ`ƒƒ[
+	ID3D11SamplerState* m_pSampleLinear = NULL;	//!< ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®ã‚µãƒ³ãƒ—ãƒ©ãƒ¼
+	ID3D11ShaderResourceView* m_pTexture = NULL;	//!< ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼
 
 public:
 	static std::unique_ptr<CTexture> create(
-		ID3D11Device*			pDevice_,		//!< ƒfƒoƒCƒX
-		LPCWSTR					textureName_);	//!< ‰æ‘œƒtƒ@ƒCƒ‹
+		ID3D11Device* pDevice_,		//!< ãƒ‡ãƒã‚¤ã‚¹
+		LPCWSTR					textureName_);	//!< ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«
 	void init(
-		ID3D11Device*			pDevice_,		//!< ƒfƒoƒCƒX
-		LPCWSTR					textureName_);	//!< ‰æ‘œƒtƒ@ƒCƒ‹
-	
+		ID3D11Device* pDevice_,		//!< ãƒ‡ãƒã‚¤ã‚¹
+		LPCWSTR					textureName_);	//!< ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«
+
 	CTexture();
 	~CTexture();
-	void setup(ID3D11DeviceContext*	pDeviceContext_);
+	void setup(ID3D11DeviceContext* pDeviceContext_);
 	void release();
 };

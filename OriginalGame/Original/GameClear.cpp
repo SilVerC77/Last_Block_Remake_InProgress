@@ -185,6 +185,10 @@ void COriginalGameApp::procClearBegin()
  */
 void COriginalGameApp::procClearMain()
 {
+	XMFLOAT2 pa;
+	XMFLOAT2 pb;
+	XMFLOAT2 pc = pa + pb;
+
 	++framecounter;
 	//if (framecounter >= 1800) {
 	//	framecounter = 1800;

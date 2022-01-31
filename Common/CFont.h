@@ -1,4 +1,4 @@
-
+ï»¿
 #pragma once 
 
 #include "stdafx.h"
@@ -7,30 +7,30 @@
 class CFont
 {
 private:
-	CPicture**	objects;
+	CPicture** objects;
 	int			digits;
 
 public:
 	static CFont* create(
-		ID3D11Device* pDevice_,		//!< ƒfƒoƒCƒX
-		ID3D11DeviceContext* pDeviceContext_,//!< ƒfƒoƒCƒXƒRƒ“ƒeƒLƒXƒg
-		D3D11_VIEWPORT			viewPort_[],	//!< ƒrƒ…[ƒ|[ƒg
-		LPCWSTR					shaderName_,	//!< ƒVƒF[ƒ_[ƒvƒƒOƒ‰ƒ€
-		LPCWSTR					textureName_,	//!< ‰æ‘œƒtƒ@ƒCƒ‹
-		XMFLOAT4				position_,		//!< ƒEƒBƒ“ƒhƒE‚ÌˆÊ’u
-		XMFLOAT2				size_,			//!< ƒXƒvƒ‰ƒCƒg‚Ì‘å‚«‚³
-		std::vector<QuadrangleTexel>	texels,	//!< ƒeƒNƒZƒ‹‚Ì”z—ñ
-		int						digits_);		//!< Œ…”
+		ID3D11Device* pDevice_,		//!< ãƒ‡ãƒã‚¤ã‚¹
+		ID3D11DeviceContext* pDeviceContext_,//!< ãƒ‡ãƒã‚¤ã‚¹ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
+		D3D11_VIEWPORT			viewPort_[],	//!< ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆ
+		LPCWSTR					shaderName_,	//!< ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
+		LPCWSTR					textureName_,	//!< ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«
+		XMFLOAT4				position_,		//!< ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ä½ç½®
+		XMFLOAT2				size_,			//!< ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®å¤§ãã•
+		std::vector<QuadrangleTexel>	texels,	//!< ãƒ†ã‚¯ã‚»ãƒ«ã®é…åˆ—
+		int						digits_);		//!< æ¡æ•°
 
 	void init(
-		ID3D11Device* pDevice_,		//!< ƒfƒoƒCƒX
-		ID3D11DeviceContext* pDeviceContext_,//!< ƒfƒoƒCƒXƒRƒ“ƒeƒLƒXƒg
-		D3D11_VIEWPORT			viewPort_[],	//!< ƒrƒ…[ƒ|[ƒg
-		LPCWSTR					shaderName_,	//!< ƒVƒF[ƒ_[ƒvƒƒOƒ‰ƒ€
-		LPCWSTR					textureName_,	//!< ‰æ‘œƒtƒ@ƒCƒ‹
-		XMFLOAT4				position_,		//!< ƒEƒBƒ“ƒhƒE‚ÌˆÊ’u
-		XMFLOAT2				size_,			//!< ƒXƒvƒ‰ƒCƒg‚Ì‘å‚«‚³
-		std::vector<QuadrangleTexel>	texels,	//!< ƒeƒNƒZƒ‹‚Ì”z—ñ
+		ID3D11Device* pDevice_,		//!< ãƒ‡ãƒã‚¤ã‚¹
+		ID3D11DeviceContext* pDeviceContext_,//!< ãƒ‡ãƒã‚¤ã‚¹ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
+		D3D11_VIEWPORT			viewPort_[],	//!< ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆ
+		LPCWSTR					shaderName_,	//!< ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
+		LPCWSTR					textureName_,	//!< ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«
+		XMFLOAT4				position_,		//!< ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ä½ç½®
+		XMFLOAT2				size_,			//!< ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®å¤§ãã•
+		std::vector<QuadrangleTexel>	texels,	//!< ãƒ†ã‚¯ã‚»ãƒ«ã®é…åˆ—
 		int						digits_
 	);
 

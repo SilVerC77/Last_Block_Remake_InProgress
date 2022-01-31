@@ -1,8 +1,8 @@
-/**
+ï»¿/**
 * @file CTexture.cpp
-* @brief ƒeƒNƒZƒ‹EƒNƒ‰ƒX
-* @author DŒË@Šì—²
-* @date “ú•ti2018.07.27j
+* @brief ãƒ†ã‚¯ã‚»ãƒ«ãƒ»ã‚¯ãƒ©ã‚¹
+* @author ç¹”æˆ¸ã€€å–œéš†
+* @date æ—¥ä»˜ï¼ˆ2018.07.27ï¼‰
 */
 #include "stdafx.h"
 #include "CTexture.h"
@@ -10,10 +10,10 @@
 
 /**
 * @fn std::unique_ptr<CTexture> CTexture::create(ID3D11Device* pDevice_, LPCWSTR textureName_)
-* @brief ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚µ‰Šú‰» yƒNƒ‰ƒXƒƒ\ƒbƒhz
-* @param pDevice_			ƒfƒoƒCƒX
-* @param textureName_		PNGƒtƒ@ƒCƒ‹
-* @return					CTexture‚Ìƒ†ƒj[ƒNƒ|ƒCƒ“ƒ^
+* @brief ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—åˆæœŸåŒ– ã€ã‚¯ãƒ©ã‚¹ãƒ¡ã‚½ãƒƒãƒ‰ã€‘
+* @param pDevice_			ãƒ‡ãƒã‚¤ã‚¹
+* @param textureName_		PNGãƒ•ã‚¡ã‚¤ãƒ«
+* @return					CTextureã®ãƒ¦ãƒ‹ãƒ¼ã‚¯ãƒã‚¤ãƒ³ã‚¿
 */
 std::unique_ptr<CTexture> CTexture::create(ID3D11Device* pDevice_, LPCWSTR textureName_)
 {
@@ -25,21 +25,21 @@ std::unique_ptr<CTexture> CTexture::create(ID3D11Device* pDevice_, LPCWSTR textu
 
 /**
 * @fn void CTexture::init(ID3D11Device* pDevice_, LPCWSTR textureName_)
-* @brief ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ‰Šú‰»
-* @param pDevice_			ƒfƒoƒCƒX
-* @param textureName_		PNGƒtƒ@ƒCƒ‹
-* @return					–³‚µ
+* @brief ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’åˆæœŸåŒ–
+* @param pDevice_			ãƒ‡ãƒã‚¤ã‚¹
+* @param textureName_		PNGãƒ•ã‚¡ã‚¤ãƒ«
+* @return					ç„¡ã—
 */
 void CTexture::init(ID3D11Device* pDevice_, LPCWSTR textureName_)
 {
 	/**
-	* ƒeƒNƒXƒ`ƒƒ[ì¬(ƒTƒ“ƒvƒ‰[‚ğŠÜ‚Ş) DirectXTex <WindowsSDK 10>
+	* ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ä½œæˆ(ã‚µãƒ³ãƒ—ãƒ©ãƒ¼ã‚’å«ã‚€) DirectXTex <WindowsSDK 10>
 	*/
 	if (textureName_ == NULL)
 		return;
 
 	/**
-	* ƒeƒNƒXƒ`ƒƒ[—pƒTƒ“ƒvƒ‰[ì¬
+	* ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ç”¨ã‚µãƒ³ãƒ—ãƒ©ãƒ¼ä½œæˆ
 	*/
 	D3D11_SAMPLER_DESC samplerDesc;
 	ZeroMemory(&samplerDesc, sizeof(D3D11_SAMPLER_DESC));
@@ -61,12 +61,12 @@ void CTexture::init(ID3D11Device* pDevice_, LPCWSTR textureName_)
 
 	pDevice_->CreateSamplerState(&samplerDesc, &m_pSampleLinear);
 	/**
-	* ƒeƒNƒXƒ`ƒƒ[ì¬ DirectXTex <WindowsSDK 10>
+	* ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ä½œæˆ DirectXTex <WindowsSDK 10>
 	*/
 	if (FAILED(CreateWICTextureFromFile(pDevice_, textureName_, NULL, &m_pTexture)))
 	{
 		TCHAR   str[256];
-		wsprintf(str, L"CTexture::init <CreateWICTextureFromFile>ƒeƒNƒXƒ`ƒƒ[ì¬¸”s %s", textureName_);	//!< ƒeƒNƒXƒ`ƒƒƒtƒ@ƒCƒ‹–¼‚ğ•t‰Á‚·‚é
+		wsprintf(str, L"CTexture::init <CreateWICTextureFromFile>ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ä½œæˆå¤±æ•— %s", textureName_);	//!< ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ•ã‚¡ã‚¤ãƒ«åã‚’ä»˜åŠ ã™ã‚‹
 		throw str;
 	}
 }
@@ -81,29 +81,29 @@ CTexture::~CTexture()
 
 /**
 * @fn BOOL CTexture::setup()
-* @brief ƒeƒNƒXƒ`ƒƒ[
-* @param		–³‚µ
-* @return		–³‚µ
+* @brief ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼
+* @param		ç„¡ã—
+* @return		ç„¡ã—
 */
-void CTexture::setup(ID3D11DeviceContext*	pDeviceContext_)
+void CTexture::setup(ID3D11DeviceContext* pDeviceContext_)
 {
-	pDeviceContext_->PSSetSamplers(0, 1, &m_pSampleLinear);	//!< PS‚ÉƒTƒ“ƒvƒ‰[‚ğİ’è
-	pDeviceContext_->PSSetShaderResources(					//!< ƒeƒNƒXƒ`ƒƒ[‚ğƒVƒF[ƒ_[‚É“n‚·
-		0, //!< İ’è‚·‚éÅ‰‚ÌƒXƒƒbƒg”Ô†
-		1, //!< İ’è‚·‚éƒVƒF[ƒ_EƒŠƒ\[ƒXEƒrƒ…[‚Ì”
-		&m_pTexture);	//!< İ’è‚·‚éƒVƒF[ƒ_EƒŠƒ\[ƒXEƒrƒ…[‚Ì”z—ñ
+	pDeviceContext_->PSSetSamplers(0, 1, &m_pSampleLinear);	//!< PSã«ã‚µãƒ³ãƒ—ãƒ©ãƒ¼ã‚’è¨­å®š
+	pDeviceContext_->PSSetShaderResources(					//!< ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã‚’ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ã«æ¸¡ã™
+		0, //!< è¨­å®šã™ã‚‹æœ€åˆã®ã‚¹ãƒ­ãƒƒãƒˆç•ªå·
+		1, //!< è¨­å®šã™ã‚‹ã‚·ã‚§ãƒ¼ãƒ€ãƒ»ãƒªã‚½ãƒ¼ã‚¹ãƒ»ãƒ“ãƒ¥ãƒ¼ã®æ•°
+		&m_pTexture);	//!< è¨­å®šã™ã‚‹ã‚·ã‚§ãƒ¼ãƒ€ãƒ»ãƒªã‚½ãƒ¼ã‚¹ãƒ»ãƒ“ãƒ¥ãƒ¼ã®é…åˆ—
 }
 
 /**
 * @fn void CTexture::release()
-* @brief ƒŠƒŠ[ƒX
-* @param	–³‚µ
-* @return	–³‚µ
+* @brief ãƒªãƒªãƒ¼ã‚¹
+* @param	ç„¡ã—
+* @return	ç„¡ã—
 */
 void CTexture::release()
 {
 	/**
-	*  •K‚¸¶¬‚µ‚½‚Ì‚Æ‹t‚Ì‡”Ô‚ÅƒŠƒŠ[ƒX
+	*  å¿…ãšç”Ÿæˆã—ãŸã®ã¨é€†ã®é †ç•ªã§ãƒªãƒªãƒ¼ã‚¹
 	*/
 	SAFE_RELEASE(m_pTexture);
 	SAFE_RELEASE(m_pSampleLinear);

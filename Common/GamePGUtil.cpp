@@ -1,18 +1,18 @@
-/**
+ï»¿/**
 * @file GamePGUtil.cpp
 * @brief DirectXMath.h -- SIMD C++ Math library, etc
-* @author DŒË@Šì—²
-* @date “ú•ti2017.02.14j
+* @author ç¹”æˆ¸ã€€å–œéš†
+* @date æ—¥ä»˜ï¼ˆ2017.02.14ï¼‰
 */
 #include "stdafx.h"
 #include "GamePGUtil.h"
 
 /**
 * @fn XMFLOAT4 ComputePosByDirectionZ(XMFLOAT4 old_, FLOAT direction_)
-* @brief Z‚ÌŒü‚«‚©‚çˆÊ’u‚ğ‹‚ß‚é
-* @param old_				ˆÚ“®‘O‚ÌˆÊ’u
-* @param direction_	•ûŒü
-* @return					ˆÚ“®Œã‚ÌˆÊ’u
+* @brief Zã®å‘ãã‹ã‚‰ä½ç½®ã‚’æ±‚ã‚ã‚‹
+* @param old_				ç§»å‹•å‰ã®ä½ç½®
+* @param direction_	æ–¹å‘
+* @return					ç§»å‹•å¾Œã®ä½ç½®
 */
 XMFLOAT4 ComputePosByDirectionZ(XMFLOAT4 old_, FLOAT direction_)
 {
@@ -28,12 +28,12 @@ XMFLOAT4 ComputePosByDirectionZ(XMFLOAT4 old_, FLOAT direction_)
 
 /**
  * @fn void debugString(HWND hWnd_, int nXStart_, int nYStart_, LPCTSTR lpString_)
- * @brief Z‚ÌŒü‚«‚©‚çˆÊ’u‚ğ‹‚ß‚é
- * @param hWnd_		WindowsAPIƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹
- * @param nXStart_	xˆÊ’u
- * @param nYStart_	yˆÊ’u
- * @param lpString_	•\¦‚·‚é•¶š—ñ
- * @return			–³‚µ
+ * @brief Zã®å‘ãã‹ã‚‰ä½ç½®ã‚’æ±‚ã‚ã‚‹
+ * @param hWnd_		WindowsAPIã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
+ * @param nXStart_	xä½ç½®
+ * @param nYStart_	yä½ç½®
+ * @param lpString_	è¡¨ç¤ºã™ã‚‹æ–‡å­—åˆ—
+ * @return			ç„¡ã—
  */
 void debugString(HWND hWnd_, int nXStart_, int nYStart_, LPCTSTR lpString_)
 {
@@ -44,9 +44,9 @@ void debugString(HWND hWnd_, int nXStart_, int nYStart_, LPCTSTR lpString_)
 
 /**
  * @fn HRESULT PutMessage(LPCTSTR lpString_)
- * @brief Z‚ÌŒü‚«‚©‚çˆÊ’u‚ğ‹‚ß‚é
- * @param lpString_	•\¦‚·‚é•¶š—ñ
- * @return			–³‚µ
+ * @brief Zã®å‘ãã‹ã‚‰ä½ç½®ã‚’æ±‚ã‚ã‚‹
+ * @param lpString_	è¡¨ç¤ºã™ã‚‹æ–‡å­—åˆ—
+ * @return			ç„¡ã—
  */
 HRESULT PutMessage(LPCTSTR lpString_)
 {
