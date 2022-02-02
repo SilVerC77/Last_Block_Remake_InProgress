@@ -12,14 +12,13 @@
 #include "UVAnimation.h"
 #include "CFont.h"
 #include "CSound.h"
-#include "Original/CTimer.h"
+//#include "Original/CTimer.h"
 
 class COriginalGameApp :
 	public CApplication
 {
 	typedef CApplication super;
 private:
-	CTimer Timer;
 	int m_activeEnemies = 0;
 
 	CPicture* createSprite(LPCWSTR path_, float width_ = WINDOW_WIDTH, float height_ = WINDOW_HEIGHT);

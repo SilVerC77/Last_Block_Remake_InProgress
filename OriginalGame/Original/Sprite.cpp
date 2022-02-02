@@ -13,7 +13,7 @@
  */
 CPicture* COriginalGameApp::createSprite(LPCWSTR path_, float width_, float height_)
 {
-	vector <QuadrangleTexel>  singleTexels =
+	vector <QuadrangleTexel>  Texels =
 	{
 		QuadrangleTexel{ { 0.0, 1.0 },{ 0.0, 0.0 },{ 1.0, 1.0 },{ 1.0, 0.0 } }	//!< 指定するUV座標の配列が一つの配列
 	};
@@ -21,117 +21,33 @@ CPicture* COriginalGameApp::createSprite(LPCWSTR path_, float width_, float heig
 	CPicture* object = NULL;
 
 	//Player Sprite
-	if (path_ == Tex_Player)
-	{
-		object = CPicture::create(m_pDevice, m_pDeviceContext, m_viewPort, HLSL_PlaneHLSL, path_,
-			{ 0.0f,0.0f,0.0f,0.0f },
-			spriteSize,
-			kTexelPlayers);
-	}
-	if (path_ == Tex_Player_Move)
-	{
-		object = CPicture::create(m_pDevice, m_pDeviceContext, m_viewPort, HLSL_PlaneHLSL, path_,
-			{ 0.0f,0.0f,0.0f,0.0f },
-			spriteSize,
-			kTexelPlayers_Move);
-	}
+	if		(path_ == Tex_Player)		Texels = kTexelPlayers;
+	else if (path_ == Tex_Player_Move)	Texels = kTexelPlayers_Move;
+	else if (path_ == Tex_Player_Die)	Texels = kTexelPlayers_Die;
+	else if (path_ == Tex_Eyelid)		Texels = kTexelEyelid;
+
 	//Enemy
-	else if (path_ == Tex_Enemy_0)
-	{
-		object = CPicture::create(m_pDevice, m_pDeviceContext, m_viewPort, HLSL_PlaneHLSL, path_,
-			{ 0.0f,0.0f,0.0f,0.0f },
-			spriteSize,
-			kTexelEnemies_1);
-	}
-	else if (path_ == Tex_Enemy_0_Move)
-	{
-		object = CPicture::create(m_pDevice, m_pDeviceContext, m_viewPort, HLSL_PlaneHLSL, path_,
-			{ 0.0f,0.0f,0.0f,0.0f },
-			spriteSize,
-			kTexelEnemies_0_Move);
-	}
+	else if (path_ == Tex_Enemy_0)		Texels = kTexelEnemies_1;
+	else if (path_ == Tex_Enemy_0_Move)	Texels = kTexelEnemies_0_Move;
+	else if (path_ == Tex_Enemy_1)		Texels = kTexelEnemies_1;
+	else if (path_ == Tex_Enemy_1_Move)	Texels = kTexelEnemies_1_Move;
+	else if (path_ == Tex_Enemy_2)		Texels = kTexelEnemies_2;
+	else if (path_ == Tex_Enemy_2_Move)	Texels = kTexelEnemies_2_Move;
 
-	else if (path_ == Tex_Enemy_1)
-	{
-		object = CPicture::create(m_pDevice, m_pDeviceContext, m_viewPort, HLSL_PlaneHLSL, path_,
-			{ 0.0f,0.0f,0.0f,0.0f },
-			spriteSize,
-			kTexelEnemies_1);
-	}
-	else if (path_ == Tex_Enemy_1_Move)
-	{
-		object = CPicture::create(m_pDevice, m_pDeviceContext, m_viewPort, HLSL_PlaneHLSL, path_,
-			{ 0.0f,0.0f,0.0f,0.0f },
-			spriteSize,
-			kTexelEnemies_1_Move);
-	}
-	else if (path_ == Tex_Enemy_2)
-	{
-		object = CPicture::create(m_pDevice, m_pDeviceContext, m_viewPort, HLSL_PlaneHLSL, path_,
-			{ 0.0f,0.0f,0.0f,0.0f },
-			spriteSize,
-			kTexelEnemies_2);
-	}
-	else if (path_ == Tex_Enemy_2_Move)
-	{
-		object = CPicture::create(m_pDevice, m_pDeviceContext, m_viewPort, HLSL_PlaneHLSL, path_,
-			{ 0.0f,0.0f,0.0f,0.0f },
-			spriteSize,
-			kTexelEnemies_2_Move);
-	}
 	//Die
-	else if (path_ == Tex_Player_Die)
-	{
-		object = CPicture::create(m_pDevice, m_pDeviceContext, m_viewPort, HLSL_PlaneHLSL, path_,
-			{ 0.0f,0.0f,0.0f,0.0f },
-			spriteSize,
-			kTexelPlayers_Die);
-	}
+	else if (path_ == Tex_Die)			Texels = kTexelDie;
 
-	else if (path_ == Tex_Die)
-	{
-		object = CPicture::create(m_pDevice, m_pDeviceContext, m_viewPort, HLSL_PlaneHLSL, path_,
-			{ 0.0f,0.0f,0.0f,0.0f },
-			spriteSize,
-			kTexelDie);
-	}
-	else if (path_ == Tex_Loading)
-	{
-		object = CPicture::create(m_pDevice, m_pDeviceContext, m_viewPort, HLSL_PlaneHLSL, path_,
-			{ 0.0f,0.0f,0.0f,0.0f },
-			spriteSize,
-			kTexelLoading);
-	}
-	else if (path_ == Tex_Difficulty)
-	{
-		object = CPicture::create(m_pDevice, m_pDeviceContext, m_viewPort, HLSL_PlaneHLSL, path_,
-			{ 0.0f,0.0f,0.0f,0.0f },
-			spriteSize,
-			kTexelDifficulty);
-	}
-	else if (path_ == Tex_Eyelid)
-	{
-		object = CPicture::create(m_pDevice, m_pDeviceContext, m_viewPort, HLSL_PlaneHLSL, path_,
-			{ 0.0f,0.0f,0.0f,0.0f },
-			spriteSize,
-			kTexelEyelid);
-	}
-	else if (path_ == Tex_Rate)
-	{
-		object = CPicture::create(m_pDevice, m_pDeviceContext, m_viewPort, HLSL_PlaneHLSL, path_,
-			{ 0.0f,0.0f,0.0f,0.0f },
-			spriteSize,
-			kTexelRate);
-	}
+	else if (path_ == Tex_Loading)		Texels = kTexelLoading;
+	else if (path_ == Tex_Difficulty)	Texels = kTexelDifficulty;	
+	else if (path_ == Tex_Rate)			Texels = kTexelRate;
 
-	else
-	{
-		// 基本的な作成
-		object = CPicture::create(m_pDevice, m_pDeviceContext, m_viewPort, HLSL_PlaneHLSL, path_,
-			{ 0.0f, 0.0f, 0.0f, 0.0f },	//!< スプライトの位置
-			spriteSize,					//!< スプライトのサイズ
-			singleTexels);				//!< 指定するUV座標の配列
-	}
+
+	//作成
+	object = CPicture::create(m_pDevice, m_pDeviceContext, m_viewPort, HLSL_PlaneHLSL, path_,
+		{ 0.0f, 0.0f, 0.0f, 0.0f },	//!< スプライトの位置
+		spriteSize,					//!< スプライトのサイズ
+		Texels);					//!< 指定するUV座標の配列
+
 	return object;
 }
 

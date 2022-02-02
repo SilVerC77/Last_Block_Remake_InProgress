@@ -54,6 +54,7 @@
     </ClCompile>
     <ClCompile Include="..\Common\CSound.cpp" />
     <ClCompile Include="Original\CTimer.cpp" />
+    <ClCompile Include="Original\Base.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Common\CApplication.h">
@@ -122,6 +123,7 @@
     <ClInclude Include="..\Common\CSound.h" />
     <ClInclude Include="Original\XMFLOAT_Helper.h" />
     <ClInclude Include="Original\CTimer.h" />
+    <ClInclude Include="Original\Base.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="small.ico">

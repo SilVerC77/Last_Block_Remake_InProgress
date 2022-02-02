@@ -145,6 +145,7 @@
     <ClCompile Include="..\Common\GamePGUtil.cpp" />
     <ClCompile Include="COriginalGameApp.cpp" />
     <ClCompile Include="OriginalGame.cpp" />
+    <ClCompile Include="Original\Base.cpp" />
     <ClCompile Include="Original\GameClear.cpp" />
     <ClCompile Include="Original\GameOver.cpp" />
     <ClCompile Include="Original\GamePlay.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="COriginalGameApp.h" />
     <ClInclude Include="MediaResource.h" />
     <ClInclude Include="OriginalGame.h" />
+    <ClInclude Include="Original\Base.h" />
     <ClInclude Include="Original\GameResource.h" />
     <ClInclude Include="Original\CTimer.h" />
     <ClInclude Include="Original\UV.h" />
