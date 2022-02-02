@@ -1,8 +1,8 @@
-/**
+ï»¿/**
 * @file CPicture.cpp
-* @brief ƒeƒNƒZƒ‹•t‚«‚ÌƒsƒNƒ`ƒƒ[EƒNƒ‰ƒX
-* @author DŒË@Šì—²
-* @date “ú•ti2017.02.14j
+* @brief ãƒ†ã‚¯ã‚»ãƒ«ä»˜ãã®ãƒ”ã‚¯ãƒãƒ£ãƒ¼ãƒ»ã‚¯ãƒ©ã‚¹
+* @author ç¹”æˆ¸ã€€å–œéš†
+* @date æ—¥ä»˜ï¼ˆ2017.02.14ï¼‰
 */
 
 #include "stdafx.h"
@@ -11,16 +11,16 @@
 
 /**
 * @fn std::unique_ptr<CPicture> CPicture::create(ID3D11Device* pDevice_, ID3D11DeviceContext* pDeviceContext_, D3D11_VIEWPORT viewPort_[], LPCWSTR shaderName_, LPCWSTR textureName_, XMFLOAT4 position_, XMFLOAT2 size_, std::vector<QuadrangleTexel> texels)
-* @brief ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚µ‰Šú‰» yƒNƒ‰ƒXƒƒ\ƒbƒhz
-* @param pDevice_			ƒfƒoƒCƒX
-* @param pDeviceContext_	ƒfƒoƒCƒXƒRƒ“ƒeƒLƒXƒg
-* @param viewPort_[]		ƒrƒ…[ƒ|[ƒg
-* @param shaderName_		ƒVƒF[ƒ_[ƒvƒƒOƒ‰ƒ€
-* @param textureName_		PNGƒtƒ@ƒCƒ‹
-* @param position_			ƒEƒBƒ“ƒhƒE‚ÌˆÊ’u
-* @param size_				ƒXƒvƒ‰ƒCƒg‚Ì‘å‚«‚³
-* @param texels			ƒeƒNƒZƒ‹‚Ì”z—ñ
-* @return					CPicture‚Ìƒ†ƒj[ƒNƒ|ƒCƒ“ƒ^
+* @brief ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—åˆæœŸåŒ– ã€ã‚¯ãƒ©ã‚¹ãƒ¡ã‚½ãƒƒãƒ‰ã€‘
+* @param pDevice_			ãƒ‡ãƒã‚¤ã‚¹
+* @param pDeviceContext_	ãƒ‡ãƒã‚¤ã‚¹ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
+* @param viewPort_[]		ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆ
+* @param shaderName_		ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
+* @param textureName_		PNGãƒ•ã‚¡ã‚¤ãƒ«
+* @param position_			ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ä½ç½®
+* @param size_				ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®å¤§ãã•
+* @param texels			ãƒ†ã‚¯ã‚»ãƒ«ã®é…åˆ—
+* @return					CPictureã®ãƒ¦ãƒ‹ãƒ¼ã‚¯ãƒã‚¤ãƒ³ã‚¿
 */
 /*
 std::unique_ptr<CPicture> CPicture::create(ID3D11Device* pDevice_, ID3D11DeviceContext* pDeviceContext_, D3D11_VIEWPORT viewPort_[], LPCWSTR shaderName_, LPCWSTR textureName_, XMFLOAT4 position_, XMFLOAT2 size_, std::vector<QuadrangleTexel>	texels)
@@ -33,26 +33,26 @@ std::unique_ptr<CPicture> CPicture::create(ID3D11Device* pDevice_, ID3D11DeviceC
 
 CPicture* CPicture::create(ID3D11Device* pDevice_, ID3D11DeviceContext* pDeviceContext_, D3D11_VIEWPORT viewPort_[], LPCWSTR shaderName_, LPCWSTR textureName_, XMFLOAT4 position_, XMFLOAT2 size_, std::vector<QuadrangleTexel>	texels)
 {
-	CPicture* object = new CPicture ();
-	if( object != NULL)
+	CPicture* object = new CPicture();
+	if (object != NULL)
 	{
-		object->init (pDevice_, pDeviceContext_, viewPort_, shaderName_, textureName_, position_, size_, texels);
+		object->init(pDevice_, pDeviceContext_, viewPort_, shaderName_, textureName_, position_, size_, texels);
 	}
 	return object;
 }
 
 /**
 * @fn void CPicture::init(ID3D11Device* pDevice_, ID3D11DeviceContext* pDeviceContext_, D3D11_VIEWPORT viewPort_[], LPCWSTR shaderName_, LPCWSTR textureName_, XMFLOAT4 position_, XMFLOAT2 size_, std::vector<QuadrangleTexel> texels)
-* @brief ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ‰Šú‰»
-* @param pDevice_			ƒfƒoƒCƒX
-* @param pDeviceContext_	ƒfƒoƒCƒXƒRƒ“ƒeƒLƒXƒg
-* @param viewPort_[]		ƒrƒ…[ƒ|[ƒg
-* @param shaderName_		ƒVƒF[ƒ_[ƒvƒƒOƒ‰ƒ€
-* @param textureName_		PNGƒtƒ@ƒCƒ‹
-* @param position_			ƒEƒBƒ“ƒhƒE‚ÌˆÊ’u
-* @param size_				ƒXƒvƒ‰ƒCƒg‚Ì‘å‚«‚³
-* @param texels			ƒeƒNƒZƒ‹‚Ì”z—ñ
-* @return					–³‚µ
+* @brief ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’åˆæœŸåŒ–
+* @param pDevice_			ãƒ‡ãƒã‚¤ã‚¹
+* @param pDeviceContext_	ãƒ‡ãƒã‚¤ã‚¹ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
+* @param viewPort_[]		ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆ
+* @param shaderName_		ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
+* @param textureName_		PNGãƒ•ã‚¡ã‚¤ãƒ«
+* @param position_			ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ä½ç½®
+* @param size_				ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®å¤§ãã•
+* @param texels			ãƒ†ã‚¯ã‚»ãƒ«ã®é…åˆ—
+* @return					ç„¡ã—
 */
 void CPicture::init(ID3D11Device* pDevice_, ID3D11DeviceContext* pDeviceContext_, D3D11_VIEWPORT viewPort_[], LPCWSTR shaderName_, LPCWSTR textureName_, XMFLOAT4 position_, XMFLOAT2 size_, std::vector<QuadrangleTexel>	texels)
 {
@@ -61,7 +61,7 @@ void CPicture::init(ID3D11Device* pDevice_, ID3D11DeviceContext* pDeviceContext_
 	if (textureName_ != NULL)
 	{
 		/**
-		* ƒeƒNƒXƒ`ƒƒ[ì¬(ƒTƒ“ƒvƒ‰[‚ğŠÜ‚Ş) DirectXTex <WindowsSDK 10>
+		* ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ä½œæˆ(ã‚µãƒ³ãƒ—ãƒ©ãƒ¼ã‚’å«ã‚€) DirectXTex <WindowsSDK 10>
 		*/
 		m_pPolygonTex = CTexture::create(pDevice_, textureName_);
 	}
@@ -77,12 +77,12 @@ CPicture::~CPicture()
 
 /**
 * @fn void CPicture::render(XMFLOAT4X4	matView_, XMFLOAT4X4 matProj_, size_t texelIndex_, XMFLOAT4 diffuse_)
-* @brief ƒŒƒ“ƒ_ƒŠƒ“ƒO
-* @param matView_	ƒrƒ…[s—ñ
-* @param matProj_	ƒvƒƒWƒFƒNƒVƒ‡ƒ“s—ñ
-* @param texelIndex_	ƒeƒNƒZƒ‹EƒCƒ“ƒfƒbƒNƒX
-* @param diffuse_	ƒfƒBƒtƒ…[ƒY
-* @return			–³‚µ
+* @brief ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°
+* @param matView_	ãƒ“ãƒ¥ãƒ¼è¡Œåˆ—
+* @param matProj_	ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ã‚·ãƒ§ãƒ³è¡Œåˆ—
+* @param texelIndex_	ãƒ†ã‚¯ã‚»ãƒ«ãƒ»ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+* @param diffuse_	ãƒ‡ã‚£ãƒ•ãƒ¥ãƒ¼ã‚º
+* @return			ç„¡ã—
 */
 void CPicture::render(XMFLOAT4X4	matView_, XMFLOAT4X4 matProj_, size_t texelIndex_, XMFLOAT4 diffuse_)
 {
@@ -93,14 +93,14 @@ void CPicture::render(XMFLOAT4X4	matView_, XMFLOAT4X4 matProj_, size_t texelInde
 
 	computeMatrixFromPos();
 
-	//! ƒVƒF[ƒ_[@’è”ƒoƒbƒtƒ@
+	//! ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ã€€å®šæ•°ãƒãƒƒãƒ•ã‚¡
 	D3D11_MAPPED_SUBRESOURCE pData;
 	if (SUCCEEDED(m_pDeviceContext->Map(
-		m_pConstantBuffer,			//!< ƒ}ƒbƒv‚·‚éƒŠƒ\[ƒX
-		0, 							//!< ƒTƒuƒŠƒ\[ƒX‚ÌƒCƒ“ƒfƒbƒNƒX”Ô†
-		D3D11_MAP_WRITE_DISCARD,	//!< ‘‚«‚İƒAƒNƒZƒX
+		m_pConstantBuffer,			//!< ãƒãƒƒãƒ—ã™ã‚‹ãƒªã‚½ãƒ¼ã‚¹
+		0, 							//!< ã‚µãƒ–ãƒªã‚½ãƒ¼ã‚¹ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ç•ªå·
+		D3D11_MAP_WRITE_DISCARD,	//!< æ›¸ãè¾¼ã¿ã‚¢ã‚¯ã‚»ã‚¹
 		0,
-		&pData)))					//!< ƒf[ƒ^‚Ì‘‚«‚İæƒ|ƒCƒ“ƒ^
+		&pData)))					//!< ãƒ‡ãƒ¼ã‚¿ã®æ›¸ãè¾¼ã¿å…ˆãƒã‚¤ãƒ³ã‚¿
 	{
 		ShaderGlobal_0 sg;
 		XMStoreFloat4x4(&sg.matWVP, XMLoadFloat4x4(&m_mFinalWorld) * XMLoadFloat4x4(&matView_) * XMLoadFloat4x4(&matProj_));
@@ -110,48 +110,48 @@ void CPicture::render(XMFLOAT4X4	matView_, XMFLOAT4X4 matProj_, size_t texelInde
 
 		m_pDeviceContext->Unmap(m_pConstantBuffer, 0);
 	}
-	m_pDeviceContext->IASetInputLayout(m_pInputLayout);									//!< ’¸“_ƒCƒ“ƒvƒbƒgƒŒƒCƒAƒEƒg‚ğƒZƒbƒg
-	m_pDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);	//!< ƒvƒŠƒ~ƒeƒBƒuEƒgƒ|ƒƒW[‚ğƒZƒbƒg
+	m_pDeviceContext->IASetInputLayout(m_pInputLayout);									//!< é ‚ç‚¹ã‚¤ãƒ³ãƒ—ãƒƒãƒˆãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’ã‚»ãƒƒãƒˆ
+	m_pDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);	//!< ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–ãƒ»ãƒˆãƒãƒ­ã‚¸ãƒ¼ã‚’ã‚»ãƒƒãƒˆ
 	UINT stride = sizeof(VertexWithTex<XMFLOAT3>);
 	UINT offset = 0;
-//	m_pDeviceContext->IASetVertexBuffers (0, 1, &m_pVertexBuffer[texelIndex_], &stride, &offset);//!< ’¸“_ƒoƒbƒtƒ@[‚ğƒZƒbƒg
-	m_pDeviceContext->IASetVertexBuffers (0, 1, &m_pVertexBuffer[m_animIndex], &stride, &offset);//!< ’¸“_ƒoƒbƒtƒ@[‚ğƒZƒbƒg
-	m_pDeviceContext->VSSetShader(m_pVertexShader, NULL, 0);							//!< g—p‚·‚éƒVƒF[ƒ_[‚Ì“o˜^@ieffect‚ÌhƒeƒNƒjƒbƒNh‚É‘Š“–j
-	m_pDeviceContext->VSSetConstantBuffers(0, 1, &m_pConstantBuffer);					//!< VS‚É’è”ƒoƒbƒtƒ@‚ğİ’è
-	m_pDeviceContext->RSSetViewports(1, m_viewPort);									//!< RS‚Éƒrƒ…[ƒ|[ƒg‚ğİ’è
-	m_pDeviceContext->PSSetShader(m_pPixelShader, NULL, 0);								//!< PS‚ÉƒsƒNƒZƒ‹EƒVƒF[ƒ_‚ğİ’è
-	m_pDeviceContext->PSSetConstantBuffers(0, 1, &m_pConstantBuffer);					//!< PS‚É’è”ƒoƒbƒtƒ@‚ğİ’è
-	//! ƒTƒ“ƒvƒ‰[‚ÆƒeƒNƒXƒ`ƒƒ[‚Ìİ’è
+	//	m_pDeviceContext->IASetVertexBuffers (0, 1, &m_pVertexBuffer[texelIndex_], &stride, &offset);//!< é ‚ç‚¹ãƒãƒƒãƒ•ã‚¡ãƒ¼ã‚’ã‚»ãƒƒãƒˆ
+	m_pDeviceContext->IASetVertexBuffers(0, 1, &m_pVertexBuffer[m_animIndex], &stride, &offset);//!< é ‚ç‚¹ãƒãƒƒãƒ•ã‚¡ãƒ¼ã‚’ã‚»ãƒƒãƒˆ
+	m_pDeviceContext->VSSetShader(m_pVertexShader, NULL, 0);							//!< ä½¿ç”¨ã™ã‚‹ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ã®ç™»éŒ²ã€€ï¼ˆeffectã®â€ãƒ†ã‚¯ãƒ‹ãƒƒã‚¯â€ã«ç›¸å½“ï¼‰
+	m_pDeviceContext->VSSetConstantBuffers(0, 1, &m_pConstantBuffer);					//!< VSã«å®šæ•°ãƒãƒƒãƒ•ã‚¡ã‚’è¨­å®š
+	m_pDeviceContext->RSSetViewports(1, m_viewPort);									//!< RSã«ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆã‚’è¨­å®š
+	m_pDeviceContext->PSSetShader(m_pPixelShader, NULL, 0);								//!< PSã«ãƒ”ã‚¯ã‚»ãƒ«ãƒ»ã‚·ã‚§ãƒ¼ãƒ€ã‚’è¨­å®š
+	m_pDeviceContext->PSSetConstantBuffers(0, 1, &m_pConstantBuffer);					//!< PSã«å®šæ•°ãƒãƒƒãƒ•ã‚¡ã‚’è¨­å®š
+	//! ã‚µãƒ³ãƒ—ãƒ©ãƒ¼ã¨ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®è¨­å®š
 	m_pPolygonTex->setup(m_pDeviceContext);
-	m_pDeviceContext->Draw(4, 0);														//!<  ƒvƒŠƒ~ƒeƒBƒu‚ğƒŒƒ“ƒ_ƒŠƒ“ƒO
+	m_pDeviceContext->Draw(4, 0);														//!<  ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–ã‚’ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°
 }
 
 /**
 * @fn void CPicture::release()
-* @brief ƒŠƒŠ[ƒX
-* @param	–³‚µ
-* @return	–³‚µ
+* @brief ãƒªãƒªãƒ¼ã‚¹
+* @param	ç„¡ã—
+* @return	ç„¡ã—
 */
 void CPicture::release()
 {
 	/**
-	*  •K‚¸¶¬‚µ‚½‚Ì‚Æ‹t‚Ì‡”Ô‚ÅƒŠƒŠ[ƒX
+	*  å¿…ãšç”Ÿæˆã—ãŸã®ã¨é€†ã®é †ç•ªã§ãƒªãƒªãƒ¼ã‚¹
 	*/
 	super::release();
 }
 
 /**
  * @fn		void CPicture::stepAnimation()
- * @brief	ƒAƒjƒ[ƒVƒ‡ƒ“‘JˆÚ
- * @param	–³‚µ
- * @return	–³‚µ
+ * @brief	ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³é·ç§»
+ * @param	ç„¡ã—
+ * @return	ç„¡ã—
  */
-void CPicture::stepAnimation ()
+void CPicture::stepAnimation()
 {
 	m_animIndex++;
-	if( m_animBeginIndex == m_animEndIndex)
+	if (m_animBeginIndex == m_animEndIndex)
 	{
-		m_animIndex = m_animIndex >= m_texels.size () ? 0 : m_animIndex;
+		m_animIndex = m_animIndex >= m_texels.size() ? 0 : m_animIndex;
 	}
 	else
 	{
@@ -161,35 +161,35 @@ void CPicture::stepAnimation ()
 
 /**
  * @fn		void CPicture::setAnimation( int animIndex_)
- * @brief	ƒAƒjƒ[ƒVƒ‡ƒ“‚ğƒCƒ“ƒfƒbƒNƒX‚Åİ’è
- * @param	animIndex_		ƒAƒjƒ[ƒVƒ‡ƒ“‚ÌƒCƒ“ƒfƒbƒNƒX”Ô†(kTexelXXX‚Ì—v‘f”Ô†)
- * @return	–³‚µ
+ * @brief	ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã§è¨­å®š
+ * @param	animIndex_		ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ç•ªå·(kTexelXXXã®è¦ç´ ç•ªå·)
+ * @return	ç„¡ã—
  */
-void CPicture::setAnimation( int animIndex_)
+void CPicture::setAnimation(int animIndex_)
 {
 	m_animIndex = animIndex_;
 }
 
 /**
  * @fn		void CPicture::setAnimationRange( int animBeginIndex_, int animEndIndex_)
- * @brief	ƒAƒjƒ[ƒVƒ‡ƒ“‘JˆÚ‚ÌƒCƒ“ƒfƒbƒNƒX”ÍˆÍ‚ğİ’è(stepAnimation()‚Å©“®“IƒAƒjƒ[ƒVƒ‡ƒ“‚ªs‚í‚ê‚é”ÍˆÍ)
- * @note	İ’è‚µ‚½“_‚Å‚ÌƒAƒjƒ[ƒVƒ‡ƒ“ƒCƒ“ƒfƒbƒNƒX‚ª”ÍˆÍŠO‚¾‚Á‚½ê‡‚ÍŠJnƒCƒ“ƒfƒbƒNƒX‚ÉƒŠƒZƒbƒg‚µ‚Ü‚·B
- * @note	animBeginIndex_ > animEndIndex_ ‚Ìê‡‚Í–³Œø‚Å‚·B
- * @param	animBeginIndex_		ŠJnƒCƒ“ƒfƒbƒNƒX
- * @param	animEndIndex_		I—¹ƒCƒ“ƒfƒbƒNƒX
- * @return	–³‚µ
+ * @brief	ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³é·ç§»ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ç¯„å›²ã‚’è¨­å®š(stepAnimation()ã§è‡ªå‹•çš„ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ãŒè¡Œã‚ã‚Œã‚‹ç¯„å›²)
+ * @note	è¨­å®šã—ãŸæ™‚ç‚¹ã§ã®ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãŒç¯„å›²å¤–ã ã£ãŸå ´åˆã¯é–‹å§‹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã«ãƒªã‚»ãƒƒãƒˆã—ã¾ã™ã€‚
+ * @note	animBeginIndex_ > animEndIndex_ ã®å ´åˆã¯ç„¡åŠ¹ã§ã™ã€‚
+ * @param	animBeginIndex_		é–‹å§‹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+ * @param	animEndIndex_		çµ‚äº†ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+ * @return	ç„¡ã—
  */
 
-void CPicture::setAnimationRange( int animBeginIndex_, int animEndIndex_)
+void CPicture::setAnimationRange(int animBeginIndex_, int animEndIndex_)
 {
-	if( animBeginIndex_ > animEndIndex_)
+	if (animBeginIndex_ > animEndIndex_)
 	{
 		return;
 	}
 
 	m_animBeginIndex = animBeginIndex_;
 	m_animEndIndex = animEndIndex_;
-	if( m_animIndex < m_animBeginIndex || m_animEndIndex < m_animIndex)
+	if (m_animIndex < m_animBeginIndex || m_animEndIndex < m_animIndex)
 	{
 		m_animIndex = m_animBeginIndex;
 	}

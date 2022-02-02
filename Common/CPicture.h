@@ -1,8 +1,8 @@
-/**
+ï»¿/**
 * @file CPicture.h
-* @brief ƒeƒNƒZƒ‹•t‚«‚ÌƒsƒNƒ`ƒƒ[EEƒNƒ‰ƒX
-* @author DŒË@Šì—²
-* @date “ú•ti2017.02.14j
+* @brief ãƒ†ã‚¯ã‚»ãƒ«ä»˜ãã®ãƒ”ã‚¯ãƒãƒ£ãƒ¼ãƒ»ãƒ»ã‚¯ãƒ©ã‚¹
+* @author ç¹”æˆ¸ã€€å–œéš†
+* @date æ—¥ä»˜ï¼ˆ2017.02.14ï¼‰
 */
 #pragma once
 
@@ -11,7 +11,7 @@
 #include "CTexture.h"
 
 /*! @class CPicture
-@brief  ƒ|ƒŠƒSƒ“EƒNƒ‰ƒX
+@brief  ãƒãƒªã‚´ãƒ³ãƒ»ã‚¯ãƒ©ã‚¹
 */
 class CPicture :
 	public CQuadPolygon
@@ -20,43 +20,43 @@ class CPicture :
 private:
 	std::unique_ptr<CQuadPolygon>	m_pPolygon = NULL;
 	std::unique_ptr<CTexture>				m_pPolygonTex = NULL;
-//	int								m_animIndex = 0;
+	//	int								m_animIndex = 0;
 public:
 	/*
 	static std::unique_ptr<CPicture> create (
-		ID3D11Device*			pDevice_,		//!< ƒfƒoƒCƒX
-		ID3D11DeviceContext*	pDeviceContext_,//!< ƒfƒoƒCƒXƒRƒ“ƒeƒLƒXƒg
-		D3D11_VIEWPORT			viewPort_[],	//!< ƒrƒ…[ƒ|[ƒg
-		LPCWSTR					shaderName_,	//!< ƒVƒF[ƒ_[ƒvƒƒOƒ‰ƒ€
-		LPCWSTR					textureName_,	//!< ‰æ‘œƒtƒ@ƒCƒ‹
-		XMFLOAT4				position_,		//!< ƒEƒBƒ“ƒhƒE‚ÌˆÊ’u
-		XMFLOAT2				size_,			//!< ƒXƒvƒ‰ƒCƒg‚Ì‘å‚«‚³
-		std::vector<QuadrangleTexel>	texels);		//!< ƒeƒNƒZƒ‹‚Ì”z—ñ
+		ID3D11Device*			pDevice_,		//!< ãƒ‡ãƒã‚¤ã‚¹
+		ID3D11DeviceContext*	pDeviceContext_,//!< ãƒ‡ãƒã‚¤ã‚¹ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
+		D3D11_VIEWPORT			viewPort_[],	//!< ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆ
+		LPCWSTR					shaderName_,	//!< ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
+		LPCWSTR					textureName_,	//!< ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«
+		XMFLOAT4				position_,		//!< ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ä½ç½®
+		XMFLOAT2				size_,			//!< ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®å¤§ãã•
+		std::vector<QuadrangleTexel>	texels);		//!< ãƒ†ã‚¯ã‚»ãƒ«ã®é…åˆ—
 	*/
-	static CPicture* create (
-		ID3D11Device*			pDevice_,		//!< ƒfƒoƒCƒX
-		ID3D11DeviceContext*	pDeviceContext_,//!< ƒfƒoƒCƒXƒRƒ“ƒeƒLƒXƒg
-		D3D11_VIEWPORT			viewPort_[],	//!< ƒrƒ…[ƒ|[ƒg
-		LPCWSTR					shaderName_,	//!< ƒVƒF[ƒ_[ƒvƒƒOƒ‰ƒ€
-		LPCWSTR					textureName_,	//!< ‰æ‘œƒtƒ@ƒCƒ‹
-		XMFLOAT4				position_,		//!< ƒEƒBƒ“ƒhƒE‚ÌˆÊ’u
-		XMFLOAT2				size_,			//!< ƒXƒvƒ‰ƒCƒg‚Ì‘å‚«‚³
-		std::vector<QuadrangleTexel>	texels);		//!< ƒeƒNƒZƒ‹‚Ì”z—ñ
+	static CPicture* create(
+		ID3D11Device* pDevice_,		//!< ãƒ‡ãƒã‚¤ã‚¹
+		ID3D11DeviceContext* pDeviceContext_,//!< ãƒ‡ãƒã‚¤ã‚¹ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
+		D3D11_VIEWPORT			viewPort_[],	//!< ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆ
+		LPCWSTR					shaderName_,	//!< ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
+		LPCWSTR					textureName_,	//!< ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«
+		XMFLOAT4				position_,		//!< ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ä½ç½®
+		XMFLOAT2				size_,			//!< ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®å¤§ãã•
+		std::vector<QuadrangleTexel>	texels);		//!< ãƒ†ã‚¯ã‚»ãƒ«ã®é…åˆ—
 
 	CPicture();
 	~CPicture();
 	virtual void init(
-		ID3D11Device*			pDevice_,		//!< ƒfƒoƒCƒX
-		ID3D11DeviceContext*	pDeviceContext_,//!< ƒfƒoƒCƒXƒRƒ“ƒeƒLƒXƒg
-		D3D11_VIEWPORT			viewPort_[],	//!< ƒrƒ…[ƒ|[ƒg
-		LPCWSTR					shaderName_,	//!< ƒVƒF[ƒ_[ƒvƒƒOƒ‰ƒ€
-		LPCWSTR					textureName_,	//!< ‰æ‘œƒtƒ@ƒCƒ‹
-		XMFLOAT4				position_,		//!< ƒEƒBƒ“ƒhƒE‚ÌˆÊ’u
-		XMFLOAT2				size_,			//!< ƒXƒvƒ‰ƒCƒg‚Ì‘å‚«‚³
-		std::vector<QuadrangleTexel>	texels);		//!< ƒeƒNƒZƒ‹‚Ì”z—ñ
+		ID3D11Device* pDevice_,		//!< ãƒ‡ãƒã‚¤ã‚¹
+		ID3D11DeviceContext* pDeviceContext_,//!< ãƒ‡ãƒã‚¤ã‚¹ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
+		D3D11_VIEWPORT			viewPort_[],	//!< ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆ
+		LPCWSTR					shaderName_,	//!< ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
+		LPCWSTR					textureName_,	//!< ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«
+		XMFLOAT4				position_,		//!< ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ä½ç½®
+		XMFLOAT2				size_,			//!< ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®å¤§ãã•
+		std::vector<QuadrangleTexel>	texels);		//!< ãƒ†ã‚¯ã‚»ãƒ«ã®é…åˆ—
 	virtual void render(XMFLOAT4X4 matView_, XMFLOAT4X4 matProj_, size_t texelIndex_ = 0, XMFLOAT4 diffuse_ = { 0, 0, 0, 0 });
 	void release();
-	void stepAnimation ();
-	void setAnimation ( int animIndex);
-	void setAnimationRange( int animBeginIndex_, int animEndIndex_);
+	void stepAnimation();
+	void setAnimation(int animIndex);
+	void setAnimationRange(int animBeginIndex_, int animEndIndex_);
 };
