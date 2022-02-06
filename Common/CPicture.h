@@ -20,7 +20,11 @@ class CPicture :
 private:
 	std::unique_ptr<CQuadPolygon>	m_pPolygon = NULL;
 	std::unique_ptr<CTexture>				m_pPolygonTex = NULL;
-	//	int								m_animIndex = 0;
+	//********************************
+	//20cu0215_許弘毅 追加 (20220206)
+	//bool m_bAnimIsEnd = false;
+	//********************************
+	//int								m_animIndex = 0;
 public:
 	/*
 	static std::unique_ptr<CPicture> create (
@@ -59,4 +63,9 @@ public:
 	void stepAnimation();
 	void setAnimation(int animIndex);
 	void setAnimationRange(int animBeginIndex_, int animEndIndex_);
+
+	//********************************
+	//20cu0215_許弘毅 追加 (20220206)
+	//bool isAnimationEnd()const { return m_bAnimIsEnd; }
+	//********************************
 };

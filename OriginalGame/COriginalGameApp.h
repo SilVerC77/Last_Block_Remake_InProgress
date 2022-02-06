@@ -12,6 +12,7 @@
 #include "UVAnimation.h"
 #include "CFont.h"
 #include "CSound.h"
+
 //#include "Original/CTimer.h"
 
 class COriginalGameApp :
@@ -19,7 +20,8 @@ class COriginalGameApp :
 {
 	typedef CApplication super;
 private:
-	int m_activeEnemies = 0;
+	vector<CPicture*> m_vpPicture;
+	CPicture* m_pBackground;
 
 	CPicture* createSprite(LPCWSTR path_, float width_ = WINDOW_WIDTH, float height_ = WINDOW_HEIGHT);
 	void renderSprite(CPicture* object);
@@ -31,16 +33,16 @@ private:
 	void disposeFont(CFont* objects);
 	bool createSpaceship(void);
 	void initCameraInfo();
-	void doOpenning();
-	void doPlaying();
-	void doGameClear();
-	void doGameOver();
-	void doEnding();
+	void doOpenning(const float& _dt);
+	void doPlaying(const float& _dt);
+	void doGameClear(const float& _dt);
+	void doGameOver(const float& _dt);
+	void doEnding(const float& _dt);
 
-	void procTitle();
-	void procGame();
-	void procClear();
-	void procGameOver();
+	void procTitle(const float& _dt);
+	void procGame(const float& _dt);
+	void procClear(const float& _dt);
+	void procGameOver(const float& _dt);
 
 	void procTitleBegin();
 	void procTitleMain();
@@ -54,24 +56,6 @@ private:
 	void procOverBegin();
 	void procOverMain();
 	void procOverEnd();
-
-	void procPlayMain_enemy();
-	void procPlayMain_movePlayer();
-	void procPlayMain_score();
-	void procPlayMain_block();
-	void procPlayMain_airblock();
-	void procPlayMain_animateDie();
-	void procPlayMain_animateMove();
-	//Declaration==============================================================
-//Camera
-	XMFLOAT2 amplitube = { 0.f,0.f };
-	void cameramove();
-	void cameramove(float _amplitubeX, float _amplitubeY);
-	//=========================================================================
-	void procPlayMains_camera();
-
-	int DeadCounter = 0;
-	int Difficulty = 1;
 
 	CSound* createSound(const char* filePath_, const bool loop_ = false);
 	void PlaySourceSound(CSound* const objects);

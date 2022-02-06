@@ -1,5 +1,6 @@
 ﻿#include "COriginalGameApp.h"
 #include "GameResource.h"
+#define PI 3.14
 
 //変数定義-----------------------------------------------------------------------
  //ゲームオーバー画面のフェーズを管理する変数
@@ -12,7 +13,7 @@ eGameStatus g_NextStatusFromGameOver = eNone;
 /*
  * ゲームゲームオーバー画面の処理を行う部分
  */
-void COriginalGameApp::procGameOver()
+void COriginalGameApp::procGameOver(const float& _dt)
 {
 	//フェーズの進行状態によって処理を切り替える
 	switch (g_GameOverPhase)

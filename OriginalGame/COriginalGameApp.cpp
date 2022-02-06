@@ -174,9 +174,9 @@ bool COriginalGameApp::createSpaceship(void)
  * @param	??
  * @return	??
  */
-void COriginalGameApp::doOpenning()
+void COriginalGameApp::doOpenning(const float& _dt)
 {
-	procTitle();
+	procTitle(_dt);
 }
 
 /**
@@ -185,7 +185,7 @@ void COriginalGameApp::doOpenning()
  * @param	??
  * @return	??
  */
-void COriginalGameApp::doPlaying()
+void COriginalGameApp::doPlaying(const float& _dt)
 {
 #if 0
 	// ?????4?
@@ -237,7 +237,7 @@ void COriginalGameApp::doPlaying()
 		m_gameStatus = eGameOver;
 	}
 #else
-	procGame();
+	procGame(_dt);
 
 #endif
 }
@@ -249,9 +249,9 @@ void COriginalGameApp::doPlaying()
  * @param	??
  * @return	??
  */
-void COriginalGameApp::doGameClear()
+void COriginalGameApp::doGameClear(const float& _dt)
 {
-	procClear();
+	procClear(_dt);
 }
 
 /**
@@ -260,9 +260,9 @@ void COriginalGameApp::doGameClear()
  * @param	??
  * @return	??
  */
-void COriginalGameApp::doGameOver()
+void COriginalGameApp::doGameOver(const float& _dt)
 {
-	procGameOver();
+	procGameOver(_dt);
 }
 
 /**
@@ -271,7 +271,7 @@ void COriginalGameApp::doGameOver()
  * @param	無し
  * @return	無し
  */
-void COriginalGameApp::doEnding()
+void COriginalGameApp::doEnding(const float& _dt)
 {
 }
 

@@ -148,6 +148,10 @@ void CPicture::release()
  */
 void CPicture::stepAnimation()
 {
+	//********************************
+	//20cu0215_許弘毅 追加 (20220206)
+	//int oldAnimindex = m_animIndex;
+	//********************************
 	m_animIndex++;
 	if (m_animBeginIndex == m_animEndIndex)
 	{
@@ -157,6 +161,12 @@ void CPicture::stepAnimation()
 	{
 		m_animIndex = m_animIndex > m_animEndIndex ? m_animBeginIndex : m_animIndex;
 	}
+
+	//********************************
+	//20cu0215_許弘毅 追加 (20220206)
+	//if (oldAnimindex == m_animEndIndex && m_animIndex == m_animBeginIndex)
+	//	m_bAnimIsEnd = true;
+	//********************************
 }
 
 /**

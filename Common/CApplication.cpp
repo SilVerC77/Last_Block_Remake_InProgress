@@ -508,13 +508,18 @@ void CApplication::app()
 {
 	m_pDirectInput->getState();
 	renderBegin();
+	//*******************************
+	// 20cu0215_許弘毅　追加(20220206)
+	Timer.UpdateTimer();
+	float dt = Timer.GetElapsedTime();
+	//*******************************
 
 	switch (m_gameStatus)
 	{
-	case eOpening:		doOpenning();		break;
-	case ePlaying:		doPlaying();		break;
-	case eGameClear:	doGameClear();		break;
-	case eGameOver:		doGameOver();		break;
+	case eOpening:		doOpenning(dt);		break;
+	case ePlaying:		doPlaying(dt);		break;
+	case eGameClear:	doGameClear(dt);	break;
+	case eGameOver:		doGameOver(dt);		break;
 	default:								break;
 	}
 

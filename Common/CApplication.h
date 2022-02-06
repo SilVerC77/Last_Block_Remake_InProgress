@@ -42,11 +42,11 @@ private:
 	void render ();
 	void renderEnd();
 	virtual void render(XMFLOAT4X4	matView_, XMFLOAT4X4 matProj_) = 0;
-	virtual void doOpenning () = 0;
-	virtual void doPlaying () = 0;
-	virtual void doGameClear() = 0;
-	virtual void doGameOver() = 0;
-	virtual void doEnding() = 0;
+	virtual void doOpenning (const float& _dt) = 0;
+	virtual void doPlaying (const float& _dt) = 0;
+	virtual void doGameClear(const float& _dt) = 0;
+	virtual void doGameOver(const float& _dt) = 0;
+	virtual void doEnding(const float& _dt) = 0;
 
 
 protected:
@@ -62,6 +62,8 @@ protected:
 
 	IXAudio2*				m_pXaudio2		= NULL;	//!< XAudio2のインスタンス
 	IXAudio2MasteringVoice* m_pMastervoice	= NULL;	//!< マスタリング音声：すべての音声
+
+	CTimer Timer;
 
 	// ここからオリジナルのクラスを使用
 	XMFLOAT3	m_vEyePt;		//!< カメラ（視点）位置

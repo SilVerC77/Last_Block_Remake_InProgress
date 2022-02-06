@@ -1,31 +1,33 @@
 ﻿/**
-* @file CPicture.h
-* @brief テクセル付きのピクチャー・・クラス
-* @author 織戸　喜隆
-* @date 日付（2017.02.14）
+* @file Base.h
+* @brief
+* @author 許弘毅
+* @date 日付（2022.02.02）
 */
 #pragma once
 #include "stdafx.h"
 
-/*! @class CPicture
-@brief  ポリゴン・クラス
+/*! @class CBase
+@brief
 */
-class Base
+class CBase
 {
+protected:
 	class CPicture* m_pBody;
 	CPicture* m_pHitBox;
 	XMFLOAT2 m_Pos;
 	XMFLOAT2 m_Size;
+	float m_fHP;
 public:
-	Base();					//コンストラクタ
-	virtual ~Base();		//デストラクタ
+	CBase();					//コンストラクタ
+	virtual ~CBase();		//デストラクタ
 
 	/********************************
 	* Method:Public
 	*********************************/
 	virtual void BeginPlay();
-	virtual void Tick(const float _DeltaTime);
-
+	virtual void Tick(const float& _DeltaTime);
+	virtual void TakeDamage(const float& _Damage);
 private:
 	/********************************
 	* Method:Private

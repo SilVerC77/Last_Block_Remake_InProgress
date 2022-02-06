@@ -87,6 +87,10 @@
 
 // --------------------------------------------
 #include "Original\XMFLOAT_Helper.h"
+#include <math.h>
+#include <stdlib.h>
+#include <time.h>
+#include "Original\CTimer.h"
 // --------------------------------------------
 
 /**
