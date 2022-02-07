@@ -60,7 +60,7 @@ void COriginalGameApp::procOverBegin()
 	if (g_pGameOver == NULL)
 	{
 		//ゲームオーバー画面の画像を作成
-		g_pGameOver = createSprite(Tex_Over);
+		
 	}
 }
 

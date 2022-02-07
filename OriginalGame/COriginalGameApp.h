@@ -13,6 +13,9 @@
 #include "CFont.h"
 #include "CSound.h"
 
+#include "Original/CPlayer.h"
+#include "Original/CBase.h"
+
 //#include "Original/CTimer.h"
 
 class COriginalGameApp :
@@ -48,7 +51,7 @@ private:
 	void procTitleMain();
 	void procTitleEnd();
 	void procPlayBegin();
-	void procPlayMain();
+	void procPlayMain(const float& _dt);
 	void procPlayEnd();
 	void procClearBegin();
 	void procClearMain();

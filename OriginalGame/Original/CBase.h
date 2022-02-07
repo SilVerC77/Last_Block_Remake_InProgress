@@ -34,6 +34,8 @@ private:
 	*********************************/
 
 protected:
+	void AddMovement(const XMFLOAT2& _dir, const float& _vel);
+	void SetPos(const XMFLOAT2& _pos);
 public:
 	/********************************
 	* Getter:Public
@@ -42,5 +44,10 @@ public:
 	CPicture* GetHitBox()const { return m_pHitBox; }
 	XMFLOAT2 GetPos()const { return m_Pos; }
 	XMFLOAT2 GetSize()const { return m_Size; }
+	/********************************
+	* Setter:Public
+	*********************************/
+	void SetBody(CPicture* _body) { m_pBody = _body; }
+	void SetHitBox(CPicture* _hitbox) { m_pHitBox = _hitbox; }
 };
 

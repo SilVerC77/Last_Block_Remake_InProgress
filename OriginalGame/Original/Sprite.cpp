@@ -22,24 +22,24 @@ CPicture* COriginalGameApp::createSprite(LPCWSTR path_, float width_, float heig
 
 	//Player Sprite
 	if		(path_ == Tex_Player)		Texels = kTexelPlayers;
-	else if (path_ == Tex_Player_Move)	Texels = kTexelPlayers_Move;
-	else if (path_ == Tex_Player_Die)	Texels = kTexelPlayers_Die;
-	else if (path_ == Tex_Eyelid)		Texels = kTexelEyelid;
+	//else if (path_ == Tex_Player_Move)	Texels = kTexelPlayers_Move;
+	//else if (path_ == Tex_Player_Die)	Texels = kTexelPlayers_Die;
+	//else if (path_ == Tex_Eyelid)		Texels = kTexelEyelid;
 
-	//Enemy
-	else if (path_ == Tex_Enemy_0)		Texels = kTexelEnemies_1;
-	else if (path_ == Tex_Enemy_0_Move)	Texels = kTexelEnemies_0_Move;
-	else if (path_ == Tex_Enemy_1)		Texels = kTexelEnemies_1;
-	else if (path_ == Tex_Enemy_1_Move)	Texels = kTexelEnemies_1_Move;
-	else if (path_ == Tex_Enemy_2)		Texels = kTexelEnemies_2;
-	else if (path_ == Tex_Enemy_2_Move)	Texels = kTexelEnemies_2_Move;
+	////Enemy
+	//else if (path_ == Tex_Enemy_0)		Texels = kTexelEnemies_1;
+	//else if (path_ == Tex_Enemy_0_Move)	Texels = kTexelEnemies_0_Move;
+	//else if (path_ == Tex_Enemy_1)		Texels = kTexelEnemies_1;
+	//else if (path_ == Tex_Enemy_1_Move)	Texels = kTexelEnemies_1_Move;
+	//else if (path_ == Tex_Enemy_2)		Texels = kTexelEnemies_2;
+	//else if (path_ == Tex_Enemy_2_Move)	Texels = kTexelEnemies_2_Move;
 
-	//Die
-	else if (path_ == Tex_Die)			Texels = kTexelDie;
+	////Die
+	//else if (path_ == Tex_Die)			Texels = kTexelDie;
 
-	else if (path_ == Tex_Loading)		Texels = kTexelLoading;
-	else if (path_ == Tex_Difficulty)	Texels = kTexelDifficulty;	
-	else if (path_ == Tex_Rate)			Texels = kTexelRate;
+	//else if (path_ == Tex_Loading)		Texels = kTexelLoading;
+	//else if (path_ == Tex_Difficulty)	Texels = kTexelDifficulty;	
+	//else if (path_ == Tex_Rate)			Texels = kTexelRate;
 
 
 	//作成

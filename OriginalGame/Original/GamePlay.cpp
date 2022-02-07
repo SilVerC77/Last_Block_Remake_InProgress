@@ -1,7 +1,5 @@
 ﻿#include "COriginalGameApp.h"
 #include "GameResource.h"
-#include "CPlayer.h"
-#include "CTimer.h"
 
 #define PI 3.14
 
@@ -43,7 +41,7 @@ void COriginalGameApp::procGame(const float& _dt)
 	case eMain:
 	{
 		//Process Main
-		procPlayMain();
+		procPlayMain(_dt);
 
 		//g_GamePhase = eEnd;
 	}
@@ -65,12 +63,25 @@ void COriginalGameApp::procGame(const float& _dt)
 void COriginalGameApp::procPlayBegin()
 {
 	g_pPlayer = new CPlayer;
+	if (g_pPlayer) {
+		g_pPlayer->SetBody(createSprite(Tex_Red, 100.f, 100.f));
+		g_pPlayer->SetHitBox(createSprite(Tex_Red, 100.f, 100.f));
+	}
 }
 
 
-void COriginalGameApp::procPlayMain()
+void COriginalGameApp::procPlayMain(const float& _dt)
 {
 
+	if (g_pPlayer) {
+		g_pPlayer->MoveRight(getInput()->isKeyPressed(DIK_A), getInput()->isKeyPressed(DIK_D));
+		g_pPlayer->Tick(_dt);
+	}
+
+	if (g_pPlayer) {
+		renderSprite(g_pPlayer->GetBody());
+		renderSprite(g_pPlayer->GetHitBox());
+	}
 }
 
 void COriginalGameApp::procPlayEnd()
