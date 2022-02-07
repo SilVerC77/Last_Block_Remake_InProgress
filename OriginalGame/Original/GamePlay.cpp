@@ -74,6 +74,7 @@ void COriginalGameApp::procPlayMain(const float& _dt)
 {
 
 	if (g_pPlayer) {
+		g_pPlayer->Jump(getInput()->isPressedOnce(DIK_SPACE));
 		g_pPlayer->MoveRight(getInput()->isKeyPressed(DIK_A), getInput()->isKeyPressed(DIK_D));
 		g_pPlayer->Tick(_dt);
 	}

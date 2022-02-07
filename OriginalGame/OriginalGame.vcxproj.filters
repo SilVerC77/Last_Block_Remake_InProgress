@@ -57,6 +57,7 @@
     <ClCompile Include="Original\CBase.cpp" />
     <ClCompile Include="Original\CPlayer.cpp" />
     <ClCompile Include="Original\CBlock.cpp" />
+    <ClCompile Include="Original\OObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Common\CApplication.h">
@@ -128,6 +129,7 @@
     <ClInclude Include="Original\CBase.h" />
     <ClInclude Include="Original\CPlayer.h" />
     <ClInclude Include="Original\CBlock.h" />
+    <ClInclude Include="Original\OObject.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="small.ico">

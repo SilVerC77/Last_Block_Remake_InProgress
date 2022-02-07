@@ -152,6 +152,7 @@
     <ClCompile Include="Original\GamePlay.cpp" />
     <ClCompile Include="Original\GameTitle.cpp" />
     <ClCompile Include="Original\CPlayer.cpp" />
+    <ClCompile Include="Original\OObject.cpp" />
     <ClCompile Include="Original\Sprite.cpp" />
     <ClCompile Include="Original\CTimer.cpp" />
     <ClCompile Include="stdafx.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="Original\GameResource.h" />
     <ClInclude Include="Original\CTimer.h" />
     <ClInclude Include="Original\CPlayer.h" />
+    <ClInclude Include="Original\OObject.h" />
     <ClInclude Include="Original\UV.h" />
     <ClInclude Include="Original\XMFLOAT_Helper.h" />
     <ClInclude Include="Resource.h" />

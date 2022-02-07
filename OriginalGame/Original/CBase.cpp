@@ -33,8 +33,11 @@ void CBase::TakeDamage(const float& _Damage)
 
 void CBase::AddMovement(const XMFLOAT2& _dir, const float& _vel)
 {
+	float mag = sqrt(_dir.x * _dir.x + _dir.y * _dir.y);
+	if (fabsf(mag) < FLT_EPSILON)return;
+	XMFLOAT2 vect(_dir / mag);
 	XMFLOAT2 pos = m_Pos;
-	pos += (_dir * _vel);
+	pos += (vect * _vel);
 	SetPos(pos);
 }
 
