@@ -180,6 +180,7 @@
     <ClInclude Include="Original\CTimer.h" />
     <ClInclude Include="Original\CPlayer.h" />
     <ClInclude Include="Original\OObject.h" />
+    <ClInclude Include="Original\OutputDebugString.h" />
     <ClInclude Include="Original\UV.h" />
     <ClInclude Include="Original\XMFLOAT_Helper.h" />
     <ClInclude Include="Resource.h" />

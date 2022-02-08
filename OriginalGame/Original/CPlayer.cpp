@@ -1,15 +1,17 @@
 #include "CPlayer.h"
+#include "OutputDebugString.h"
 
 CPlayer::CPlayer()
 	:m_fSpeed(1000.f)
 	, m_Vel(0.f, 0.f)
 	, m_InputVel(0.f, 0.f)
 	, m_bIsJump(false)
-	, m_fJumpHeight(100.f)
-	, m_fJumpDur(4.f)
+	, m_fJumpHeight(500.f)
+	, m_fJumpDur(1.5f)
 {
-	m_fJumpInitVel = 2.f * m_fJumpHeight / m_fJumpDur;
-	m_fGravity = 2.f * m_fJumpHeight / (m_fJumpDur * m_fJumpDur);
+	float timetoMax = m_fJumpDur / 2.f;
+	m_fGravity = 2.f * m_fJumpHeight / (timetoMax * timetoMax);
+	m_fJumpInitVel = 2.f * m_fJumpHeight / timetoMax;
 }
 
 CPlayer::~CPlayer()
@@ -43,9 +45,15 @@ void CPlayer::UpdateMove(const float& _DeltaTime)
 		AddMovement(dir, m_fSpeed * _DeltaTime);
 	}
 
+	//float mark = GetPos().y;
+
 	m_Vel.y -= m_fGravity * _DeltaTime;
-	//if (m_Vel.y < 0.f)m_Vel.y = 0.f;
-	AddMovement(XMFLOAT2(0.f, 1.f), m_Vel.y);
+	float vel = m_Vel.y * _DeltaTime + (.5f * m_fGravity * _DeltaTime * _DeltaTime);
+	AddMovement(XMFLOAT2(0.f, 1.f), vel);
+
+	if (GetPos().y < -540.f)SetPos(XMFLOAT2(GetPos().x, -540.f));
+	//if (GetPos().y > mark)
+		//OutputDebugString(TEXT("new Height %f \n"), GetPos().y);
 }
 
 void CPlayer::MoveRight(const BOOL& _left, const BOOL& _right)

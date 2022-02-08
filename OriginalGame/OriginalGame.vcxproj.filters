@@ -130,6 +130,7 @@
     <ClInclude Include="Original\CPlayer.h" />
     <ClInclude Include="Original\CBlock.h" />
     <ClInclude Include="Original\OObject.h" />
+    <ClInclude Include="Original\OutputDebugString.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="small.ico">
