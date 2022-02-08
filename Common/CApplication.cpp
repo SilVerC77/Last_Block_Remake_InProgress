@@ -485,7 +485,7 @@ void CApplication::loop()
 			/**
 			 * FPS制御
 			 */
-			while (timeGetTime() - time < 1000 / 10)
+			while (timeGetTime() - time < 1000 / 60)
 			{
 				Sleep(1);	//!< 1ミリ秒Sleepする
 			}
